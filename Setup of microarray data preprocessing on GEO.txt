@@ -25,4 +25,7 @@ Save the text files below to local/usr directory:
 'hg38_450_converted_coordinate.txt'
 'hg38_850_converted_coordinate.txt'
 
+Running script:
+Run GEO-microarray.R
+The Genome-annotation-liftover.R is used for generating the annotation text files and is not needed for preprocessing
  
