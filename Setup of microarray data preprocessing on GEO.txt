@@ -1,0 +1,28 @@
+Set-up of microarray preprocessing for GEO data
+
+Set-up in RStudio container (in shell):
+$ podman exec -it [container-name or container-id] bash
+# sudo apt-get update
+# sudo apt-get install libbz2-dev
+# sudo apt-get install -y liblzma-dev
+
+Set-up in RStudio (in R console):
+>if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+>BiocManager::install("minfi")
+>BiocManager::install("GEOquery")
+>BiocManager::install("wateRmelon")
+>BiocManager::install("IlluminaHumanMethylationEPICmanifest")
+>BiocManager::install("IlluminaHumanMethylation450kmanifest")
+
+Save the text files below to local/usr directory:
+'hg19_450_deleted.txt'
+'hg19_850_deleted.txt'
+'hg19_450_coordinate.txt'
+'hg19_850_coordinate.txt'
+'hg38_450_coordinate.txt'
+'hg38_850_coordinate.txt'
+'hg38_450_converted_coordinate.txt'
+'hg38_850_converted_coordinate.txt'
+
+ 
