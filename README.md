@@ -39,5 +39,8 @@ liftover2(directory to converted loci file)
 The output is a text file containing the genomic location of CpG sites assayed on 450k or 850k platform lifted over to hg38 genome assembly. The output should be the same as 'hg38_450_converted_coordinate.txt' and 'hg38_850_converted_coordinate.txt' 
 
 ## Microarray data preprocessing into methylation beta values
-Finally, to download and preprocess GEO data, run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. The raw data and processed methylation beta values are saved at /local/usr/GEO/microarray/accession_number
+Finally, to download and preprocess GEO data, run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. The raw data and processed methylation beta values are saved at /local/usr/GEO/microarray/accession_number 
+
+```
 main.microarray.geo(accession_number)
+```
