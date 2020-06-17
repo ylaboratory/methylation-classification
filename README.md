@@ -20,21 +20,19 @@ Set-up in RStudio (in R console):
 >BiocManager::install("IlluminaHumanMethylation450kmanifest") 
 ```
 ## Generating genome liftover reference
-### Download genomic information of 450k and 850k CpG sites aligned to hg19
-To convert the hg19 genome loci to hg38 for each platform, first download the Rdata "Illumina450kCpGsites.rds" and "Illumina850kCpGsites.rds" to a user defined directory. These data contain the genomic location information of CpG sites assayed on Illumina 450k/850k beadchip platform. The data are extracted from the 'minfi', 'IlluminaHumanMethylation450kmanifest' and 'IlluminaHumanMethylationEPICmanifest' package installed from Bioconductor. 
-### Convert the genomic information to text file
-Then run liftover1 function in Genome-annotation-liftover.R, which takes in the directory where "Illumina450kCpGsites.rds" and "Illumina850kCpGsites.rds" are downloaded as input 
-``` 
- liftover1(directory.to.CpGdata) 
+### Download genomic information of 450k and 850k CpG site aligned to hg19
+First, 450k or 850k (depending on the input data) manifest file that contains genomic information of microarray probe is needed in /local/usr directory for subsequent liftover. Run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. If the manifest file is not avilable, a prompt will be given and a text file containing the probe hg19 genomic information will be saved in /local/usr with file name 'hg19-[450/850]-coordinate.txt'
+
 ```
-The output is a text file containing the genomic location of CpG sites assayed on either 450k or 850k platform stored in directory 'local/usr'. The output should be the same as 'hg19_450_coordinate.txt' and 'hg19_850_coordinate.txt' 
+main.microarray.geo(accession_number)
+```
 ### Liftover from hg19 to hg38
-This text file needs to be uploaded to https://genome.ucsc.edu/cgi-bin/hgLiftOver with options Minimum ratio of bases that must remap=0.95, original assembly: hg19, new assembly:hg38 \
+The hg19 coordinate text file needs to be uploaded to https://genome.ucsc.edu/cgi-bin/hgLiftOver for conversion to hg38, using options Minimum ratio of bases that must remap=0.95, original assembly: hg19, new assembly:hg38 \
 The output files of converted loci (clicking on 'view conversion' tab and save in a directory) and deleted loci (clicking on 'Display faliure file' tab and save the information in a text file in the local/usr directory) should be downloaded. The deleted loci should be the same as 'hg19_450_deleted.txt' and 'hg19_850_deleted.txt' 
 ### Parse the converted loci
-Then run liftover2 function in Genome-annotation-liftover.R, which parse the downloaded file of converted loci and save it in the local/usr directory. 
+Then run liftover1 function in Parser-for-genome-after-liftover.R, which parse the downloaded file of converted loci and save it in the local/usr directory. 
 ```
-liftover2(directory to converted loci file) 
+liftover1(directory to converted loci file) 
 ```
 The output is a text file containing the genomic location of CpG sites assayed on 450k or 850k platform lifted over to hg38 genome assembly. The output should be the same as 'hg38_450_converted_coordinate.txt' and 'hg38_850_converted_coordinate.txt' 
 
@@ -44,3 +42,4 @@ Finally, to download and preprocess GEO data, run the main function of GEO-micro
 ```
 main.microarray.geo(accession_number)
 ```
+
