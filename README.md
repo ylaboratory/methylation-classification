@@ -21,7 +21,7 @@ Set-up in RStudio (in R console):
 ```
 ## Generating genome liftover reference
 ### Download genomic information of 450k and 850k CpG site aligned to hg19
-First, 450k or 850k (depending on the input data) manifest file that contains genomic information of microarray probe is needed in /local/usr directory for subsequent liftover. Run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. If the manifest file is not avilable, a prompt will be given and a text file containing the probe hg19 genomic information will be saved in /local/usr with file name 'hg19-[450/850]-coordinate.txt'
+First, 450k or 850k (depending on the input data) manifest file that contains genomic information of microarray probe is needed in /local/usr directory for subsequent liftover. Run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. If the manifest file is not avilable, a prompt will be given and a text file containing the probe hg19 genomic information will be saved in /local/usr with file name 'hg19-[450/850]-coordinate.txt'. The genomic information in this file is extracted from Bioconductor package 'IlluminaHumanMethylation450kanno.ilmn12.hg19' for 450k platform and 'IlluminaHumanMethylationEPICanno.ilm10b4.hg19' for 850k platform. 
 
 ```
 main.microarray.geo(accession_number)
