@@ -72,31 +72,67 @@ preprocess.data<-function(accession.num){
                              dyeMethod=c("single", "reference"))
   ratioSet <- ratioConvert(GRset.noob, what = "both", keepCN = TRUE)
   gset <- mapToGenome(ratioSet)
-  if (series.metadata$Assay_type[1]==450){
-    hg19.delete<-read.table('local/hg19_450_deleted.txt')
-    hg19.lift<-read.table('local/hg38_450_converted_coordinate.txt',header = T)
-  } else {
-    hg19.delete<-read.table('local/hg19_850_deleted.txt')
-    hg19.lift<-read.table('local/hg38_850_converted_coordinate.txt',header = T)
+  if (!file.exists(paste0('local/hg19_',series.metadata$Assay_type[1],'_coordinate.txt'))){
+    liftover1(gset)
+    print('hg19 to hg38 liftover files are needed. please use the extracted hg19 coordinate file saved as local/usr/hg19_[450/850]_coordinate.txt')
+    return(NULL)
+    } else {
+    if (series.metadata$Assay_type[1]==450){
+      if (!file.exists('local/hg19_450_deleted.txt') || !file.exists('local/hg38_450_converted_coordinate.txt')){
+        print('No hg19 transfer failed loci or converted hg38 loci found for 450k platform')
+        return(NULL)
+      } else {
+        hg19.delete<-read.table('local/hg19_450_deleted.txt')
+        hg19.lift<-read.table('local/hg38_450_converted_coordinate.txt',header = T)
+      }
+      
+    } else {
+      if (!file.exists('local/hg19_850_deleted.txt') || !file.exists('local/hg38_850_converted_coordinate.txt')){
+        print('No hg19 transfer failed loci or converted hg38 loci found for 850k platform')
+        return(NULL)
+      } else {
+        hg19.delete<-read.table('local/hg19_850_deleted.txt')
+        hg19.lift<-read.table('local/hg38_850_converted_coordinate.txt',header = T)
+      }
+      
+    }
+    chr<-as.character(gset@rowRanges@seqnames)
+    loci.start<-gset@rowRanges@ranges@start
+    loci.end<-gset@rowRanges@ranges@start
+    hg19.coordinate<-paste0(chr,':',loci.start,'-',loci.end)
+    GRset.BMIQ<-BMIQ(GRset.noob)
+    genome_loci<-which(row.names(GRset.BMIQ) %in% as.character(gset@rowRanges@ranges@NAMES))
+    GRset.BMIQ.genome_loci<-GRset.BMIQ[genome_loci,]
+    coordinate.delete<-which(hg19.coordinate %in% hg19.delete$V1)
+    coordinate.original<-1:length(hg19.coordinate)
+    GRset.BMIQ.genome_loci_lift<-GRset.BMIQ.genome_loci[setdiff(coordinate.original,coordinate.delete),]
+    if (dir.exists(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))==FALSE){
+      dir.create(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))
+    }
+    for (i in 1:ncol(GRset.BMIQ.genome_loci_lift)){
+      Output<-cbind('chr'=hg19.lift$chr, 'loci'=hg19.lift$start, GRset.BMIQ.genome_loci_lift[,i])
+      colnames(Output)[3]<-colnames(GRset.BMIQ.genome_loci_lift)[i]
+      write.table(Output,paste0(datadir,'/', accession.num, '_processed/', gsm.names[i],'.txt'),quote = F, sep = '\t')
+    }
   }
+  
+  
+}
+
+# liftover of 850/450k beadchip CpG sites from hg19 to hg38
+# gset is the GRange object converted from minfi package processed Methylset object
+# Input: Genomic ranges associated with 450/850k platform
+# Output: text file containing CpG genome loci mapped to hg19 (saved in /local/usr)
+liftover1<-function (gset){
   chr<-as.character(gset@rowRanges@seqnames)
   loci.start<-gset@rowRanges@ranges@start
   loci.end<-gset@rowRanges@ranges@start
   hg19.coordinate<-paste0(chr,':',loci.start,'-',loci.end)
-  GRset.BMIQ<-BMIQ(GRset.noob)
-  genome_loci<-which(row.names(GRset.BMIQ) %in% as.character(gset@rowRanges@ranges@NAMES))
-  GRset.BMIQ.genome_loci<-GRset.BMIQ[genome_loci,]
-  coordinate.delete<-which(hg19.coordinate %in% hg19.delete$V1)
-  coordinate.original<-1:length(hg19.coordinate)
-  GRset.BMIQ.genome_loci_lift<-GRset.BMIQ.genome_loci[setdiff(coordinate.original,coordinate.delete),]
-  if (dir.exists(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))==FALSE){
-    dir.create(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))
+  if (length(loci.start)>500000){
+    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = 'local/hg19_850_coordinate.txt',quote = F,col.names = F, row.names = F )
+  } else{
+    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = 'local/hg19_450_coordinate.txt',quote = F,col.names = F, row.names = F )
+    
   }
-  for (i in 1:ncol(GRset.BMIQ.genome_loci_lift)){
-    Output<-cbind('chr'=hg19.lift$chr, 'loci'=hg19.lift$start, GRset.BMIQ.genome_loci_lift[,i])
-    colnames(Output)[3]<-colnames(GRset.BMIQ.genome_loci_lift)[i]
-    write.table(Output,paste0(datadir,'/', accession.num, '_processed/', gsm.names[i],'.txt'),quote = F, sep = '\t')
-  }
-  
 }
 
