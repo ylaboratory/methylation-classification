@@ -9,17 +9,33 @@
 # Input: 'local/hg38_[850/450]_coordinate.txt'
 # Output: 'hg38_[850/450]_converted_coordinate.txt'
 # liftover2('local/Methylation-classification-preprocessing/annotation/hg38_450_coordinate.txt')
-liftover2<-function (dir.to.lifted_genome){
-  a<-read.table(dir.to.lifted_genome)
-  b<-tidyr::separate(a,V1,c('chr','range'),sep=':',convert=T)
-  c<-tidyr::separate(b,'range',c('start','end'),sep='-',convert=T)
-  platform<-get.platform(nrow(a))
-  write.table(c,paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg38_', platform,'_converted_coordinate.txt'),quote = F, col.names = T, row.names = F)
+liftover2 <- function (dir.to.lifted_genome) {
+  a <- read.table(dir.to.lifted_genome)
+  b <- tidyr::separate(a, V1, c('chr', 'range'), sep = ':', convert = T)
+  c <- tidyr::separate(b,
+                       'range',
+                       c('start', 'end'),
+                       sep = '-',
+                       convert = T)
+  platform <- get.platform(nrow(a))
+  write.table(
+    c,
+    paste0(
+      target.dir,
+      '/Methylation-classification-preprocessing/annotation/',
+      'hg38_',
+      platform,
+      '_converted_coordinate.txt'
+    ),
+    quote = F,
+    col.names = T,
+    row.names = F
+  )
   
 }
 
-get.platform<-function(len){
-  if (len>500000){
+get.platform <- function(len) {
+  if (len > 500000) {
     return(850)
   } else {
     return(450)
