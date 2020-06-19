@@ -163,11 +163,14 @@ liftover1<-function (gset){
   loci.start<-gset@rowRanges@ranges@start
   loci.end<-gset@rowRanges@ranges@start
   hg19.coordinate<-paste0(chr,':',loci.start,'-',loci.end)
-  if (length(loci.start)>500000){
-    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_850_coordinate.txt'),quote = F,col.names = F, row.names = F )
-  } else{
-    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_450_coordinate.txt'),quote = F,col.names = F, row.names = F )
-    
-  }
+  platform<-get.platform(length(loci.start))
+  write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_',platform,'_coordinate.txt'),quote = F,col.names = F, row.names = F )
 }
 
+get.platform<-function(len){
+  if (len>500000){
+    return(850)
+  } else {
+    return(450)
+  }
+}
