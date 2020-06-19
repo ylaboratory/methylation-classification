@@ -1,10 +1,22 @@
 # create a directory for illumina microarray data on GEO 
-if (dir.exists("local/GEO")==FALSE){
-  dir.create("local/GEO")
+createdir<-function (target.directory){
+  target.dir<<-target.directory
+  if (dir.exists(paste0(target.directory,'/Methylation-classification-preprocessing'))==FALSE){
+    dir.create(paste0(target.directory,'/Methylation-classification-preprocessing'))
+  }
+  if (dir.exists(paste0(target.directory,'/Methylation-classification-preprocessing/raw'))==FALSE){
+    dir.create(paste0(target.directory,'/Methylation-classification-preprocessing/raw'))
+  }
+  if (dir.exists(paste0(target.directory,'/Methylation-classification-preprocessing/data'))==FALSE){
+    dir.create(paste0(target.directory,'/Methylation-classification-preprocessing/data'))
+  }
+  if (dir.exists(paste0(target.directory,'/Methylation-classification-preprocessing/annotation'))==FALSE){
+    dir.create(paste0(target.directory,'/Methylation-classification-preprocessing/annotation'))
+  }
+  dir.create(paste0(target.directory,'/Methylation-classification-preprocessing/data/GEO'))
+  dir.create(paste0(target.directory,'/Methylation-classification-preprocessing/raw/GEO'))
 }
-if (dir.exists("local/GEO/microarray")==FALSE){
-  dir.create("local/GEO/microarray")
-}
+
 
 # main function for preprocessing microarray data on GEO
 # Input: GEO series accession number (ex. GSE151355)
@@ -12,7 +24,12 @@ if (dir.exists("local/GEO/microarray")==FALSE){
 library(GEOquery)
 library(minfi)
 library(wateRmelon)
-main.microarray.geo<-function(accession.num){
+library(data.table)
+target.directory<-'local'
+accession.num<-'GSE146179'
+main.microarray.geo(accession.num,target.directory)
+main.microarray.geo<-function(accession.num, target.directory){
+  createdir(target.directory)
   download.geo.series(accession.num)
   file.extract(accession.num)
   preprocess.data(accession.num)
@@ -26,33 +43,50 @@ main.microarray.geo<-function(accession.num){
 download.geo.series<-function(accession.num){
   gse.series<-getGEO(accession.num, GSEMatrix=F)
   gsm.names<-names(GSMList(gse.series))
-  if (gse.series@header$platform_id== 'GPL21145'|gse.series@header$platform_id=='GPL23976'){
-    assay.type<-850
-  }
-  if (gse.series@header$platform_id== 'GPL16304'|gse.series@header$platform_id=='GPL13534'){
-    assay.type<-450
-  }
-  if (dir.exists(paste("local/GEO/microarray/",accession.num,sep = ""))==FALSE){
-    getGEOSuppFiles(accession.num, makeDirectory = T, baseDir = paste("local/GEO/microarray",sep = ""),
+  platform.table<-c(850,850,450,450)
+  names(platform.table)<-c('GPL21145','GPL23976','GPL16304','GPL13534')
+  assay.type<-platform.table[gse.series@header$platform_id]
+  if (dir.exists(paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO/',accession.num,sep = ""))==FALSE){
+    result<-getGEOSuppFiles(accession.num, makeDirectory = T, baseDir = paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO',sep = ""),
                     fetch_files = T, filter_regex = '.tar')
+    if (is.null(result)){
+      stop(paste0('no .tar supplement file found in ', accession.num))
+    }
   }
   assay.type.all<-rep(assay.type,length(gsm.names))
-  metadata<-data.frame('Samples'=gsm.names, 'Assay_type'=assay.type.all)
-  write.table(metadata,paste("local/GEO/microarray/",accession.num,'/metadata.txt',sep = ""),sep="\t",row.names=FALSE)
-  saveRDS(gse.series,file = paste("local/GEO/microarray/",accession.num,'/',accession.num, '_metadata.rds',sep = "") )
-  for (i in 1:length(gsm.names)){
-    gsm.info<-getGEO(gsm.names[i])
-    saveRDS(gsm.info, file = paste("local/GEO/microarray/",accession.num,'/',gsm.names[i], '_metadata.rds',sep = ""))
+  if (dir.exists(paste0(target.dir,'/Methylation-classification-preprocessing/data/GEO/',accession.num))==FALSE){
+    dir.create(paste0(target.dir,'/Methylation-classification-preprocessing/data/GEO/',accession.num))
   }
+  gsm.source.all<-vector()
+  gsm.status.all<-vector()
+  for (i in 1:length(gsm.names)){
+    gsm.sample<-getGEO(gsm.names[i])
+    gsm.source<-gsm.sample@header$source_name_ch1
+    gsm.status<-gsm.sample@header$title
+    gsm.source.all<-c(gsm.source.all,gsm.source)
+    gsm.status.all<-c(gsm.status.all,gsm.status)
+  }
+  metadata<-data.table('Samples'=gsm.names, 'Assay_type'=assay.type.all, 'source'=gsm.source.all, 'title'=gsm.status.all)
+  write.table(metadata,paste(target.dir,'/Methylation-classification-preprocessing/data/GEO/',accession.num,'/sample_metadata.txt',sep = ""),sep="\t",row.names=FALSE, quote = F)
+  series.relation<-gse.series@header$relation
+  series.design <-gse.series@header$overall_design
+  series.name <-gse.series@header$geo_accession
+  series.supp <-gse.series@header$supplementary_file
+  series.title<-gse.series@header$title
+  series.info<-data.table('name'=series.name, 'design'=series.design, 'relation'=series.relation,'supplement'=series.supp,'title'=series.title, key = c('name','design','relation','supplement','title'))
+  write.table(series.info,paste(target.dir,'/Methylation-classification-preprocessing/data/GEO/',accession.num,'/series_metadata.txt',sep = ""),sep="\t",row.names=FALSE, quote = F)
+  
 }
 
 
+
+
 # extract the files 
-# Input: ccession number
+# Input: accession number
 # Output: idat files for each sample, saved in local/usr/GEO/microarray/[accession.num]
 file.extract<-function(accession.num){
-  file.name<-list.files(path = paste("local/GEO/microarray/",accession.num ,sep = ""), pattern = '.tar')
-  untar(paste("local/GEO/microarray/",accession.num ,'/',file.name,sep = ""),exdir = paste("local/GEO/microarray/",accession.num ,sep = ""))
+  file.name<-list.files(path = paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO/',accession.num ,sep = ""), pattern = '.tar')
+  untar(paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO/',accession.num ,'/',file.name,sep = ""),exdir = paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO/',accession.num ,sep = ""))
 }
 
 
@@ -62,37 +96,39 @@ file.extract<-function(accession.num){
 # Assumptions: the .idat files are named as XX_Grn(Red).idatXX
 # Major functions: preprocessNoob()--use Noob method for background correction BMIQ()--use BMIQ to normalize the beta values
 preprocess.data<-function(accession.num){
-  series.metadata<-read.table(paste("local/GEO/microarray/",accession.num,'/metadata.txt',sep = ""),header = T, sep = '\t')
+  series.metadata<-read.table(paste(target.dir,'/Methylation-classification-preprocessing/data/GEO/',accession.num,'/sample_metadata.txt',sep = ""),header = T, sep = '\t')
   gsm.names<-series.metadata[,1]
-  datadir<-paste('local/GEO/microarray/',accession.num, sep = "")
+  datadir<-paste(target.dir,'/Methylation-classification-preprocessing/raw/GEO/',accession.num, sep = "")
   file.names<-list.files(path =  datadir, pattern = 'Grn.idat', full.names = T)
+  if (length(file.names)==0){
+    stop(paste0('no idat file found for ',accession.num))
+  }
   targets<-data.frame('Basename'=sub('_Grn.idat.*',"",file.names))
   RGset <- read.metharray.exp(targets = targets)
   GRset.noob<-preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = FALSE,
                              dyeMethod=c("single", "reference"))
   ratioSet <- ratioConvert(GRset.noob, what = "both", keepCN = TRUE)
   gset <- mapToGenome(ratioSet)
-  if (!file.exists(paste0('local/hg19_',series.metadata$Assay_type[1],'_coordinate.txt'))){
+  # Prepare liftover parameters
+  if (!file.exists(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_',series.metadata$Assay_type[1],'_coordinate.txt'))){
     liftover1(gset)
-    print('hg19 to hg38 liftover files are needed. please use the extracted hg19 coordinate file saved as local/usr/hg19_[450/850]_coordinate.txt')
-    return(NULL)
+    stop('hg19 to hg38 liftover files are needed. please use the extracted hg19 coordinate file saved as local/usr/hg19_[450/850]_coordinate.txt')
     } else {
     if (series.metadata$Assay_type[1]==450){
-      if (!file.exists('local/hg19_450_deleted.txt') || !file.exists('local/hg38_450_converted_coordinate.txt')){
-        print('No hg19 transfer failed loci or converted hg38 loci found for 450k platform')
-        return(NULL)
+      if (!file.exists(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_450_deleted.txt')) || !file.exists(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg38_450_converted_coordinate.txt'))){
+        stop('No hg19 transfer failed loci or converted hg38 loci found for 450k platform')
+  
       } else {
-        hg19.delete<-read.table('local/hg19_450_deleted.txt')
-        hg19.lift<-read.table('local/hg38_450_converted_coordinate.txt',header = T)
+        hg19.delete<-read.table(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_450_deleted.txt'))
+        hg19.lift<-read.table(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg38_450_converted_coordinate.txt'),header = T)
       }
       
     } else {
-      if (!file.exists('local/hg19_850_deleted.txt') || !file.exists('local/hg38_850_converted_coordinate.txt')){
-        print('No hg19 transfer failed loci or converted hg38 loci found for 850k platform')
-        return(NULL)
+      if (!file.exists(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_850_deleted.txt')) || !file.exists(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg38_850_converted_coordinate.txt'))){
+        stop('No hg19 transfer failed loci or converted hg38 loci found for 850k platform')
       } else {
-        hg19.delete<-read.table('local/hg19_850_deleted.txt')
-        hg19.lift<-read.table('local/hg38_850_converted_coordinate.txt',header = T)
+        hg19.delete<-read.table(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_850_deleted.txt'))
+        hg19.lift<-read.table(paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg38_850_converted_coordinate.txt'),header = T)
       }
       
     }
@@ -100,19 +136,18 @@ preprocess.data<-function(accession.num){
     loci.start<-gset@rowRanges@ranges@start
     loci.end<-gset@rowRanges@ranges@start
     hg19.coordinate<-paste0(chr,':',loci.start,'-',loci.end)
+    coordinate.delete<-which(hg19.coordinate %in% hg19.delete$V1)
+    coordinate.original<-1:length(hg19.coordinate)
+    # BMIQ normalization of methylation beta values
     GRset.BMIQ<-BMIQ(GRset.noob)
     genome_loci<-which(row.names(GRset.BMIQ) %in% as.character(gset@rowRanges@ranges@NAMES))
     GRset.BMIQ.genome_loci<-GRset.BMIQ[genome_loci,]
-    coordinate.delete<-which(hg19.coordinate %in% hg19.delete$V1)
-    coordinate.original<-1:length(hg19.coordinate)
+    # liftover from hg19 to hg38
     GRset.BMIQ.genome_loci_lift<-GRset.BMIQ.genome_loci[setdiff(coordinate.original,coordinate.delete),]
-    if (dir.exists(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))==FALSE){
-      dir.create(paste("local/GEO/microarray/",accession.num,'/', accession.num, '_processed/',sep = ""))
-    }
     for (i in 1:ncol(GRset.BMIQ.genome_loci_lift)){
       Output<-cbind('chr'=hg19.lift$chr, 'loci'=hg19.lift$start, GRset.BMIQ.genome_loci_lift[,i])
       colnames(Output)[3]<-colnames(GRset.BMIQ.genome_loci_lift)[i]
-      write.table(Output,paste0(datadir,'/', accession.num, '_processed/', gsm.names[i],'.txt'),quote = F, sep = '\t')
+      write.table(Output,paste0(target.dir,'/Methylation-classification-preprocessing/data/GEO/', accession.num, '/', gsm.names[i],'_betavalues.txt'),quote = F, sep = '\t')
     }
   }
   
@@ -129,9 +164,9 @@ liftover1<-function (gset){
   loci.end<-gset@rowRanges@ranges@start
   hg19.coordinate<-paste0(chr,':',loci.start,'-',loci.end)
   if (length(loci.start)>500000){
-    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = 'local/hg19_850_coordinate.txt',quote = F,col.names = F, row.names = F )
+    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_850_coordinate.txt'),quote = F,col.names = F, row.names = F )
   } else{
-    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = 'local/hg19_450_coordinate.txt',quote = F,col.names = F, row.names = F )
+    write.table(paste(chr,':',loci.start,'-',loci.end,sep = ""),file = paste0(target.dir,'/Methylation-classification-preprocessing/annotation/','hg19_450_coordinate.txt'),quote = F,col.names = F, row.names = F )
     
   }
 }
