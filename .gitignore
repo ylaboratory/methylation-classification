@@ -1,9 +1,7 @@
 # Packages #
 ############
-*.7z
-*.jar
-*.rar
 *.tar
 *.zip
-
+*.ipynb_checkpoints
+*.txt
 

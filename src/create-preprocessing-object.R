@@ -7,7 +7,7 @@ create.preprocessing.raw<-function(datadir){
                pattern = 'Grn.idat',
                full.names = T)
   if (length(file.names) == 0) {
-    stop(paste0('no idat file found for ', accession.num))
+    stop(paste0('no idat file found'))
   }
   targets <- data.frame('Basename' = sub('_Grn.idat*', "", file.names))
   RGset <- read.metharray.exp(targets = targets)

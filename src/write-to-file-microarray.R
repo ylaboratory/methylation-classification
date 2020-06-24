@@ -4,16 +4,16 @@
 function(GRset.BMIQ.genome_loci_lift,
          dir2metadata) {
   metadata.table <- read.table(dir2metadata, header = T, sep = '\t')
-  gsm.names <- metadata.table[, 'Sample']
+  sample.names <- metadata.table[, 'Sample']
   for (i in 3:ncol(GRset.BMIQ.genome_loci_lift)) {
     write.table(
       cbind(
         GRset.BMIQ.genome_loci_lift[, 1:3],
         GRset.BMIQ.genome_loci_lift[, i]
       ),
-      paste0('./data/GEO/', gsm.names[i - 2], '_beta_values.txt'),
+      paste0('./data/', metadata.table[1,'Database'],'/', gsm.names[i - 2], '_beta_values.txt'),
       quote = F,
-      sep = '/t'
+      sep = '\t'
     )
   }
   

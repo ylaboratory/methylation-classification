@@ -10,6 +10,7 @@ download.geo.series <- function(accession.num) {
   assay.type.all <- rep(assay.type, length(gsm.names))
   platform.all<-rep(gse.series@header$platform_id, length(gsm.names))
   series.all<-rep(accession.num,length(gsm.names))
+  database.all<-rep('GEO',length(gsm.names))
   if (dir.exists(
       './data/GEO/'
     )
@@ -34,7 +35,8 @@ download.geo.series <- function(accession.num) {
       'Source' = gsm.source.all,
       'Title' = gsm.status.all,
       'Series'= series.all,
-      'Platform' = platform.all
+      'Platform' = platform.all,
+      'Database' = database.all
     )
   write.table(
     metadata,
