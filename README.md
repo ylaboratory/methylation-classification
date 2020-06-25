@@ -1,7 +1,9 @@
 # Methylation-classification
 This project uses whole-genome DNA methylation data to contruct a computational model for classifying human tissue/cell type or diseases.
 
-## Installing R packages for preprocessing microarray data from GEO database
+## Setup directory
+First, run directory-setup script in shell to create the data, raw, processed and annotation directory. The data, raw and processed directories all have subdirectories of different databases.
+## Installing R packages for preprocessing microarray data from GEO and ENCODE database (and potentially other databases)
 Set-up in RStudio container (in shell): 
 ```
 $ podman exec -it [container-name or container-id] bash 
@@ -18,28 +20,33 @@ Set-up in RStudio (in R console):
 >BiocManager::install("wateRmelon") 
 >BiocManager::install("IlluminaHumanMethylationEPICmanifest") 
 >BiocManager::install("IlluminaHumanMethylation450kmanifest") 
+>BiocManager::install("ENCODExplorer")
+>BiocManager::install("rtracklayer")
 ```
-## Generating genome liftover reference
-### Download genomic information of 450k and 850k CpG site aligned to hg19
-First, 450k or 850k (depending on the input data) manifest file that contains genomic information of microarray probe is needed in /local/usr directory for subsequent liftover. Run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. If the manifest file is not avilable, a prompt will be given and a text file containing the probe hg19 genomic information will be saved in /local/usr with file name 'hg19-[450/850]-coordinate.txt'. The genomic information in this file is extracted from Bioconductor package 'IlluminaHumanMethylation450kanno.ilmn12.hg19' for 450k platform and 'IlluminaHumanMethylationEPICanno.ilm10b4.hg19' for 850k platform. 
+## Downloading data for microarray
+### Download microarray data from GEO 
+First, the package GEOquery is used to download raw microarray data saved in the supplemental material from each GEO series accession. Run the Download-data-GEO-microarray.R and input the accession number. The .tar file containing all raw .idat files corresponding to the GSE series will be stored in ./raw/GEO/accession.number \
+Then extract-files-geo-microarray.R is used to untar the .idat files and save them in the same directory as the tar file. 
+### Download microarray data from ENCODE
+The R package ENCODEexplorer is used to download raw microarray data from each experiment (which often has one sample and possible replicates). Run the download-encode-microarray.R and input the accession name (ENCS...). The .idat files will be downloaded to ./raw/ENCODE/accession.name
+## Getting metadata for microarray
+### Get metadata from GEO
+The package GEOquery is also used to get the metadata of each series. There will be two metadata files for each GSE series, one contains series information (name, design, title, relation and supplementary files), while the other one contains sample specific information (sample name, assay type, platform code, source, title and database). To get the metadata, run get-metadata-geo-microarray.R and input the accession number and the metadata will be saved as text files in ./data/GEO
+### Get metadata from ENCODE
+The package ENCODEexplorer is also used to download the metadata from each experiment. There will only be one metadata file for each experiment. Run get-metadata-geo-microarray.R and input the accession name and the metadata will be saved as text file in ./data/ENCODE
+## Get ready for microarray data preprocessing
+### GEO
+No additional step is needed. Can proceed directly to next step
+### ENCODE
+The .idat files need to be renamed for passing into the preprocessing steps. Originally, ENCODE has a specific name (ENCF...) for each file (both red and green channel), which makes it hard to pair up the red and green channel data for each sample. Thus, we rename the files using the library name (ENCLB...), which is unique to one sample (similar to GSM in ENCODE). Run rename-file-encode-microarray.R and input the accession name to rename the files under that accession name. 
+## Preprocessing microarray data
+The minfi package is used to create the object for microarray preprocessing and the waterRmelon object is used for performing background correction and normalization. The following instruction is uniform for all microarray data regardless of database.\
+First, to create the preprocessing raw object and perform background correction, run background-coorection.R and input the directory where the to-be-processed .idat files are stored. All .idat files will be read, and the output is a Methylset object after background correction with the reference probe.\
+Next, run beta-value-normalization.R, which uses the BMIQ method to normalize the methylation beta values. The output is a matrix that contains the methylation beta values at each probe on hg19 coordinate.\
+## Liftover
+To convert the microarray data from hg19 assembly to hg38 assembly, package rtracklayer is used. Additionally, chain files of hg19 to hg38 from UCSC (https://hgdownload.soe.ucsc.edu/downloads.html#human) should be downloaded and saved (optimally in ./annotation). Run liftover.R and input the matrix of beta values on hg19 coordinate and the directory to the chain file, and the output would be a matrix of beta values on hg38 coordinate (some CpG sites are lost during mapping). 
+## Save beta values from microarray data
+Finally, the beta values for each sample is written to its own text file and saved in the right directory (GEO/ENCODE..). Run write-to-file.R and input the beta value matrix and the path to the metadata file corresponding to this batch of samples. The bata values for each sample will be saved as "sample-ID_beta_values.txt" in side ./data/database
 
-```
-main.microarray.geo(accession_number)
-```
-### Liftover from hg19 to hg38
-The hg19 coordinate text file needs to be uploaded to https://genome.ucsc.edu/cgi-bin/hgLiftOver for conversion to hg38, using options Minimum ratio of bases that must remap=0.95, original assembly: hg19, new assembly:hg38 \
-The output files of converted loci (clicking on 'view conversion' tab and save in a directory) and deleted loci (clicking on 'Display faliure file' tab and save the information in a text file in the local/usr directory) should be downloaded. The deleted loci should be the same as 'hg19_450_deleted.txt' and 'hg19_850_deleted.txt' 
-### Parse the converted loci
-Then run liftover1 function in Parser-for-genome-after-liftover.R, which parse the downloaded file of converted loci and save it in the local/usr directory. 
-```
-liftover1(directory to converted loci file) 
-```
-The output is a text file containing the genomic location of CpG sites assayed on 450k or 850k platform lifted over to hg38 genome assembly. The output should be the same as 'hg38_450_converted_coordinate.txt' and 'hg38_850_converted_coordinate.txt' 
 
-## Microarray data preprocessing into methylation beta values
-Finally, to download and preprocess GEO data, run the main function of GEO-microarray.R, which takes in the series accession number (begins with GSE) as input. The raw data and processed methylation beta values are saved at /local/usr/GEO/microarray/accession_number 
-
-```
-main.microarray.geo(accession_number)
-```
 
