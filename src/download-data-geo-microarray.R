@@ -2,7 +2,6 @@
 download.data.geo.microarray <- function(accession.num) {
   if (dir.exists(
     paste(
-      target.dir,
       './raw/GEO/',
       accession.num,
       sep = ""
@@ -13,8 +12,7 @@ download.data.geo.microarray <- function(accession.num) {
         accession.num,
         makeDirectory = T,
         baseDir = paste(
-          target.dir,
-          '/Methylation-classification-preprocessing/raw/GEO',
+          './raw/GEO',
           sep = ""
         ),
         fetch_files = T,

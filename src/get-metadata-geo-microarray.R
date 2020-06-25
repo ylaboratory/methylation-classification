@@ -1,12 +1,11 @@
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
-download.geo.series <- function(accession.num) {
+
+download.geo.metadata <- function(accession.num) {
   gse.series <- getGEO(accession.num, GSEMatrix = F)
   gsm.names <- names(GSMList(gse.series))
-  platform.table <- c(850, 850, 450, 450)
-  names(platform.table) <-
-    c('GPL21145', 'GPL23976', 'GPL16304', 'GPL13534')
-  assay.type <- platform.table[gse.series@header$platform_id]
+  platform.table<-read.table('./annotation/GEO-plaform-annotation.txt', header = T, sep = '\t', row.names = 2)
+  assay.type <- platform.table[which(rownames(platform.table)==gse.series@header$platform_id),]
   assay.type.all <- rep(assay.type, length(gsm.names))
   platform.all<-rep(gse.series@header$platform_id, length(gsm.names))
   series.all<-rep(accession.num,length(gsm.names))

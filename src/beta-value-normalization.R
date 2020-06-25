@@ -1,7 +1,8 @@
 # This script does the BMIQ normalization of data
 # Input is the Methylset object after background correction
 # returns a matrix that contains the normalized beta values with hg19 coordinate
-function(GRset.noob) {
+library(wateRmelon)
+normalization<-function(GRset.noob) {
   ratioSet <- ratioConvert(GRset.noob, what = "both", keepCN = TRUE)
   gset <- mapToGenome(ratioSet)
   GRset.BMIQ <- BMIQ(GRset.noob)
