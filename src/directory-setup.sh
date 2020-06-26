@@ -6,16 +6,16 @@ data_type=(data raw)
 database=(GEO TCGA ENCODE)
 assay_type=(microarray sequencing)
 for i in "${data_type[@]}"; do
-	mkdir -p -- $src_dir/../$i
+	mkdir -p $src_dir/../$i
 		for j in "${database[@]}"; do
-			mkdir -p -- $src_dir/../$i/$j
+			mkdir -p $src_dir/../$i/$j
 		done
 done
 for j in "${database[@]}"; do
 	for z in "${assay_type[@]}"; do
-		 mkdir -p -- $src_dir/../processed/$j/$z
+		 mkdir -p $src_dir/../processed/$j/$z
 	 done
 done
-mkdir -p -- $src_dir/../annotation
+mkdir -p  $src_dir/../annotation
 	
 
