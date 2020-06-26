@@ -11,7 +11,7 @@ write.to.file<-function(GRset.BMIQ.genome_loci_lift,
         GRset.BMIQ.genome_loci_lift[, 1:3],
         GRset.BMIQ.genome_loci_lift[, i]
       ),
-      paste0('./data/', metadata.table[1,'Database'],'/', gsm.names[i - 2], '_beta_values.txt'),
+      paste0('./data/', metadata.table[1,'Database'],'/', sample.names[i - 2], '_beta_values.txt'),
       quote = F,
       sep = '\t'
     )

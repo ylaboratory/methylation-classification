@@ -1,11 +1,11 @@
-# This script creates the preprocessig raw object from raw idat files in a directory and performs background correction
+# This script creates the preprocessig raw object from raw idat files in a accession directory (experiment for ENCODE and series for GEO) and performs background correction
 # datadir is the directory where raw idat files are stored
 # return an MethylSet object
 library(minfi)
 library(wateRmelon)
-background.correction<-function(datadir){
+background.correction<-function(accession.datadir){
   file.names <-
-    list.files(path =  datadir,
+    list.files(path =  accession.datadir,
                pattern = 'Grn.idat',
                full.names = T)
   if (length(file.names) == 0) {

@@ -1,7 +1,9 @@
 # This file extracts the metadata for all microarray data in the encode database
 # Input is the accession name (experiment)
 # Output is the encode metadata of the experiment (might contain biological replicates)
-function(accession.name) {
+library(ENCODExplorer)
+get.metadata.encode<-function(accession.name) {
+  encode_df<-get_encode_df()
   metadata <- encode_df[accession == accession.name]
   metadata <- metadata[which(metadata[,output_type == 'idat green channel']), ]
   sample <- metadata[, replicate_libraries]

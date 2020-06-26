@@ -1,0 +1,2 @@
+Samples	Assay_type	Source	Source_type	Experiment	Database
+ENCLB527TFA	Illumina Infinium Methylation EPIC BeadChip	smooth muscle cell	in vitro differentiated cells	ENCSR420WUN	ENCODE

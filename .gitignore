@@ -3,5 +3,7 @@
 *.tar
 *.zip
 *.ipynb_checkpoints
-*.txt
-
+./data/*.txt
+./raw/*.idat
+./processed/*.fastq
+./processed/*.txt
