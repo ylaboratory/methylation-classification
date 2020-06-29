@@ -1,3 +1,0 @@
-name	design	relation	supplement	title
-GSE146179	Bisulfite converted DNA from 6 samples were hybridized to the Illumina Infinium HumanMethylation EPIC BeadChip	BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA609663	ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE146nnn/GSE146179/suppl/GSE146179_Matrix_signal_intensities.csv.gz	DA Methylation patterns in decitabine treated 786-0 cells
-GSE146179	Bisulfite converted DNA from 6 samples were hybridized to the Illumina Infinium HumanMethylation EPIC BeadChip	BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA609663	ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE146nnn/GSE146179/suppl/GSE146179_RAW.tar	DA Methylation patterns in decitabine treated 786-0 cells
