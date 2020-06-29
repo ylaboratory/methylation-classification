@@ -3,10 +3,10 @@
 
 download.geo.metadata <- function(accession.num) {
   gse.series <- getGEO(accession.num, GSEMatrix = F)
+  if (length(gse.series)>1){
+    stop(paste0('This is a super series, please use the series list: ', names(gse.series)))
+  }
   gsm.names <- names(GSMList(gse.series))
-  platform.table<-read.table('./annotation/GEO-plaform-annotation.txt', header = T, sep = '\t', row.names = 2)
-  assay.type <- platform.table[which(rownames(platform.table)==gse.series@header$platform_id),]
-  assay.type.all <- rep(assay.type, length(gsm.names))
   platform.all<-rep(gse.series@header$platform_id, length(gsm.names))
   series.all<-rep(accession.num,length(gsm.names))
   database.all<-rep('GEO',length(gsm.names))
@@ -30,7 +30,6 @@ download.geo.metadata <- function(accession.num) {
   metadata <-
     data.table(
       'Samples' = gsm.names,
-      'Assay_type' = assay.type.all,
       'Source' = gsm.source.all,
       'Title' = gsm.status.all,
       'Series'= series.all,
