@@ -1,6 +1,6 @@
 # This script is an example of preprocessing the geo and ENCODEmicroarray data given an accession number
 source('./src/download-data-geo-microarray.R')
-source('./src/get-metadata-geo-microarray.R')
+source('./src/get-metadata-geo.R')
 source('./src/background-correction.R')
 source('./src/beta-value-normalization.R')
 source('./src/liftover.R')
