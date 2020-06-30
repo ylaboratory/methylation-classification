@@ -5,11 +5,10 @@ src_dir=$(dirname $0)
 data_type=(data raw processed)
 database=(GEO TCGA ENCODE)
 for i in "${data_type[@]}"; do
-	mkdir -p $src_dir/../$i
-		for j in "${database[@]}"; do
-			mkdir -p $src_dir/../$i/$j
-		done
+	for j in "${database[@]}"; do
+		mkdir -p -v $src_dir/../$i/$j
+	done
 done
-mkdir -p  $src_dir/../annotation
+mkdir -p -v $src_dir/../annotation
 	
 
