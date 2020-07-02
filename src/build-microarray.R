@@ -17,31 +17,31 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
 if (!require('minfi')) {
-  install.packages("minfi")
+  BiocManager::install("minfi")
 }
 if (!require('GEOquery')) {
-  install.packages("GEOquery")
+  BiocManager::install("GEOquery")
 }
 if (!require('wateRmelon')) {
-  install.packages("wateRmelon")
+  BiocManager::install("wateRmelon")
 }
 if (!require("IlluminaHumanMethylationEPICmanifest")) {
-  install.packages("IlluminaHumanMethylationEPICmanifest")
+  BiocManager::install("IlluminaHumanMethylationEPICmanifest")
 }
 if (!require("IlluminaHumanMethylation450kmanifest")) {
-  install.packages("IlluminaHumanMethylation450kmanifest")
+  BiocManager::install("IlluminaHumanMethylation450kmanifest")
 }
 if (!require("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")) {
-  install.packages("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")
+  BiocManager::install("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")
 }
 if (!require("IlluminaHumanMethylation450kanno.ilmn12.hg19")) {
-  install.packages("IlluminaHumanMethylation450kanno.ilmn12.hg19")
+  BiocManager::install("IlluminaHumanMethylation450kanno.ilmn12.hg19")
 }
 if (!require("ENCODExplorer")) {
-  install.packages("ENCODExplorer")
+  BiocManager::install("ENCODExplorer")
 }
 if (!require("rtracklayer")) {
-  install.packages("rtracklayer")
+  BiocManager::install("rtracklayer")
 }
 if (!require('data.table')) {
   install.packages('data.table')
