@@ -123,12 +123,16 @@ download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
 }
 # This function downloads the microarray data in ENCODE
 # Input is the accession name of the experiment staring with ENCS
-download_encode <- function(accession_name, download_directory='raw/ENCODE/') {
-  if (dir.exists(paste0(download_directory, accession_name))==F){
-    dir.create(paste0(download_directory, accession_name))
+download_encode <- function(accession_name, download_directory='raw/ENCODE/', ignore_exist=F) {
+  if (dir.exists(paste0(download_directory, accession_name))==F | ignore_exist){
+    if (dir.exists(paste0(download_directory, accession_name))==F){
+      dir.create(paste0(download_directory, accession_name))
+    }
+    downloadEncode(file_acc = accession_name,
+                   dir = paste0(download_directory, accession_name))
   }
-  downloadEncode(file_acc = accession_name,
-                 dir = paste0(download_directory, accession_name))
+  
+  
 }
 
 # This function renames the downloaded file 
@@ -185,7 +189,7 @@ get_metadata_encode<-function(accession_name,out_directory='data/ENCODE/') {
   
   write.table(
     ENCODE_metadata,
-    paste0(out_directory, accession_name, '_metadata.txt'),
+    paste0(out_directory, accession_name, '_sample_metadata.txt'),
     quote = F,
     sep = '\t',
     row.names = F
