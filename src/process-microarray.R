@@ -35,7 +35,8 @@ normalization<-function(GRset_noob,dir2metadata) {
   GRset_BMIQ <- BMIQ(GRset_noob)
   genome_loci <-
     which(row.names(GRset_BMIQ) %in% as.character(gset@rowRanges@ranges@NAMES))
-  GRset_BMIQ_genome_loci <- GRset_BMIQ[genome_loci,]
+  GRset_BMIQ_genome_loci <- as.matrix(GRset_BMIQ[genome_loci,])
+  colnames(GRset_BMIQ_genome_loci) <-colnames(GRset_BMIQ)
   GRset_BMIQ_genome_loci <-
     data.table('chr' = as.character(gset@rowRanges@seqnames),
                'loci' = gset@rowRanges@ranges@start,GRset_BMIQ_genome_loci)

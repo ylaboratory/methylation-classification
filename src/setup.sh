@@ -12,8 +12,12 @@ done
 mkdir -p -v $src_dir/../annotation
 
 # download hg19 to hg38 chain files for liftover
-wget 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz' -O $src_dir/../annotation/hg19ToHg38.over.chain.gz
-gunzip $src_dir/../annotation/hg19ToHg38.over.chain.gz
+annotation=$src_dir/../annotation/hg19ToHg38.over.chain
+if [[ ! -f "$annotation" ]]
+then
+	wget 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz' -O $src_dir/../annotation/hg19ToHg38.over.chain.gz 
+	gunzip $src_dir/../annotation/hg19ToHg38.over.chain.gz
+fi
 
 # read in the text file containing accession numbers of datasets to be processed
 usage() {
@@ -38,4 +42,5 @@ while getopts ":id:" Option; do
 		*)	usage; exit -1;;
 	esac
 done
+
 

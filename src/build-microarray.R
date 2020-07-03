@@ -49,7 +49,6 @@ if (!require('data.table')) {
 source('./src/download-data-microarray.R')
 source('./src/process-microarray.R')
 source('./src/liftover.R')
-source('./src/output-data-microarray.R')
 
 # The example dataset in GEO used is GSE146179
 # For ENCODE data we use ENCSR420WUN as an example
@@ -70,7 +69,7 @@ lifted_data <-
     liftover('annotation/hg19ToHg38.over.chain', normalized_data)
 write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
             quote = F,
-            sep = '\t', row.names = F)
+            sep = '\t', row.names = F, col.names = T)
 
 # This script merges all sample metadata from the corresponding dataset
 all_metadata_name <-
@@ -91,9 +90,8 @@ all_betavalue_name <-
 betavaluedf <-
   lapply(all_betavalue_name, function(x) {
     fread(x)
-  }) 
-betavalue_total <-
-  do.call('merge', lapply(betavaluedf, as.data.table))
+  })
+betavalue_total<-Reduce(function(x, y) merge(x, y, by=c('chr','loci')), betavaluedf)
 write.table(
   betavalue_total,
   file = paste0('data/', database_type, '/all_betavalues.txt'),
