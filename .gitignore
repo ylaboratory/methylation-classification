@@ -1,0 +1,9 @@
+# Packages #
+############
+*.tar
+*.zip
+*.ipynb_checkpoints
+data/**/*.txt
+raw/**/*.idat
+processed/**/*.fastq
+processed/**/*.txt
