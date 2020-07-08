@@ -1,6 +1,8 @@
 library(data.table)
 library(GEOquery)
 library(ENCODExplorer)
+library(TCGAutils)
+library(TCGAbiolinks)
 # This script is used for downloading and extracting raw microarray files from the GEO database
 # To donwload data even if directory exists, use download.data.geo.microarray(accession.num, ignore.exisiting = T)
 download_data_geo_microarray <- function(accession_num, ignore_exist=F, download_directory='raw/GEO/') {
@@ -194,4 +196,45 @@ get_metadata_encode<-function(accession_name,out_directory='data/ENCODE/') {
     sep = '\t',
     row.names = F
   )
+}
+
+# This script downloads the TCGA microarray data
+download_TCGA<-function(manifest_file_dir){
+  TCGA_manifest<-read.table(manifest_file_dir, header = T, sep = '\t')
+  system('src/download-data-TCGA-microarray.sh')
+  
+}
+# This function reorganizes the TCGA microarray samples into folders of barcodes
+# Input: manifest file containing all file names
+# Output: new folders containing the idat files corresponding to each sample barcode
+reorganize_TCGA<-function(TCGA_manifest){
+  file2bar<-UUIDtoBarcode(TCGA_manifest[,'id'], from_type = "file_id", legacy = T)
+  for (i in unique(file2bar[,'associated_entities.entity_submitter_id'])){
+    file_name<-file2bar[which(file2bar[,'associated_entities.entity_submitter_id']==i), 'file_id'] 
+    for (j in as.character(file_name)){
+      target<-list.files(path = paste0('raw/TCGA/',j), pattern = '.idat', full.names = T)
+      target_short<-list.files(path = paste0('raw/TCGA/',j), pattern = '.idat')
+      if (dir.exists(paste0('raw/TCGA/',i))==F){
+        dir.create(paste0('raw/TCGA/',i))
+      }
+      file.copy(target, paste0('raw/TCGA/',i, '/',target_short))
+    }
+  }
+  
+}
+# This script gets the metadata of a TCGA microarray sample identified by the sample barcode
+# Input: manifest file containing all microarray file names ; directory to write the metadata to
+# Output: metadata of each sample
+get_metadata_TCGA<-function(TCGA_manifest, output_directory='data/TCGA'){
+  file2bar<-UUIDtoBarcode(TCGA_manifest[,'id'], from_type = "file_id", legacy = T)
+  file2case<-UUIDtoUUID(TCGA_manifest[,'id'], to_type = 'case_id', legacy = T)
+  for (i in unique(file2bar[,'associated_entities.entity_submitter_id'])){
+    sample<-colDataPrepare(i)
+    extracted_info<-sample[c('barcode','patient','definition','sample_id','sample_type_id','tissue_or_organ_of_origin','name')]
+    file_name<-as.character(file2bar[which(file2bar[,'associated_entities.entity_submitter_id']==i), 'file_id'])
+    colnames(extracted_info)<-c('Samples','patient','definition','sample_id','sample_type_id','tissue_of_origin','disease_name')
+    metadata_TCGA<-data.table(extracted_info, 'file1' = file_name[1], 'file2' = file_name[2])
+    write.table(metadata_TCGA, paste0(output_directory,'/', i, '_sample_metadata.txt'), quote = F, row.names = F, sep = '\t')
+  }
+  
 }
