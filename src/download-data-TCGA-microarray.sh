@@ -8,13 +8,6 @@ then
 	        wget https://gdc.cancer.gov/system/files/authenticated%20user/0/gdc-client_v1.5.0_Ubuntu_x64.zip -O $gdc_client
 		unzip $gdc_client
 fi
-# Delete all files in the TCGA raw folder if any exists and start downloading again 
-ls $src_dir/../raw/TCGA/*/ >/dev/null 2>&1 ; 
-
-if [ $? != 0 ]; 
-then 
-	rm -r *
-fi
 # Download all files from the manifest, here test data is used 
 $src_dir/gdc-client download -d $src_dir/../raw/TCGA --no-annotations --http-chunk-size 9000 -m $src_dir/../annotation/TCGA_microarray_manifest_test.txt
 
