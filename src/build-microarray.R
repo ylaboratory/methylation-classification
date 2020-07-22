@@ -6,6 +6,7 @@ if (args[2]=="F") {
 } else if (args[2]=="T"){
   ignore_exist_state<-T
 }
+manifest_file<- args[3]
 
 # This script is an example of preprocessing the geo and ENCODEmicroarray data given an accession number
 if (!require('RPMM')) {
@@ -60,14 +61,14 @@ source('./src/liftover.R')
 # The example dataset in TCGA used is TCGA_microarray_manifest_test.txt
 
 if (database_type == 'GEO') {
-  accession_list<-read.table(paste0('annotation/',database_type, '_microarray_accession_full.txt'), header = F)
+  accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
   accession_list<-accession_list[,1]
   for (accession in accession_list) {
     download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
     download_geo_metadata(accession)
   }
 } else if (database_type == 'ENCODE') {
-  accession_list<-read.table(paste0('annotation/',database_type, '_microarray_accession_GEO_removed.txt'), header = F)
+  accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
   accession_list<-accession_list[,1]
   for (accession in accession_list) {
     download_encode(accession, ignore_exist = ignore_exist_state)
@@ -75,12 +76,12 @@ if (database_type == 'GEO') {
     get_metadata_encode(accession)
   }
 } else if (database_type == 'TCGA'){
-  TCGA_manifest<-read.table(paste0('annotation/',database_type, '_microarray_manifest.txt'), header = T, sep = '\t')
-  download_TCGA(paste0('annotation/',database_type, '_microarray_manifest.txt'))
-  reorganize_TCGA(TCGA_manifest)
-  get_metadata_TCGA(TCGA_manifest)
-  file2barcode<-UUIDtoBarcode(TCGA_manifest[,'id'], from_type = "file_id", legacy = T)
-  accession_list<-unique(file2barcode[,'associated_entities.entity_submitter_id'])
+  TCGA_manifest<-read.table(paste0('annotation/',manifest_file), header = T, sep = '\t')
+  file2bar<-UUIDtoBarcode(TCGA_manifest[,'id'], from_type = "file_id", legacy = T)
+  download_TCGA(manifest_file)
+  reorganize_TCGA(file2bar)
+  get_metadata_TCGA(file2bar)
+  accession_list<-unique(file2bar[,'associated_entities.entity_submitter_id'])
 }
 # preprocess all the accessions provided in the list
 for (accession in accession_list){
