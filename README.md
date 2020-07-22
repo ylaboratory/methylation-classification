@@ -10,7 +10,7 @@ First, run setup.sh script in shell to create the data, raw, processed and annot
 bash setup.sh
 ```
 ### Installing R packages for preprocessing microarray data from GEO and ENCODE database (and potentially other databases)
-The script build-microarray.R installs all R packages needed for microarray data preprocessing and handles data downloading, processing and outputting given the accession number of datasets. Below are the setups needed to run the build-microarray.R script. The script also calls downloading, processing and outputting components, which are different scripts and will be explained in the following parts. After preprocessing all dataset inputs, the metadata and beta values for each database are integrated and written to a single file. 
+The script build-microarray.R installs all R packages needed for microarray data preprocessing and handles data downloading, processing and outputting given the list of accession number of datasets. This script is called by build-dataset-microarray.R to run in command line. Three input arguments are needed (-i for whether existing datasets are ignored, -d for choosing which database to process data from and -m for the accessionlist/manifest file that contains datasets to be processed). Below are the setups needed to run the build-microarray.R script. The script also calls downloading, processing and outputting components, which are different scripts and will be explained in the following parts. After preprocessing all dataset inputs, the metadata and beta values for each database are integrated and written to a single file. 
 Set-up in RStudio container (in shell): 
 ```
 $ podman exec -it [container-name or container-id] bash 
@@ -36,7 +36,8 @@ The package GEOquery is also used to get the metadata of each series. There will
 The R package ENCODEexplorer is used to download raw microarray data from each experiment (which often has one sample and possible replicates). Run the download_encode function and input the accession name (ENCS*). The .idat files will be downloaded to raw/ENCODE/accession.name by default. \
 The package ENCODEexplorer is also used to download the metadata from each experiment. There will only be one metadata file for each experiment. Run get_metadata_encode function and input the accession name and the metadata will be saved as text file in data/ENCODE by default. \
 For ENCODE data, the .idat files need to be renamed for passing into the preprocessing steps. Originally, ENCODE has a specific name (ENCF*) for each file (both red and green channel), which makes it hard to pair up the red and green channel data for each sample. Thus, we rename the files using the library name (ENCLB*), which is unique to one sample (similar to GSM in ENCODE). Run convert2target function and input the accession name to rename the files under that accession name.
- 
+### TCGA
+The gdc-client is used to download TCGA microarray data using manifest file as input. The manifest files are donwloaded on the TCGA website. TCGAutils and TCGABiolinks packages are used to retrieve the metadata file given the barcode of each sample.
 ### Microarray data preprocessing
 The minfi package is used to create the object for microarray preprocessing and the waterRmelon object is used for performing background correction and normalization. The following instruction is uniform for all microarray data regardless of database.\
 First, to create the preprocessing raw object and perform background correction, run background_correction function and input the directory where the to-be-processed .idat files are stored. All .idat files will be read, and the output is a Methylset object after background correction with the reference probe.\
