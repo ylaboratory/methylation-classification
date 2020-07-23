@@ -28,7 +28,7 @@ SRA=( $(esearch -db sra -query $GSM | efetch -format docsum | xtract -pattern Do
 echo "downloading fastq file for ${SRA[@]}"
 for i in ${SRA[@]}
 do
-	if [ -f $src_dir/../raw/GEO/$GSE/$i$filename ] || [ $ignore_exist == "T" ]; then
+	if [ ! -f "$src_dir/../raw/GEO/$GSE/$i$filename" ] || [ "$ignore_exist" == "T" ]; then
 		prefetch --max-size 100G $i
 		fastq-dump -O $src/../raw/GEO/$GSE  $i
 	fi
