@@ -1,14 +1,13 @@
 # Methylation-classification
 This project uses whole-genome DNA methylation data to contruct a computational model for classifying human tissue/cell type or diseases.
-
- 
-## Microarray data
-### Directory setup and preparation
+## Directory setup and preparation
 First, run setup.sh script in shell to create the data, raw, processed and annotation directory. The data, raw and processed directories all have subdirectories of different databases. The script also downloads the annotation files needed in the /annotation directory (for now only hg19toHg38.chain file will be downloaded). The script then reads in the text files of datasets accession numbers from different databases that will be processed, and runs build-microarray.R file which does the processing of microarray data.
 
 ```
 bash setup.sh
 ```
+ 
+## Microarray data
 ### Installing R packages for preprocessing microarray data from GEO and ENCODE database (and potentially other databases)
 The script build-microarray.R installs all R packages needed for microarray data preprocessing and handles data downloading, processing and outputting given the list of accession number of datasets. This script is called by build-dataset-microarray.R to run in command line. Three input arguments are needed (-i for whether existing datasets are ignored, -d for choosing which database to process data from and -m for the accessionlist/manifest file that contains datasets to be processed). Below are the setups needed to run the build-microarray.R script. The script also calls downloading, processing and outputting components, which are different scripts and will be explained in the following parts. After preprocessing all dataset inputs, the metadata and beta values for each database are integrated and written to a single file. 
 Set-up in RStudio container (in shell): 
@@ -46,5 +45,21 @@ To convert the microarray data from hg19 assembly to hg38 assembly, package rtra
 ### Microarray data output
 Finally, the beta values for each sample is written to its own text file and saved in the right directory (GEO/ENCODE/..). Run write_to_file function and input the beta value matrix and the path to the metadata file corresponding to this batch of samples. The bata values for each series will be saved as "series-ID_beta_values.txt" in side data/database
 
+## Sequencing data
+### Install tools for sequnencing data processing 
+The following tools need to be installed for running the RRBS and WGBS data processing scripts.
+```
+conda install -c bioconda entrez-direct
+conda install -c bioconda bismark
+conda install -c bioconda trim-galore
+```
+### Genome preparation
+Before processing, configure-reference-genome.sh will download and prepare the reference genome for bisulfite sequencing alignment.
+### Data downloading
+#### GEO
+For RRBS data processing, Entrez-direct is first used to find the SRR accessions that corresponds to a GEO sample and then download the raw sequence file. The donwload-files-GEO-sequencing.sh takes in command line inputs -i for whether to ignore existing datasets, -t for type of data to be processed (WGBS or RRBS), -d for database and -c for number of cores used for processing. The list of accessions in /annotation will be downloaded accordingly (filename: database-sequencing-accession-WGBS/RRBS.txt)
+### Data processing
+#### RRBS data
+The process-geo-sequencing-RRBS.sh is used to process downloaded RRBS data. First, trim-galore is used to trim any adaptor sequence found and then bismark is used to align sequence to the reference genome and extract methylation percentage at each CpG sites. The outputs are written into /data folder and each sample results are grouped into a folder. 
 
 
