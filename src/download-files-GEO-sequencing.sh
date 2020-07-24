@@ -16,13 +16,6 @@ esac
 done
 
 echo "getting SRA accession corresponding to $GSM"
-#filename="_sample_metadata.txt"
-#samplename=$(cut -f 1 "$src/../data/GEO/$GSE$filename")
-#echo $samplename
-#echo ${samplename[0]}
-#samplename="${samplename[@]:1}"
-#echo $samplename
-#echo "fetched GSM samples related to $GSE"
 filename=".fastq"
 SRA=( $(esearch -db sra -query $GSM | efetch -format docsum | xtract -pattern DocumentSummary -element Run@acc) )
 echo "downloading fastq file for ${SRA[@]}"
