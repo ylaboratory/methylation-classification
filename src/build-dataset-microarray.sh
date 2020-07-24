@@ -4,20 +4,14 @@ src_dir=$(dirname $0)
 
 # read in the text file containing accession numbers of datasets to be processed
 usage() {
-	echo "script usage: $(basename $0) [-i flag for ignoring existing dataset when downloading -d database_name] "
+	echo "script usage: $(basename $0) [-i flag for ignoring existing dataset when downloading -d database_name -m manifest file that contains accession number information] "
 }
 ignore_exist="F"
-filename='_microarray_accession.txt'
-while getopts ":id:" Option; do
+while getopts ":id:m:" Option; do
 	case "$Option" in
-		i)      ignore_exist="T"; echo "ignoring existing dataset" ;;		
-		d)	database=$OPTARG; echo "database $OPTARG is used";
-			input="$src_dir/../annotation/$database$filename";
-			echo $ignore_exist;
-			while read -r line;do
-				 Rscript $src_dir/build-microarray.R $database $line $ignore_exist
-				 echo "processing done for $line"
-			done < $input;;
+		i)      ignore_exist="T"; echo "ignoring existing dataset" ;;
+		m)	manifest=$OPTARG; echo "using $OPTARG";;	
+		d)	database=$OPTARG; echo "database $OPTARG is used";;	
 		:)
 			echo "Error: -$OPTARG requires an argument"; usage; exit -1;;
 		?)
@@ -25,5 +19,5 @@ while getopts ":id:" Option; do
 		*)	usage; exit -1;;
 	esac
 done
-
+Rscript $src_dir/build-microarray.R $database $ignore_exist $manifest
 
