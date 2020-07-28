@@ -21,14 +21,20 @@ echo ${SRR[@]}
 for i in "${SRR[@]}"
 do
 	filename='.fastq'
-	trim_galore --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i$filename
 	filename_align='_trimmed.fq'
-	bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i$filename_align
+	count=$( ls -1q $src_dir/../raw/GEO/$GSE/$i??$filename | wc -l )
+	echo $count
+	if  [ $count -gt 1 ]; then
+		trim_galore --paired --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i??$filename
+		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation -1 $src_dir/../raw/GEO/$GSE/$i"_1"$filename_align -2 $src_dir/../raw/GEO/$GSE/$i"_2"$filename_align
+	else
+		trim_galore --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i$filename
+		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i$filename_align
+	fi
 	echo "finished alignment"
 done
 filename_extract="_trimmed_bismark_bt2.bam"
-filename_list=( "${SRR[@]/%/$filename_extract}" )
+filename_list=( "${SRR[@]/%/*$filename_extract}" )
 filename_prefix="$src_dir/../processed/GEO/$GSE/"
 filename_list=( "${filename_list[@]/#/$filename_prefix}" )
-echo ${filename_list[@]}
 bismark_methylation_extractor --comprehensive --multicore $core_count --zero_based --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $filename_list
