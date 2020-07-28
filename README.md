@@ -110,6 +110,7 @@ conda install -c bioconda sra-tools=2.10
 conda install -c bioconda entrez-direct
 conda install -c bioconda bismark
 conda install -c bioconda trim-galore
+conda install -c bioconda samtools openssl=1.0
 ```
 ### Overall processing of sequencing data
 To process a list of sequencing data whose accessions are in /annotation/file database_sequencing_accession_(RRBS/WGBS).txt:
