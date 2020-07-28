@@ -25,15 +25,15 @@ do
 	count=$( ls -1q $src_dir/../raw/GEO/$GSE/$i??$filename | wc -l )
 	echo $count
 	if  [ $count -gt 1 ]; then
-		trim_galore --paired --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i??$filename
-		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation -1 $src_dir/../raw/GEO/$GSE/$i"_1"$filename_align -2 $src_dir/../raw/GEO/$GSE/$i"_2"$filename_align
+		trim_galore --paired --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i"_1"$filename $src_dir/../raw/GEO/$GSE/$i"_2"$filename
+		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation -1 $src_dir/../raw/GEO/$GSE/$i"_1_val_1.fq" -2 $src_dir/../raw/GEO/$GSE/$i"_2_val_2.fq"
 	else
 		trim_galore --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i$filename
 		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i$filename_align
 	fi
 	echo "finished alignment"
 done
-filename_extract="_trimmed_bismark_bt2.bam"
+filename_extract=".bam"
 filename_list=( "${SRR[@]/%/*$filename_extract}" )
 filename_prefix="$src_dir/../processed/GEO/$GSE/"
 filename_list=( "${filename_list[@]/#/$filename_prefix}" )
