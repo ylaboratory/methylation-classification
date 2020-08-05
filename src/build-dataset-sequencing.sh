@@ -26,10 +26,21 @@ do
 	accession=( $line )
 	GSE="${accession[0]}"
 	GSM="${accession[1]}"
-	if [ $database == "GEO" ]; then
+# Get metadata of the GEO series
+	if [ ! -f $src_dir/../raw/GEO/$GSE ];then
+		Rscript $src_dir/get-metadata-geo-sequencing.R $GSE
+	fi
+# Download SRR files corresponding to GSM accession
+	bash $src_dir/download-files-GEO-sequencing.sh -g $GSE -s $GSM $ignore_exist_flag
+# Process the data	
+	if [ $database == "GEO" ] && [ $datatype == 'RRBS' ]; then
 	       echo "$GSM"	
-		bash download-files-GEO-sequencing.sh -g $GSE -s $GSM $ignore_exist_flag
-        	bash processing-geo-sequencing-RRBS.sh -g $GSE -s $GSM -c $core
+		bash $src_dir/download-files-GEO-sequencing.sh -g $GSE -s $GSM $ignore_exist_flag
+        	bash $src_dir/processing-geo-sequencing-RRBS.sh -g $GSE -s $GSM -c $core
+	elif [ $database == "GEO" ] && [ $datatype == 'WGBS' ]; then
+		echo "$GSM"
+		bash $src_dir/download-files-GEO-sequencing.sh -g $GSE -s $GSM $ignore_exist_flag
+		bash $src_dir/processing-geo-sequencing-WGBS.sh -g $GSE -s $GSM -c $core
 	fi
 	echo "$GSE"	
 done 3< $src_dir/../annotation/$database$accession_filename1$datatype$accession_filename2

@@ -22,7 +22,12 @@ echo "downloading fastq file for ${SRA[@]}"
 for i in ${SRA[@]}
 do
 	if [ ! -f "$src_dir/../raw/GEO/$GSE/$i$filename" ] || [ "$ignore_exist" == "T" ]; then
-		fasterq-dump -f -O $src/../raw/GEO/$GSE  $i
+		exit_status=1
+		while [ ! $exit_status -eq 0 ]
+		do
+			fasterq-dump -f -O $src/../raw/GEO/$GSE  $i
+			exit_status=$?
+		done
 	fi
 done
 echo "finished downloading!"
