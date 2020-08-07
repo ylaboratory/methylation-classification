@@ -31,14 +31,13 @@ do
 		trim_galore --paired --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i"_1"$filename $src_dir/../raw/GEO/$GSE/$i"_2"$filename
 		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation -1 $src_dir/../raw/GEO/$GSE/$i"_1_val_1.fq" -2 $src_dir/../raw/GEO/$GSE/$i"_2_val_2.fq"
 	else
-		trim_galore --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i$filename
-		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i$filename_align
+		trim_galore --rrbs -j 6 -o $src_dir/../raw/GEO/$GSE  $src_dir/../raw/GEO/$GSE/$i"_1"$filename
+		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i"_1"$filename_align
 	fi
 	echo "finished alignment"
 done
 aligned_file=( "${SRR[@]/%/*".bam"}" )
 aligned_file_path=( "${aligned_file[@]/#/$src_dir/../processed/GEO/$GSE/}" )
-echo ${aligned_file_path[@]}
 if  [ $count -gt 1 ]; then
 	bismark_methylation_extractor -p --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
 else
@@ -46,10 +45,8 @@ else
 fi
 extract_file=( "${SRR[@]/%/*"bismark.cov"*}" )
 extract_file_path=( "${extract_file[@]/#/$src_dir/../data/GEO/$GSE/}" )
-echo ${extract_file_path[@]}
 for j in ${extract_file_path[@]}
 do
-	echo $j
 	if [[ $j == *".gz" ]]; then
 		gunzip $j
 	fi

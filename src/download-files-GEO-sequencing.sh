@@ -25,7 +25,7 @@ do
 		exit_status=1
 		while [ ! $exit_status -eq 0 ]
 		do
-			fasterq-dump -f -O $src/../raw/GEO/$GSE  $i
+			fastq-dump --split-files -O $src/../raw/GEO/$GSE  $i
 			exit_status=$?
 		done
 	fi
