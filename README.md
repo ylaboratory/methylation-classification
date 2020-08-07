@@ -121,6 +121,12 @@ build-dataset-sequencing.sh [-i] [-d database] [-t datatype] [-c number of cores
 * `-d`: Name of database that the datasets are from (GEO etc.)
 * `-t`: Type of sequencing data (RRBS or WGBS)
 * `-c`: Number of cores to use while processing
+### Get metadata
+To obtain the metadata of GEO sample and series:
+```
+get-metadata-geo-sequencing.R [accession_number] 
+```
+* `accession_number`: Accession number of the GSE series
 ### Genome preparation
 Before processing, to download and prepare the reference genome for bisulfite sequencing alignment:
 ```
