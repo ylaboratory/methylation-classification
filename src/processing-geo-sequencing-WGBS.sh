@@ -28,11 +28,33 @@ do
 		echo "paired"
 		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation -1 $src_dir/../raw/GEO/$GSE/$i"_1"$filename_align -2 $src_dir/../raw/GEO/$GSE/$i"_2"$filename_align
 		deduplicate_bismark -p --output_dir $src_dir/../processed/GEO/$GSE -o $i $src_dir/../processed/GEO/$GSE/$i*$filename_extract
-	bismark_methylation_extractor -p --no_overlap --comprehensive --multicore $core_count --zero_based --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $src_dir/../processed/GEO/$GSE/$i*".deduplicated.bam"
 	else
 		echo "single"
-		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i$filename_align
-		deduplicate_bismark -s --output_dir $src_dir/../processed/GEO/$GSE -o $i $src_dir/../processed/GEO/$GSE/$i*$filename_extract
-		bismark_methylation_extractor -s --comprehensive --multicore $core_count --zero_based --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $src_dir/../processed/GEO/$GSE/$i*".deduplicated.bam" 
+		bismark -o $src_dir/../processed/GEO/$GSE --multicore $core_count --temp_dir $src_dir/../processed/GEO/$GSE --genome $src_dir/../annotation $src_dir/../raw/GEO/$GSE/$i"_1"$filename_align
+		deduplicate_bismark -s --output_dir $src_dir/../processed/GEO/$GSE -o $i $src_dir/../processed/GEO/$GSE/$i*$filename_extract 
 	fi
 done
+aligned_file=( "${SRR[@]/%/*".deduplicated.bam"}" )
+aligned_file_path=( "${aligned_file[@]/#/$src_dir/../processed/GEO/$GSE/}" )
+echo ${aligned_file_path[@]}
+if  [ $count -gt 1 ]; then
+	echo "2"
+	bismark_methylation_extractor -p --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
+else
+	echo "1"
+	bismark_methylation_extractor -s --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
+fi
+extract_file=( "${SRR[@]/%/*"bismark.cov"*}" )
+extract_file_path=( "${extract_file[@]/#/$src_dir/../data/GEO/$GSE/}" )
+echo ${extract_file_path[@]}
+for j in ${extract_file_path[@]}
+do
+	echo $j
+	if [[ $j == *".gz" ]]; then
+		gunzip $j      
+	fi
+	if [ -f "$j" ]; then
+		awk -v FS="\t" -v OFS="\t" '{ print "chr" $1, $2, $4 }' $j > $src_dir/../data/GEO/$GSE/$GSM"_beta_values.txt"
+	fi
+done
+
