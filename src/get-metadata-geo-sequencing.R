@@ -1,5 +1,5 @@
 # Take in accession and database from the command line
-args <- commandArgs(trailingOnly = TRUE)
+args <- commandArgs( trailingOnly = TRUE )
 accession_num<- args[1]
 # Install packages
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
@@ -41,7 +41,7 @@ for (i in 1:length(gsm_names)) {
   gsm_source <- gsm_sample@header$source_name_ch1
   gsm_status <- gsm_sample@header$title
   gsm_datatype <- gsm_sample@header$library_selection
-  sra_string <- gsm_sample@header$relation[which(grep("SRA:", gsm_sample@header$relation, fixed = T)==T)]
+  sra_string <- gsm_sample@header$relation[grep("SRA:", gsm_sample@header$relation, fixed = T)]
   sra_acc<- sub("SRA.*term=", "", sra_string)
   sra_acc_all<- c(sra_acc_all, sra_acc)
   gsm_source_all <- c(gsm_source_all, gsm_source)
