@@ -37,13 +37,7 @@ done
 aligned_file=( "${SRR[@]/%/*".deduplicated.bam"}" )
 aligned_file_path=( "${aligned_file[@]/#/$src_dir/../processed/GEO/$GSE/}" )
 echo ${aligned_file_path[@]}
-if  [ $count -gt 1 ]; then
-	echo "2"
-	bismark_methylation_extractor -p --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
-else
-	echo "1"
-	bismark_methylation_extractor -s --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
-fi
+bismark_methylation_extractor --no_overlap --comprehensive --multicore $core_count --bedGraph --cutoff 20 -o $src_dir/../data/GEO/$GSE $aligned_file_path
 extract_file=( "${SRR[@]/%/*"bismark.cov"*}" )
 extract_file_path=( "${extract_file[@]/#/$src_dir/../data/GEO/$GSE/}" )
 echo ${extract_file_path[@]}
