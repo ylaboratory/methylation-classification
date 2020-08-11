@@ -1,21 +1,27 @@
 # Take in accession and database from the command line
 args <- commandArgs( trailingOnly = TRUE )
 accession_num<- args[1]
+base_directory <- args[2]
 # Install packages
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
-  install.packages("BiocManager")
+  install.packages("BiocManager", repos = "http://cran.us.r-project.org")
 }
+# if (!require('devtools')) {
+#   install.packages("devtools", repos="http://cran.us.r-project.org")
+# }
+# devtools::install_version("cpp11", version = "0.1", repos = "http://cran.us.r-project.org")
 if (!require('GEOquery')) {
   BiocManager::install("GEOquery")
 }
 if (!require('data.table')) {
-  install.packages('data.table')
+  install.packages('data.table', repos = "http://cran.us.r-project.org")
 }
+
 library(data.table)
 library(GEOquery)
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
-out_directory='data/GEO/'
+out_directory=paste0(base_directory,'/../data/GEO/')
 gse_series <- getGEO(accession_num, GSEMatrix = F)
 if (length(gse_series) > 1) {
   stop(paste0(
@@ -28,9 +34,9 @@ platform_all <-
   rep(gse_series@header$platform_id, length(gsm_names))
 series_all <- rep(accession_num, length(gsm_names))
 database_all <- rep('GEO', length(gsm_names))
-if (dir.exists(out_directory)
+if (dir.exists(paste0(out_directory, accession_num))
     == FALSE) {
-  dir.create(out_directory)
+  dir.create(paste0(out_directory, accession_num))
 }
 gsm_source_all <- vector()
 gsm_status_all <- vector()
