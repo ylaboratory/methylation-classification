@@ -20,7 +20,7 @@ if [ ! -f $src_dir/bin/bigWigToBedGraph ];then
 	chmod 750 $src_dir/bin/bigWigToBedGraph
 fi
 mkdir -p $src_dir/../data/$database
-#wget -P $src_dir/../data/$database -i $src_dir/../annotation/$manifest
+wget -P $src_dir/../data/$database -i $src_dir/../annotation/$manifest
 Rscript rename-and-get-metadata-IHEC.R $manifest $sample $src_dir $database
 for file in "$src_dir/../data/$database"/*;do
 	if [[ $file == *_beta_values.bigWig ]];then
