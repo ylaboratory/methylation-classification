@@ -69,17 +69,21 @@ download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
   }
   gsm_source_all <- vector()
   gsm_status_all <- vector()
+  gsm_character_all <- vector()
   for (i in 1:length(gsm_names)) {
     gsm_sample <- getGEO(gsm_names[i])
     gsm_source <- gsm_sample@header$source_name_ch1
     gsm_status <- gsm_sample@header$title
+    gsm_character <- gsm_sample@header$characteristics_ch1
     gsm_source_all <- c(gsm_source_all, gsm_source)
     gsm_status_all <- c(gsm_status_all, gsm_status)
+    gsm_character_all <- c(gsm_character_all, gsm_character)
   }
   metadata <-
     data.table(
       'Samples' = gsm_names,
       'Source' = gsm_source_all,
+      'Characteristics' = gsm_character_all,
       'Title' = gsm_status_all,
       'Series'= series_all,
       'Platform' = platform_all,
@@ -179,12 +183,14 @@ get_metadata_encode<-function(accession_name,out_directory='data/ENCODE/') {
   source_type <- metadata[, biosample_type]
   source <- metadata[, biosample_name]
   platform <- metadata[, platform]
+  data_description <- metadata[, dataset_description]
   ENCODE_metadata <-
     data.frame(
       'Samples' = sample,
       'Assay_type' = platform,
       'Source' = source,
       'Source_type' = source_type,
+      'Description' = data_description,
       'Series' = experiment,
       'Database' = database
     )

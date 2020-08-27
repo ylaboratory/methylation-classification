@@ -100,7 +100,7 @@ for (accession in accession_list){
 
 # This script merges all sample metadata from the corresponding dataset
 all_metadata_name <-
-  list.files(path = paste0('data/', database_type), pattern = '_sample_metadata.txt', full.names = T)
+  list.files(path = paste0('data/', database_type), pattern = '_sample_metadata.txt', full.names = T, recursive = T)
 metadata_total <-
   rbindlist(lapply(all_metadata_name, function(x) {
     fread(x)
@@ -113,7 +113,7 @@ write.table(
   sep = "\t"
 )
 all_betavalue_name <-
-  list.files(path = paste0('data/', database_type), pattern = '_beta_values.txt', full.names = T)
+  list.files(path = paste0('data/', database_type), pattern = '_beta_values.txt', full.names = T, recursive = T)
 betavaluedf <-
   lapply(all_betavalue_name, function(x) {
     fread(x)
