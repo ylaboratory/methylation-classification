@@ -10,7 +10,7 @@ manifest_file<- args[3]
 
 # This script is an example of preprocessing the geo and ENCODEmicroarray data given an accession number
 if (!require('RPMM')) {
-  install.packages("RPMM")
+  install.packages("RPMM", repos = "http://cran.us.r-project.org")
 }
 
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
@@ -50,7 +50,7 @@ if (!require("TCGAbiolinks")) {
   BiocManager::install("TCGAbiolinks")
 }
 if (!require('data.table')) {
-  install.packages('data.table')
+  install.packages('data.table', repos = "http://cran.us.r-project.org")
 }
 source('./src/download-data-microarray.R')
 source('./src/process-microarray.R')
@@ -64,7 +64,7 @@ if (database_type == 'GEO') {
   accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
   accession_list<-accession_list[,1]
   for (accession in accession_list) {
-    download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
+    # download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
     download_geo_metadata(accession)
   }
 } else if (database_type == 'ENCODE') {
@@ -84,18 +84,18 @@ if (database_type == 'GEO') {
   accession_list<-unique(file2bar[,'associated_entities.entity_submitter_id'])
 }
 # preprocess all the accessions provided in the list
-for (accession in accession_list){
-  corrected_data <-
-    background_correction(paste0('raw/', database_type, '/', accession))
-  normalized_data <-
-    normalization(corrected_data,
-                  paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-  lifted_data <-
-    liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-  write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
-              quote = F,
-              sep = '\t', row.names = F, col.names = T)
-}
+# for (accession in accession_list){
+#   corrected_data <-
+#     background_correction(paste0('raw/', database_type, '/', accession))
+#   normalized_data <-
+#     normalization(corrected_data,
+#                   paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
+#   lifted_data <-
+#     liftover('annotation/hg19ToHg38.over.chain', normalized_data)
+#   write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
+#               quote = F,
+#               sep = '\t', row.names = F, col.names = T)
+# }
 
 
 # This script merges all sample metadata from the corresponding dataset
@@ -112,17 +112,17 @@ write.table(
   row.names = F,
   sep = "\t"
 )
-all_betavalue_name <-
-  list.files(path = paste0('data/', database_type), pattern = '_beta_values.txt', full.names = T, recursive = T)
-betavaluedf <-
-  lapply(all_betavalue_name, function(x) {
-    fread(x)
-  })
-betavalue_total<-Reduce(function(x, y) merge(x, y, by=c('chr','loci')), betavaluedf)
-write.table(
-  betavalue_total,
-  file = paste0('data/', database_type, '/all_betavalues.txt'),
-  quote = F,
-  row.names = F,
-  sep = "\t"
-)
+# all_betavalue_name <-
+#   list.files(path = paste0('data/', database_type), pattern = '_beta_values.txt', full.names = T, recursive = T)
+# betavaluedf <-
+#   lapply(all_betavalue_name, function(x) {
+#     fread(x)
+#   })
+# betavalue_total<-Reduce(function(x, y) merge(x, y, by=c('chr','loci')), betavaluedf)
+# write.table(
+#   betavalue_total,
+#   file = paste0('data/', database_type, '/all_betavalues.txt'),
+#   quote = F,
+#   row.names = F,
+#   sep = "\t"
+# )
