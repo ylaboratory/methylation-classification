@@ -51,7 +51,7 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
 download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
-  gse_series <- getGEO(accession_num, GSEMatrix = F)
+  gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = 'tmp')
   if (length(gse_series)>1){
     stop(paste0('This is a super series, please use the series list: ', names(gse_series)))
   }
@@ -71,10 +71,13 @@ download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
   gsm_status_all <- vector()
   gsm_character_all <- vector()
   for (i in 1:length(gsm_names)) {
-    gsm_sample <- getGEO(gsm_names[i])
+    gsm_sample <- getGEO(gsm_names[i], destdir = 'tmp')
     gsm_source <- gsm_sample@header$source_name_ch1
+    gsub('\t', " ", gsm_source)
     gsm_status <- gsm_sample@header$title
-    gsm_character <- gsm_sample@header$characteristics_ch1
+    gsub('\t', " ", gsm_status)
+    gsm_character <- paste(gsm_sample@header$characteristics_ch1, sep = "", collapse = " ")
+    gsub('\t', " ", gsm_character)
     gsm_source_all <- c(gsm_source_all, gsm_source)
     gsm_status_all <- c(gsm_status_all, gsm_status)
     gsm_character_all <- c(gsm_character_all, gsm_character)

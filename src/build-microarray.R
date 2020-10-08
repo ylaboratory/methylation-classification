@@ -100,7 +100,7 @@ if (database_type == 'GEO') {
 
 # This script merges all sample metadata from the corresponding dataset
 all_metadata_name <-
-  list.files(path = paste0('data/', database_type), pattern = '_sample_metadata.txt', full.names = T, recursive = T)
+  list.files(path = paste0('data/', database_type), pattern = '_sample_metadata.txt', full.names = T)
 metadata_total <-
   rbindlist(lapply(all_metadata_name, function(x) {
     fread(x)
