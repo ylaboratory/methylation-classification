@@ -1,41 +1,53 @@
 # This script parses the matrix series file from GEO
 import argparse
-import pandas as pd
 import os
 # read the list of accessions
 parser = argparse.ArgumentParser(description='Parsing metadata from GEO ')
 parser.add_argument('file_name', nargs='?', type=str, action='store', help='File name of the GEO accessions')
 args = parser.parse_args()
 file_path = args.file_name
-accession_list = pd.read_csv(file_path, sep='\t', header=None, engine='python')
+accession_list_file = open(file_path, 'r')
+accession_list = accession_list_file.read().split('\n')
 
 
-def separation(string):
-    info = string.split('\t')
-    for i in range(0, len(info)):
-        info[i] = info[i].replace('"', '')
-        info[i] = info[i].replace('\n', '')
-    del info[0]
+def separation(content):
+    content = content.replace('"', '').replace('\n', '')
+    info = content.split('\t')[1:]
     return info
 
 
-df_list = []
-for i in range(0, accession_list.shape[0]):
-    accession = accession_list.iloc[i, 0]
-    metadata = open("./../raw/GEO/" + accession + "_series_matrix.txt", 'r')
+ids_list = []
+source_list = []
+character_full_list = []
+platform_list = []
+for i in range(1, len(accession_list)-1):
+    accession = accession_list[i]
+    character_list = []
+    metadata = open("../raw/GEO/" + accession + "_series_matrix.txt", 'r')
     metadata_line = metadata.readlines()
     for j in metadata_line:
         info = j.split('\t')
         if info[0] == "!Sample_geo_accession":
             ids = separation(j)
+            ids_list = ids_list + ids
         elif info[0] == "!Sample_source_name_ch1":
             source = separation(j)
+            source_list = source_list + source
         elif info[0] == "!Sample_characteristics_ch1":
             character = separation(j)
+            character_list = character_list + character
         elif info[0] == "!Sample_platform_id":
             platform = separation(j)
-    d = {'SampleID': ids, 'Source': source, "Character": character, 'Platform': platform }
-    df = pd.DataFrame(data=d)
-    df_list.append(df)
-summary_df = pd.concat(df_list)
-summary_df.to_csv("./../data/GEO/Metadata_summary.txt", sep='\t', index=False, header=True)
+            platform_list = platform_list + platform
+    reorganize_character = [None]*len(ids)
+    for k in range(0, len(ids)):
+        character_concat = ""
+        for z in range(0, len(character_list)):
+            if z % len(ids) == k:
+                character_concat = character_concat + " " + character_list[z]
+        reorganize_character[k-1] = character_concat
+    character_full_list = character_full_list + reorganize_character
+f = open('../data/GEO/Metadata_summary.txt', 'w')
+for i in range(0, len(ids_list)):
+    f.write(ids_list[i] + '\t' + source_list[i] + '\t' + character_full_list[i] + '\t' + platform_list[i] + '\n')
+f.close()

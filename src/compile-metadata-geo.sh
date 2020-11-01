@@ -1,6 +1,6 @@
 #!/bin/bash
 usage () {
-		echo "script usage: $(basename $0) [-i flag for ignoring existing dataset when downloading -f GSE file path]"
+		echo "script usage: $(basename $0) [ -f GSE file path]"
 }
 while getopts ":f:" Option; do
 	case "$Option" in
