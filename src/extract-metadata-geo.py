@@ -39,6 +39,9 @@ for i in range(1, len(accession_list)-1):
         elif info[0] == "!Sample_platform_id":
             platform = separation(j)
             platform_list = platform_list + platform
+# This block is used to reorganize the information of sample characters.
+# Sometimes multiple rows in the series matrix file have the title of !Sample_characteristics_ch1
+# We integrate all !Sample_characteristics_ch1 information for each sample into one block of text
     reorganize_character = [None]*len(ids)
     for k in range(0, len(ids)):
         character_concat = ""
