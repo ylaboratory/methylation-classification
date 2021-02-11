@@ -7,3 +7,5 @@ data/**/*.txt
 raw/**/*.idat
 processed/**/*.fastq
 processed/**/*.txt
+annotation/Bisulfite_Genome
+annotation/hg*

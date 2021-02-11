@@ -1,16 +1,38 @@
 # Methylation-classification
 
 This project uses whole-genome DNA methylation data to contruct a computational
-model for classifying human tissue/cell type or diseases.
+model for classifying human tissue/cell type or diseases. Corresponding
+elements of the pipeline download and process both microarray and sequencing
+data for use.
 
 ## Directory setup and preparation
 
 To setup the directory structure of data, annotation, raw and processed as well
-as download chain file for microarray data processing:
+as download chain file for data processing run the initial setup script:
 
 ```sh
-bash setup.sh
+bash src/initial_setup.sh
 ```
+
+Several packages will also need to be installed to run the various command
+line tools for data processing. All of the relevant packages are contained
+in the `env.yml` file.
+
+```sh
+conda env create -f env.yml
+conda activate methyl
+```
+
+## Download data
+
+To get started downloading and preprocessing the relevant data run the build
+all script: MAKE THIS SCRIPT!
+
+```sh
+bash src/build-all-sequencing.sh
+```
+
+THE FOLLOWING IS OLD AND WILL BE RESTRUCTURED...
 
 ## Microarray data
 
