@@ -1,5 +1,5 @@
 #!/bin/bash
-ignore_exist_flag=false
+redownload=false
 accession_filename1="_sequencing_accession_"
 accession_filename2=".txt"
 datatype="WGBS"
@@ -27,16 +27,16 @@ usage() {
 
   Optional: 
   -c <integer>            number of cores to use [default: 10]
-  -e                      flag when given will ignore existing datasets when downloading
   -i <file>               input file with list of accessions / ids to download
                           if this file is not provided this script will download 
                           all for a given database
+  -r                      flag when given will force existing datasets to redownload
   **************************************************************************************           
   "
 }
-while getopts ":d:t:c:i:e" option; do
+while getopts ":d:t:c:i:r" option; do
 	case "${option}" in
-		e) ignore_exist_flag=true;;
+		r) redownload=true;;
 		t) datatype=${OPTARG}; echo "processing ${OPTARG} data" ;;
 		d) dataset=${OPTARG}; echo "using ${OPTARG} dataset";;
 		c) core=${OPTARG}; echo "using ${OPTARG} cores";;
@@ -60,9 +60,8 @@ if [[ ! $datatype =~ ^(WGBS|RRBS)$ ]]; then
   exit 0
 fi
 
-# download GEO sequencing data 
 
-
+# download datasets
 
 
 # prepare reference genome if doesn't exist

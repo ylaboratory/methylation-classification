@@ -8,4 +8,5 @@ raw/**/*.idat
 processed/**/*.fastq
 processed/**/*.txt
 annotation/Bisulfite_Genome
+raw
 annotation/hg*
