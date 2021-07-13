@@ -12,7 +12,8 @@ background_correction<-function(accession_datadir){
     stop(paste0('no idat file found'))
   }
   targets <- data.frame('Basename' = sub('_Grn.idat.*', "", file_names))
-  RGset <- read.metharray.exp(targets = targets)
+  print(targets)
+  RGset <- read.metharray.exp(targets = targets, force = T)
   GRset_noob <-
     preprocessNoob(
       RGset,
@@ -28,7 +29,8 @@ background_correction<-function(accession_datadir){
 # Input is the Methylset object after background correction
 # returns a matrix that contains the normalized beta values with hg19 coordinate
 normalization<-function(GRset_noob,dir2metadata) {
-  metadata_table <- read.table(dir2metadata, header = T, sep = '\t')
+  print(dir2metadata);
+  metadata_table <- read.table(dir2metadata, header = T, sep = '\t', fill = T)
   sample_names <- metadata_table[, 'Samples']
   ratioSet <- ratioConvert(GRset_noob, what = "both", keepCN = TRUE)
   gset <- mapToGenome(ratioSet)
@@ -40,6 +42,6 @@ normalization<-function(GRset_noob,dir2metadata) {
   GRset_BMIQ_genome_loci <-
     data.table('chr' = as.character(gset@rowRanges@seqnames),
                'loci' = gset@rowRanges@ranges@start,GRset_BMIQ_genome_loci)
-  setnames(GRset_BMIQ_genome_loci, colnames(GRset_BMIQ), sample_names, skip_absent = T)
+  setnames(GRset_BMIQ_genome_loci, colnames(GRset_BMIQ), as.character(sample_names), skip_absent = T)
   return(GRset_BMIQ_genome_loci)
 }
