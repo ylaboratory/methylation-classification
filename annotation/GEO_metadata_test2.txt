@@ -1,0 +1,3561 @@
+sample_id	disease_name	tissue_name
+GSM2722207	normal	embryonic stem cell line
+GSM2722208	normal	embryonic stem cell line
+GSM2722209	normal	embryonic stem cell line
+GSM2722210	normal	embryonic stem cell line
+GSM2722211	normal	embryonic stem cell line
+GSM2722212	normal	embryonic stem cell line
+GSM2722213	normal	embryonic stem cell line
+GSM2722214	normal	embryonic stem cell line
+GSM2722215	normal	embryonic stem cell line
+GSM2722216	normal	embryonic stem cell line
+GSM2722217	normal	embryonic stem cell line
+GSM2722218	normal	embryonic stem cell line
+GSM2722219	normal	embryonic stem cell line
+GSM2722220	normal	embryonic stem cell line
+GSM2722221	normal	embryonic stem cell line
+GSM2722222	normal	embryonic stem cell line
+GSM3032951	breast cancer	MDA-MB-436 cell
+GSM3032952	breast cancer	MDA-MB-436 cell
+GSM3032953	breast cancer	MDA-MB-436 cell
+GSM3032954	breast cancer	MDA-MB-436 cell
+GSM3032955	breast cancer	MDA-MB-436 cell
+GSM3032956	breast cancer-altered	MDA-MB-436 cell
+GSM3032957	breast cancer-altered	MDA-MB-436 cell
+GSM3032958	breast cancer-altered	MDA-MB-436 cell
+GSM3032959	breast cancer-altered	MDA-MB-436 cell
+GSM3032960	breast cancer-altered	MDA-MB-436 cell
+GSM3032961	breast cancer-altered	MDA-MB-436 cell
+GSM3032962	breast cancer-altered	MDA-MB-436 cell
+GSM3032963	breast cancer-altered	MDA-MB-436 cell
+GSM3032964	breast cancer-altered	MDA-MB-436 cell
+GSM3032965	breast cancer-altered	MDA-MB-436 cell
+GSM3032966	breast cancer-altered	MDA-MB-436 cell
+GSM3032967	breast cancer-altered	MDA-MB-436 cell
+GSM3032968	breast cancer-altered	MDA-MB-436 cell
+GSM3032969	breast cancer-altered	MDA-MB-436 cell
+GSM3032970	breast cancer-altered	MDA-MB-436 cell
+GSM3362390	adjacent normal	prostate gland
+GSM3362391	adjacent normal	prostate gland
+GSM3362392	adjacent normal	prostate gland
+GSM3362393	adjacent normal	prostate gland
+GSM3362394	prostate cancer	prostate gland
+GSM3362395	prostate cancer	prostate gland
+GSM3362396	prostate cancer	prostate gland
+GSM3362397	prostate cancer	prostate gland
+GSM3362398	adjacent normal	blood plasma
+GSM3362399	adjacent normal	blood plasma
+GSM3362400	adjacent normal	blood plasma
+GSM3362401	adjacent normal	blood plasma
+GSM3362402	adjacent normal	urine
+GSM3362403	adjacent normal	urine
+GSM3362404	adjacent normal	urine
+GSM3362405	adjacent normal	urine
+GSM3383551	Williams syndrome	peripheral blood
+GSM3383552	Williams syndrome	peripheral blood
+GSM3383553	Williams syndrome	peripheral blood
+GSM3383554	Williams syndrome	peripheral blood
+GSM3383555	Williams syndrome	peripheral blood
+GSM3383556	Williams syndrome	peripheral blood
+GSM3383557	Williams syndrome	peripheral blood
+GSM3383558	Williams syndrome	peripheral blood
+GSM3383559	Williams syndrome	peripheral blood
+GSM3383560	Williams syndrome	peripheral blood
+GSM3383561	Williams syndrome	peripheral blood
+GSM3383562	Williams syndrome	peripheral blood
+GSM3383563	Williams syndrome	peripheral blood
+GSM3383564	Williams syndrome	peripheral blood
+GSM3383565	Williams syndrome	peripheral blood
+GSM3383566	Williams syndrome	peripheral blood
+GSM3383567	Williams syndrome	peripheral blood
+GSM3383568	Williams syndrome	peripheral blood
+GSM3383569	Williams syndrome	peripheral blood
+GSM3383570	Williams syndrome	peripheral blood
+GSM3383571	Williams syndrome	peripheral blood
+GSM3383572	Williams syndrome	peripheral blood
+GSM3383573	Williams syndrome	peripheral blood
+GSM3383574	Williams syndrome	peripheral blood
+GSM3383575	Williams syndrome	peripheral blood
+GSM3383576	Williams syndrome	peripheral blood
+GSM3383577	Williams syndrome	peripheral blood
+GSM3383578	Williams syndrome	peripheral blood
+GSM3383579	Williams syndrome	peripheral blood
+GSM3383580	Williams syndrome	peripheral blood
+GSM3383581	Williams syndrome	peripheral blood
+GSM3383582	Williams syndrome	peripheral blood
+GSM3383583	Williams syndrome	peripheral blood
+GSM3383584	Williams syndrome	peripheral blood
+GSM3383585	normal	peripheral blood
+GSM3383586	normal	peripheral blood
+GSM3383587	normal	peripheral blood
+GSM3383588	normal	peripheral blood
+GSM3383589	normal	peripheral blood
+GSM3383590	normal	peripheral blood
+GSM3383591	normal	peripheral blood
+GSM3383592	normal	peripheral blood
+GSM3383593	normal	peripheral blood
+GSM3383594	normal	peripheral blood
+GSM3383595	normal	peripheral blood
+GSM3383596	normal	peripheral blood
+GSM3383597	normal	peripheral blood
+GSM3383598	normal	peripheral blood
+GSM3383599	normal	peripheral blood
+GSM3383600	normal	peripheral blood
+GSM3383601	normal	peripheral blood
+GSM3383602	normal	peripheral blood
+GSM3383603	normal	peripheral blood
+GSM3383604	normal	peripheral blood
+GSM3383605	normal	peripheral blood
+GSM3383606	normal	peripheral blood
+GSM3383607	normal	peripheral blood
+GSM3383608	normal	peripheral blood
+GSM3383609	normal	peripheral blood
+GSM3383610	normal	peripheral blood
+GSM3383611	normal	peripheral blood
+GSM3383612	normal	peripheral blood
+GSM3383613	normal	peripheral blood
+GSM3383614	normal	peripheral blood
+GSM3383615	normal	peripheral blood
+GSM3383616	normal	peripheral blood
+GSM3383617	normal	peripheral blood
+GSM3383618	normal	peripheral blood
+GSM3427600	normal	naive T-lymphocyte
+GSM3427601	normal	naive T-lymphocyte
+GSM3427602	normal	naive T-lymphocyte
+GSM3427603	normal	naive T-lymphocyte
+GSM3427604	rheumatoid arthritis	naive T-lymphocyte
+GSM3427605	rheumatoid arthritis	naive T-lymphocyte
+GSM3427606	rheumatoid arthritis	naive T-lymphocyte
+GSM3427607	rheumatoid arthritis	naive T-lymphocyte
+GSM3427608	rheumatoid arthritis	naive T-lymphocyte
+GSM3427609	rheumatoid arthritis	naive T-lymphocyte
+GSM3427610	rheumatoid arthritis	naive T-lymphocyte
+GSM3427611	rheumatoid arthritis	naive T-lymphocyte
+GSM3427612	rheumatoid arthritis	naive T-lymphocyte
+GSM3427613	rheumatoid arthritis	naive T-lymphocyte
+GSM3427614	normal	memory T-lymphocyte
+GSM3427615	normal	memory T-lymphocyte
+GSM3427616	normal	memory T-lymphocyte
+GSM3427617	normal	memory T-lymphocyte
+GSM3427618	normal	memory T-lymphocyte
+GSM3427619	normal	memory T-lymphocyte
+GSM3427620	rheumatoid arthritis	memory T-lymphocyte
+GSM3427621	rheumatoid arthritis	memory T-lymphocyte
+GSM3427622	rheumatoid arthritis	memory T-lymphocyte
+GSM3427623	rheumatoid arthritis	memory T-lymphocyte
+GSM3427624	rheumatoid arthritis	memory T-lymphocyte
+GSM3427625	rheumatoid arthritis	memory T-lymphocyte
+GSM3427626	rheumatoid arthritis	memory T-lymphocyte
+GSM3427627	rheumatoid arthritis	memory T-lymphocyte
+GSM3427628	rheumatoid arthritis	memory T-lymphocyte
+GSM3427629	rheumatoid arthritis	memory T-lymphocyte
+GSM3427630	normal	monocyte
+GSM3427631	normal	monocyte
+GSM3427632	normal	monocyte
+GSM3427633	normal	monocyte
+GSM3427634	normal	monocyte
+GSM3427635	normal	monocyte
+GSM3427636	rheumatoid arthritis	monocyte
+GSM3427637	rheumatoid arthritis	monocyte
+GSM3427638	rheumatoid arthritis	monocyte
+GSM3427639	rheumatoid arthritis	monocyte
+GSM3427640	rheumatoid arthritis	monocyte
+GSM3427641	rheumatoid arthritis	monocyte
+GSM3427642	rheumatoid arthritis	monocyte
+GSM3427643	rheumatoid arthritis	monocyte
+GSM3427644	rheumatoid arthritis	monocyte
+GSM3427645	rheumatoid arthritis	monocyte
+GSM3665295	normal	embryonic stem cell line
+GSM3665296	normal	embryonic stem cell line
+GSM3665297	normal	embryonic stem cell line
+GSM3665298	normal	embryonic stem cell line
+GSM3665299	normal	embryonic stem cell line
+GSM3665300	normal	embryonic stem cell line
+GSM3665301	normal	embryonic stem cell line
+GSM3665302	normal	embryonic stem cell line
+GSM3665303	normal	embryonic stem cell line
+GSM3665304	normal	embryonic stem cell line
+GSM3665305	normal	embryonic stem cell line
+GSM3665306	normal	embryonic stem cell line
+GSM3665307	normal	embryonic stem cell line
+GSM3665308	normal	embryonic stem cell line
+GSM3665309	normal	embryonic stem cell line
+GSM3665310	normal	embryonic stem cell line
+GSM3665311	normal-altered	embryonic stem cell line
+GSM3665312	normal	embryonic stem cell line
+GSM3665313	normal-altered	embryonic stem cell line
+GSM3665314	normal-altered	embryonic stem cell line
+GSM3665315	normal-altered	embryonic stem cell line
+GSM3665316	normal-altered	embryonic stem cell line
+GSM3665317	normal-altered	embryonic stem cell line
+GSM3755144	normal-treated	Hepa-RG cell
+GSM3755145	normal-treated	Hepa-RG cell
+GSM3755146	normal-treated	Hepa-RG cell
+GSM3755147	normal-treated	Hepa-RG cell
+GSM3755148	normal-treated	Hepa-RG cell
+GSM3755149	normal-treated	Hepa-RG cell
+GSM3755150	normal-treated	Hepa-RG cell
+GSM3755151	normal-treated	Hepa-RG cell
+GSM3755152	normal-treated	Hepa-RG cell
+GSM3755153	normal-treated	Hepa-RG cell
+GSM3755154	normal-treated	Hepa-RG cell
+GSM3755155	normal-treated	Hepa-RG cell
+GSM3755156	normal-treated	Hepa-RG cell
+GSM3755157	normal-treated	Hepa-RG cell
+GSM3755158	normal-treated	Hepa-RG cell
+GSM3755159	normal-treated	Hepa-RG cell
+GSM3770869	adrenocortical carcinoma	adrenal gland
+GSM3770870	adrenocortical carcinoma	adrenal gland
+GSM3770871	adrenocortical carcinoma	adrenal gland
+GSM3770872	adrenocortical carcinoma	adrenal gland
+GSM3770873	adrenocortical carcinoma	adrenal gland
+GSM3770874	adrenocortical carcinoma	adrenal gland
+GSM3770875	adrenocortical carcinoma	adrenal gland
+GSM3770876	adrenocortical carcinoma	adrenal gland
+GSM3770877	adrenocortical carcinoma	adrenal gland
+GSM3770878	adrenocortical carcinoma	adrenal gland
+GSM3770879	adrenocortical carcinoma	adrenal gland
+GSM3770880	adrenocortical carcinoma	adrenal gland
+GSM3770881	adrenocortical carcinoma	adrenal gland
+GSM3770882	adrenocortical carcinoma	adrenal gland
+GSM3770883	adrenocortical carcinoma	adrenal gland
+GSM3770884	adrenocortical carcinoma	adrenal gland
+GSM3770885	adrenocortical carcinoma	adrenal gland
+GSM3770886	adrenocortical carcinoma	adrenal gland
+GSM3770887	adrenocortical carcinoma	adrenal gland
+GSM3770888	adrenocortical carcinoma	adrenal gland
+GSM3770889	adrenocortical carcinoma	adrenal gland
+GSM3770890	adrenocortical carcinoma	adrenal gland
+GSM3770891	adrenocortical carcinoma	adrenal gland
+GSM3770892	adrenocortical carcinoma	adrenal gland
+GSM3770893	adrenocortical carcinoma	adrenal gland
+GSM3770894	adrenocortical carcinoma	adrenal gland
+GSM3770895	adrenocortical carcinoma	adrenal gland
+GSM3770896	adrenocortical carcinoma	adrenal gland
+GSM3770897	adrenocortical carcinoma	adrenal gland
+GSM3770898	adrenocortical carcinoma	adrenal gland
+GSM3770899	adrenocortical carcinoma	adrenal gland
+GSM3770900	adrenocortical carcinoma	adrenal gland
+GSM3770901	adrenocortical carcinoma	adrenal gland
+GSM3770902	adrenocortical carcinoma	adrenal gland
+GSM3770903	adrenocortical carcinoma	adrenal gland
+GSM3770904	adrenocortical carcinoma	adrenal gland
+GSM3770905	adrenocortical carcinoma	adrenal gland
+GSM3770906	adrenocortical carcinoma	adrenal gland
+GSM3770907	adrenocortical carcinoma	adrenal gland
+GSM3770908	adrenocortical carcinoma	adrenal gland
+GSM3770909	adrenocortical carcinoma	adrenal gland
+GSM3770910	adrenocortical carcinoma	adrenal gland
+GSM3770911	adrenocortical carcinoma	adrenal gland
+GSM3770912	adrenocortical carcinoma	adrenal gland
+GSM3770913	adrenocortical carcinoma	adrenal gland
+GSM3770914	adrenocortical carcinoma	adrenal gland
+GSM3770915	adrenocortical carcinoma	adrenal gland
+GSM3770916	adrenocortical carcinoma	adrenal gland
+GSM3770917	normal	adrenal gland
+GSM3770918	normal	adrenal gland
+GSM3770919	normal	adrenal gland
+GSM3770920	normal	adrenal gland
+GSM3770921	normal	adrenal gland
+GSM3770922	normal	adrenal gland
+GSM3770923	normal	adrenal gland
+GSM3770924	normal	adrenal gland
+GSM3770925	normal	adrenal gland
+GSM3770926	normal	adrenal gland
+GSM3770927	normal	adrenal gland
+GSM3770928	normal	adrenal gland
+GSM3813534	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813535	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813536	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813537	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813538	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813539	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813540	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813541	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813542	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813543	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813544	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813545	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813546	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813547	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813548	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813549	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813550	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813551	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813552	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813553	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813554	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813555	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813556	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813557	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813558	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813559	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813560	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813561	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813562	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813563	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813564	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813565	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813566	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813567	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813568	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813569	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813570	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813571	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813572	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813573	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813574	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813575	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813576	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813577	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813578	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813579	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813580	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813581	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3813582	T-cell lymphoblastic lymphoma	T-cell lymphoma cell
+GSM3852241	normal	umbilical cord blood
+GSM3852242	normal	peripheral blood mononuclear cell
+GSM3852243	normal	umbilical cord blood
+GSM3852244	normal	peripheral blood mononuclear cell
+GSM3852245	normal	umbilical cord blood
+GSM3852246	normal	peripheral blood mononuclear cell
+GSM3852247	normal	umbilical cord blood
+GSM3852248	normal	peripheral blood mononuclear cell
+GSM3852249	normal	umbilical cord blood
+GSM3852250	normal	peripheral blood mononuclear cell
+GSM3852251	normal	umbilical cord blood
+GSM3852252	normal	peripheral blood mononuclear cell
+GSM3852253	normal	umbilical cord blood
+GSM3852254	normal	peripheral blood mononuclear cell
+GSM3852255	normal	umbilical cord blood
+GSM3852256	normal	peripheral blood mononuclear cell
+GSM3852257	normal	umbilical cord blood
+GSM3852258	normal	peripheral blood mononuclear cell
+GSM3852259	normal	umbilical cord blood
+GSM3852260	normal	peripheral blood mononuclear cell
+GSM3852261	normal	umbilical cord blood
+GSM3852262	normal	peripheral blood mononuclear cell
+GSM3852263	normal	umbilical cord blood
+GSM3852264	normal	peripheral blood mononuclear cell
+GSM3852265	normal	umbilical cord blood
+GSM3852266	normal	peripheral blood mononuclear cell
+GSM3852267	normal	umbilical cord blood
+GSM3852268	normal	peripheral blood mononuclear cell
+GSM3852269	normal	umbilical cord blood
+GSM3852270	normal	peripheral blood mononuclear cell
+GSM3852271	normal	umbilical cord blood
+GSM3852272	normal	peripheral blood mononuclear cell
+GSM3852273	normal	umbilical cord blood
+GSM3852274	normal	peripheral blood mononuclear cell
+GSM3852275	normal	umbilical cord blood
+GSM3852276	normal	peripheral blood mononuclear cell
+GSM3852277	normal	umbilical cord blood
+GSM3852278	normal	peripheral blood mononuclear cell
+GSM3852279	normal	umbilical cord blood
+GSM3852280	normal	peripheral blood mononuclear cell
+GSM3852281	normal	umbilical cord blood
+GSM3852282	normal	peripheral blood mononuclear cell
+GSM3852283	normal	umbilical cord blood
+GSM3852284	normal	peripheral blood mononuclear cell
+GSM3852285	normal	umbilical cord blood
+GSM3852286	normal	peripheral blood mononuclear cell
+GSM3852287	normal	umbilical cord blood
+GSM3852288	normal	peripheral blood mononuclear cell
+GSM3852289	normal	umbilical cord blood
+GSM3852290	normal	peripheral blood mononuclear cell
+GSM3852291	normal	umbilical cord blood
+GSM3852292	normal	peripheral blood mononuclear cell
+GSM3852293	normal	umbilical cord blood
+GSM3852294	normal	peripheral blood mononuclear cell
+GSM3852295	normal	umbilical cord blood
+GSM3852296	normal	peripheral blood mononuclear cell
+GSM3852297	normal	umbilical cord blood
+GSM3852298	normal	peripheral blood mononuclear cell
+GSM3852299	normal	umbilical cord blood
+GSM3852300	normal	peripheral blood mononuclear cell
+GSM3852301	normal	umbilical cord blood
+GSM3852302	normal	peripheral blood mononuclear cell
+GSM3852303	normal	umbilical cord blood
+GSM3852304	normal	peripheral blood mononuclear cell
+GSM3852305	normal	umbilical cord blood
+GSM3852306	normal	peripheral blood mononuclear cell
+GSM3852307	normal	umbilical cord blood
+GSM3852308	normal	peripheral blood mononuclear cell
+GSM3852309	normal	umbilical cord blood
+GSM3852310	normal	peripheral blood mononuclear cell
+GSM3852311	normal	umbilical cord blood
+GSM3852312	normal	peripheral blood mononuclear cell
+GSM3852313	normal	umbilical cord blood
+GSM3852314	normal	peripheral blood mononuclear cell
+GSM3852315	normal	umbilical cord blood
+GSM3852316	normal	peripheral blood mononuclear cell
+GSM3852317	normal	umbilical cord blood
+GSM3852318	normal	peripheral blood mononuclear cell
+GSM3852319	normal	umbilical cord blood
+GSM3852320	normal	peripheral blood mononuclear cell
+GSM3852321	normal	umbilical cord blood
+GSM3852322	normal	peripheral blood mononuclear cell
+GSM3852323	normal	umbilical cord blood
+GSM3852324	normal	peripheral blood mononuclear cell
+GSM3852325	normal	umbilical cord blood
+GSM3852326	normal	peripheral blood mononuclear cell
+GSM3852327	normal	umbilical cord blood
+GSM3852328	normal	peripheral blood mononuclear cell
+GSM3852329	normal	umbilical cord blood
+GSM3852330	normal	peripheral blood mononuclear cell
+GSM3852331	normal	umbilical cord blood
+GSM3852332	normal	peripheral blood mononuclear cell
+GSM3852333	normal	umbilical cord blood
+GSM3852334	normal	peripheral blood mononuclear cell
+GSM3852335	normal	umbilical cord blood
+GSM3852336	normal	peripheral blood mononuclear cell
+GSM3852337	normal	umbilical cord blood
+GSM3852338	normal	peripheral blood mononuclear cell
+GSM3852339	normal	umbilical cord blood
+GSM3852340	normal	peripheral blood mononuclear cell
+GSM3852341	normal	umbilical cord blood
+GSM3852342	normal	peripheral blood mononuclear cell
+GSM3852343	normal	umbilical cord blood
+GSM3852344	normal	peripheral blood mononuclear cell
+GSM3852345	normal	umbilical cord blood
+GSM3852346	normal	peripheral blood mononuclear cell
+GSM3852347	normal	umbilical cord blood
+GSM3852348	normal	peripheral blood mononuclear cell
+GSM3852349	normal	umbilical cord blood
+GSM3852350	normal	peripheral blood mononuclear cell
+GSM3852351	normal	umbilical cord blood
+GSM3852352	normal	peripheral blood mononuclear cell
+GSM3852353	normal	umbilical cord blood
+GSM3852354	normal	peripheral blood mononuclear cell
+GSM3852355	normal	umbilical cord blood
+GSM3852356	normal	peripheral blood mononuclear cell
+GSM3852357	normal	umbilical cord blood
+GSM3852358	normal	peripheral blood mononuclear cell
+GSM3852359	normal	umbilical cord blood
+GSM3852360	normal	peripheral blood mononuclear cell
+GSM3852361	normal	umbilical cord blood
+GSM3852362	normal	peripheral blood mononuclear cell
+GSM3852363	normal	umbilical cord blood
+GSM3852364	normal	peripheral blood mononuclear cell
+GSM3852365	normal	umbilical cord blood
+GSM3852366	normal	peripheral blood mononuclear cell
+GSM3852367	normal	umbilical cord blood
+GSM3852368	normal	peripheral blood mononuclear cell
+GSM3852369	normal	umbilical cord blood
+GSM3852370	normal	peripheral blood mononuclear cell
+GSM3852371	normal	umbilical cord blood
+GSM3852372	normal	peripheral blood mononuclear cell
+GSM3852373	normal	umbilical cord blood
+GSM3852374	normal	peripheral blood mononuclear cell
+GSM3852375	normal	umbilical cord blood
+GSM3852376	normal	peripheral blood mononuclear cell
+GSM3852377	normal	umbilical cord blood
+GSM3852378	normal	peripheral blood mononuclear cell
+GSM3852379	normal	umbilical cord blood
+GSM3852380	normal	peripheral blood mononuclear cell
+GSM3852381	normal	umbilical cord blood
+GSM3852382	normal	peripheral blood mononuclear cell
+GSM3852383	normal	umbilical cord blood
+GSM3852384	normal	peripheral blood mononuclear cell
+GSM3852385	normal	umbilical cord blood
+GSM3852386	normal	peripheral blood mononuclear cell
+GSM3852387	normal	umbilical cord blood
+GSM3852388	normal	peripheral blood mononuclear cell
+GSM3852389	normal	umbilical cord blood
+GSM3852390	normal	peripheral blood mononuclear cell
+GSM3852391	normal	umbilical cord blood
+GSM3852392	normal	peripheral blood mononuclear cell
+GSM3852393	normal	umbilical cord blood
+GSM3852394	normal	peripheral blood mononuclear cell
+GSM3852395	normal	umbilical cord blood
+GSM3852396	normal	peripheral blood mononuclear cell
+GSM3852397	normal	umbilical cord blood
+GSM3852398	normal	peripheral blood mononuclear cell
+GSM3852399	normal	umbilical cord blood
+GSM3852400	normal	peripheral blood mononuclear cell
+GSM3852401	normal	umbilical cord blood
+GSM3852402	normal	peripheral blood mononuclear cell
+GSM3852403	normal	umbilical cord blood
+GSM3852404	normal	peripheral blood mononuclear cell
+GSM3852405	normal	umbilical cord blood
+GSM3852406	normal	peripheral blood mononuclear cell
+GSM3852407	normal	umbilical cord blood
+GSM3852408	normal	peripheral blood mononuclear cell
+GSM3852409	normal	umbilical cord blood
+GSM3852410	normal	peripheral blood mononuclear cell
+GSM3852411	normal	umbilical cord blood
+GSM3852412	normal	peripheral blood mononuclear cell
+GSM3852413	normal	umbilical cord blood
+GSM3852414	normal	peripheral blood mononuclear cell
+GSM3852415	normal	umbilical cord blood
+GSM3852416	normal	peripheral blood mononuclear cell
+GSM3852417	normal	umbilical cord blood
+GSM3852418	normal	peripheral blood mononuclear cell
+GSM3852419	normal	umbilical cord blood
+GSM3852420	normal	peripheral blood mononuclear cell
+GSM3852421	normal	umbilical cord blood
+GSM3852422	normal	peripheral blood mononuclear cell
+GSM3852423	normal	umbilical cord blood
+GSM3852424	normal	peripheral blood mononuclear cell
+GSM3852425	normal	umbilical cord blood
+GSM3852426	normal	peripheral blood mononuclear cell
+GSM3852427	normal	umbilical cord blood
+GSM3852428	normal	peripheral blood mononuclear cell
+GSM3852429	normal	umbilical cord blood
+GSM3852430	normal	peripheral blood mononuclear cell
+GSM3852431	normal	umbilical cord blood
+GSM3852432	normal	peripheral blood mononuclear cell
+GSM3852433	normal	umbilical cord blood
+GSM3852434	normal	peripheral blood mononuclear cell
+GSM3852435	normal	umbilical cord blood
+GSM3852436	normal	peripheral blood mononuclear cell
+GSM3852437	normal	umbilical cord blood
+GSM3852438	normal	peripheral blood mononuclear cell
+GSM3852439	normal	umbilical cord blood
+GSM3852440	normal	peripheral blood mononuclear cell
+GSM3852441	normal	umbilical cord blood
+GSM3852442	normal	peripheral blood mononuclear cell
+GSM3852443	normal	umbilical cord blood
+GSM3852444	normal	peripheral blood mononuclear cell
+GSM3852445	normal	umbilical cord blood
+GSM3852446	normal	peripheral blood mononuclear cell
+GSM3852447	normal	umbilical cord blood
+GSM3852448	normal	peripheral blood mononuclear cell
+GSM3852449	normal	umbilical cord blood
+GSM3852450	normal	peripheral blood mononuclear cell
+GSM3852451	normal	umbilical cord blood
+GSM3852452	normal	peripheral blood mononuclear cell
+GSM3852453	normal	umbilical cord blood
+GSM3852454	normal	peripheral blood mononuclear cell
+GSM3852455	normal	umbilical cord blood
+GSM3852456	normal	peripheral blood mononuclear cell
+GSM3852457	normal	umbilical cord blood
+GSM3852458	normal	peripheral blood mononuclear cell
+GSM3852459	normal	umbilical cord blood
+GSM3852460	normal	peripheral blood mononuclear cell
+GSM3852461	normal	umbilical cord blood
+GSM3852462	normal	peripheral blood mononuclear cell
+GSM3852463	normal	umbilical cord blood
+GSM3852464	normal	peripheral blood mononuclear cell
+GSM3852465	normal	umbilical cord blood
+GSM3852466	normal	peripheral blood mononuclear cell
+GSM3852467	normal	umbilical cord blood
+GSM3852468	normal	peripheral blood mononuclear cell
+GSM3852469	normal	umbilical cord blood
+GSM3852470	normal	peripheral blood mononuclear cell
+GSM3852471	normal	umbilical cord blood
+GSM3852472	normal	peripheral blood mononuclear cell
+GSM3852473	normal	umbilical cord blood
+GSM3852474	normal	peripheral blood mononuclear cell
+GSM3852475	normal	umbilical cord blood
+GSM3852476	normal	peripheral blood mononuclear cell
+GSM3852477	normal	umbilical cord blood
+GSM3852478	normal	peripheral blood mononuclear cell
+GSM3852479	normal	umbilical cord blood
+GSM3852480	normal	peripheral blood mononuclear cell
+GSM3852481	normal	umbilical cord blood
+GSM3852482	normal	peripheral blood mononuclear cell
+GSM3852483	normal	umbilical cord blood
+GSM3852484	normal	peripheral blood mononuclear cell
+GSM3852485	normal	umbilical cord blood
+GSM3852486	normal	peripheral blood mononuclear cell
+GSM3852487	normal	umbilical cord blood
+GSM3852488	normal	peripheral blood mononuclear cell
+GSM3852489	normal	umbilical cord blood
+GSM3852490	normal	peripheral blood mononuclear cell
+GSM3852491	normal	umbilical cord blood
+GSM3852492	normal	peripheral blood mononuclear cell
+GSM3852493	normal	umbilical cord blood
+GSM3852494	normal	peripheral blood mononuclear cell
+GSM3852495	normal	umbilical cord blood
+GSM3852496	normal	peripheral blood mononuclear cell
+GSM3852497	normal	umbilical cord blood
+GSM3852498	normal	peripheral blood mononuclear cell
+GSM3852499	normal	umbilical cord blood
+GSM3852500	normal	peripheral blood mononuclear cell
+GSM3852501	normal	umbilical cord blood
+GSM3852502	normal	peripheral blood mononuclear cell
+GSM3852503	normal	umbilical cord blood
+GSM3852504	normal	peripheral blood mononuclear cell
+GSM3852505	normal	umbilical cord blood
+GSM3852506	normal	peripheral blood mononuclear cell
+GSM3852507	normal	umbilical cord blood
+GSM3852508	normal	peripheral blood mononuclear cell
+GSM3852509	normal	umbilical cord blood
+GSM3852510	normal	peripheral blood mononuclear cell
+GSM3852511	normal	umbilical cord blood
+GSM3852512	normal	peripheral blood mononuclear cell
+GSM3852513	normal	umbilical cord blood
+GSM3852514	normal	peripheral blood mononuclear cell
+GSM3852515	normal	umbilical cord blood
+GSM3852516	normal	peripheral blood mononuclear cell
+GSM3852517	normal	umbilical cord blood
+GSM3852518	normal	peripheral blood mononuclear cell
+GSM3852519	normal	umbilical cord blood
+GSM3852520	normal	peripheral blood mononuclear cell
+GSM3852521	normal	umbilical cord blood
+GSM3852522	normal	peripheral blood mononuclear cell
+GSM3852523	normal	umbilical cord blood
+GSM3852524	normal	peripheral blood mononuclear cell
+GSM3852525	normal	umbilical cord blood
+GSM3852526	normal	peripheral blood mononuclear cell
+GSM3852527	normal	umbilical cord blood
+GSM3852528	normal	peripheral blood mononuclear cell
+GSM3852529	normal	umbilical cord blood
+GSM3852530	normal	peripheral blood mononuclear cell
+GSM3852531	normal	umbilical cord blood
+GSM3852532	normal	peripheral blood mononuclear cell
+GSM3852533	normal	umbilical cord blood
+GSM3852534	normal	peripheral blood mononuclear cell
+GSM3852535	normal	umbilical cord blood
+GSM3852536	normal	peripheral blood mononuclear cell
+GSM3852537	normal	umbilical cord blood
+GSM3852538	normal	peripheral blood mononuclear cell
+GSM3852539	normal	umbilical cord blood
+GSM3852540	normal	peripheral blood mononuclear cell
+GSM3852541	normal	umbilical cord blood
+GSM3852542	normal	peripheral blood mononuclear cell
+GSM3852543	normal	umbilical cord blood
+GSM3852544	normal	peripheral blood mononuclear cell
+GSM3852545	normal	umbilical cord blood
+GSM3852546	normal	peripheral blood mononuclear cell
+GSM3852547	normal	umbilical cord blood
+GSM3852548	normal	peripheral blood mononuclear cell
+GSM3852549	normal	umbilical cord blood
+GSM3852550	normal	peripheral blood mononuclear cell
+GSM3852551	normal	umbilical cord blood
+GSM3852552	normal	peripheral blood mononuclear cell
+GSM3852553	normal	umbilical cord blood
+GSM3852554	normal	peripheral blood mononuclear cell
+GSM3852555	normal	umbilical cord blood
+GSM3852556	normal	peripheral blood mononuclear cell
+GSM3852557	normal	umbilical cord blood
+GSM3852558	normal	peripheral blood mononuclear cell
+GSM3852559	normal	umbilical cord blood
+GSM3852560	normal	peripheral blood mononuclear cell
+GSM3852561	normal	umbilical cord blood
+GSM3852562	normal	peripheral blood mononuclear cell
+GSM3852563	normal	umbilical cord blood
+GSM3852564	normal	peripheral blood mononuclear cell
+GSM3852565	normal	umbilical cord blood
+GSM3852566	normal	peripheral blood mononuclear cell
+GSM3852567	normal	umbilical cord blood
+GSM3852568	normal	peripheral blood mononuclear cell
+GSM3852569	normal	umbilical cord blood
+GSM3852570	normal	peripheral blood mononuclear cell
+GSM3852571	normal	umbilical cord blood
+GSM3852572	normal	peripheral blood mononuclear cell
+GSM3852573	normal	umbilical cord blood
+GSM3852574	normal	peripheral blood mononuclear cell
+GSM3852575	normal	umbilical cord blood
+GSM3852576	normal	peripheral blood mononuclear cell
+GSM3852577	normal	umbilical cord blood
+GSM3852578	normal	peripheral blood mononuclear cell
+GSM3852579	normal	umbilical cord blood
+GSM3852580	normal	peripheral blood mononuclear cell
+GSM3852581	normal	umbilical cord blood
+GSM3852582	normal	peripheral blood mononuclear cell
+GSM3852583	normal	umbilical cord blood
+GSM3852584	normal	peripheral blood mononuclear cell
+GSM3852585	normal	umbilical cord blood
+GSM3852586	normal	peripheral blood mononuclear cell
+GSM3852587	normal	umbilical cord blood
+GSM3852588	normal	peripheral blood mononuclear cell
+GSM3852589	normal	umbilical cord blood
+GSM3852590	normal	peripheral blood mononuclear cell
+GSM3852591	normal	umbilical cord blood
+GSM3852592	normal	peripheral blood mononuclear cell
+GSM3852593	normal	umbilical cord blood
+GSM3852594	normal	peripheral blood mononuclear cell
+GSM3852595	normal	umbilical cord blood
+GSM3852596	normal	peripheral blood mononuclear cell
+GSM3852597	normal	umbilical cord blood
+GSM3852598	normal	peripheral blood mononuclear cell
+GSM3852599	normal	umbilical cord blood
+GSM3852600	normal	peripheral blood mononuclear cell
+GSM3852601	normal	umbilical cord blood
+GSM3852602	normal	peripheral blood mononuclear cell
+GSM3852603	normal	umbilical cord blood
+GSM3852604	normal	peripheral blood mononuclear cell
+GSM3852605	normal	umbilical cord blood
+GSM3852606	normal	peripheral blood mononuclear cell
+GSM3852607	normal	umbilical cord blood
+GSM3852608	normal	peripheral blood mononuclear cell
+GSM3852609	normal	umbilical cord blood
+GSM3852610	normal	peripheral blood mononuclear cell
+GSM3852611	normal	umbilical cord blood
+GSM3852612	normal	peripheral blood mononuclear cell
+GSM3852613	normal	umbilical cord blood
+GSM3852614	normal	peripheral blood mononuclear cell
+GSM3852615	normal	umbilical cord blood
+GSM3852616	normal	peripheral blood mononuclear cell
+GSM3852617	normal	umbilical cord blood
+GSM3852618	normal	peripheral blood mononuclear cell
+GSM3852619	normal	umbilical cord blood
+GSM3852620	normal	peripheral blood mononuclear cell
+GSM3852621	normal	umbilical cord blood
+GSM3852622	normal	peripheral blood mononuclear cell
+GSM3852623	normal	umbilical cord blood
+GSM3852624	normal	peripheral blood mononuclear cell
+GSM3852625	normal	umbilical cord blood
+GSM3852626	normal	peripheral blood mononuclear cell
+GSM3852627	normal	umbilical cord blood
+GSM3852628	normal	peripheral blood mononuclear cell
+GSM3852629	normal	umbilical cord blood
+GSM3852630	normal	peripheral blood mononuclear cell
+GSM3852631	normal	umbilical cord blood
+GSM3852632	normal	peripheral blood mononuclear cell
+GSM3861612	normal	liver
+GSM3861613	normal	liver
+GSM3861614	normal	liver
+GSM3861615	normal	liver
+GSM3861616	normal	liver
+GSM3861617	normal	liver
+GSM3861618	normal	liver
+GSM3861619	normal	liver
+GSM3861620	normal	liver
+GSM3861621	normal	liver
+GSM3861622	normal	liver
+GSM3861623	normal	liver
+GSM3861624	normal	liver
+GSM3861625	normal	liver
+GSM3861626	normal	liver
+GSM3861627	normal	liver
+GSM3861628	normal	liver
+GSM3861629	normal	liver
+GSM3861630	normal	liver
+GSM3861631	normal	liver
+GSM3861632	normal	liver
+GSM3861633	normal	liver
+GSM3861634	normal	liver
+GSM3861635	normal	liver
+GSM3861636	normal	liver
+GSM3861637	normal	liver
+GSM3861638	hepatoblastoma	liver
+GSM3861639	hepatoblastoma	liver
+GSM3861640	hepatoblastoma	liver
+GSM3861641	hepatoblastoma	liver
+GSM3861642	hepatoblastoma	liver
+GSM3861643	hepatoblastoma	liver
+GSM3861644	hepatoblastoma	liver
+GSM3861645	hepatoblastoma	liver
+GSM3861646	hepatoblastoma	liver
+GSM3861647	hepatoblastoma	liver
+GSM3861648	hepatoblastoma	liver
+GSM3861649	hepatoblastoma	liver
+GSM3861652	hepatoblastoma	liver
+GSM3861655	hepatoblastoma	liver
+GSM3861658	hepatoblastoma	liver
+GSM3861659	hepatoblastoma	liver
+GSM3861660	hepatoblastoma	liver
+GSM3861661	hepatoblastoma	liver
+GSM3861662	hepatoblastoma	liver
+GSM3861663	hepatoblastoma	liver
+GSM3861664	hepatoblastoma	liver
+GSM3861665	hepatoblastoma	liver
+GSM3861666	hepatoblastoma	liver
+GSM3861667	hepatoblastoma	liver
+GSM3861668	hepatoblastoma	liver
+GSM3861669	hepatoblastoma	liver
+GSM3861670	hepatoblastoma	liver
+GSM3861671	hepatoblastoma	liver
+GSM3881049	breast cancer	MCF-7 cell
+GSM3881050	breast cancer-altered	MCF-7 cell
+GSM3927480	pineoblastoma	pineal gland
+GSM3927481	pineoblastoma	pineal gland
+GSM3927482	pineoblastoma	pineal gland
+GSM3927483	pineoblastoma	pineal gland
+GSM3927484	pineoblastoma	pineal gland
+GSM3927485	pineoblastoma	pineal gland
+GSM3927486	pineoblastoma	pineal gland
+GSM3927487	pineoblastoma	pineal gland
+GSM3927488	pineoblastoma	pineal gland
+GSM3927489	pineoblastoma	pineal gland
+GSM3927490	pineoblastoma	pineal gland
+GSM3927491	pineoblastoma	pineal gland
+GSM3927492	pineoblastoma	pineal gland
+GSM3927493	pineoblastoma	pineal gland
+GSM3927494	pineoblastoma	pineal gland
+GSM3927495	pineoblastoma	pineal gland
+GSM3927496	pineoblastoma	pineal gland
+GSM3927497	pineoblastoma	pineal gland
+GSM3927498	pineoblastoma	pineal gland
+GSM3927499	pineoblastoma	pineal gland
+GSM3927500	pineoblastoma	pineal gland
+GSM3927501	pineoblastoma	pineal gland
+GSM3927502	pineoblastoma	pineal gland
+GSM3927503	pineoblastoma	pineal gland
+GSM3927504	pineoblastoma	pineal gland
+GSM3927505	pineoblastoma	pineal gland
+GSM3927506	pineoblastoma	pineal gland
+GSM3927507	pineoblastoma	pineal gland
+GSM3927508	pineoblastoma	pineal gland
+GSM3927509	pineoblastoma	pineal gland
+GSM3927510	pineoblastoma	pineal gland
+GSM3927511	pineoblastoma	pineal gland
+GSM3927512	pineoblastoma	pineal gland
+GSM3927513	pineoblastoma	pineal gland
+GSM3927514	pineoblastoma	pineal gland
+GSM3927515	pineoblastoma	pineal gland
+GSM3927516	pineoblastoma	pineal gland
+GSM3927517	pineoblastoma	pineal gland
+GSM3927518	pineoblastoma	pineal gland
+GSM3927519	pineoblastoma	pineal gland
+GSM3927520	pineoblastoma	pineal gland
+GSM3927521	pineoblastoma	pineal gland
+GSM3927522	pineoblastoma	pineal gland
+GSM3931707	adjacent normal	breast epithelial cell
+GSM3931708	breast cancer	breast epithelial cell
+GSM3931709	adjacent normal	breast epithelial cell
+GSM3931710	adjacent normal	breast epithelial cell
+GSM3931711	breast cancer	breast epithelial cell
+GSM3931712	adjacent normal	breast epithelial cell
+GSM3931713	adjacent normal	breast epithelial cell
+GSM3931714	breast cancer	breast epithelial cell
+GSM3931715	adjacent normal	breast epithelial cell
+GSM3931716	adjacent normal	breast epithelial cell
+GSM3931717	breast cancer	breast epithelial cell
+GSM3931718	adjacent normal	breast epithelial cell
+GSM3931719	adjacent normal	breast epithelial cell
+GSM3931720	adjacent normal	breast epithelial cell
+GSM3931721	adjacent normal	breast epithelial cell
+GSM3931722	breast cancer	breast epithelial cell
+GSM3931723	adjacent normal	breast epithelial cell
+GSM3931724	adjacent normal	breast epithelial cell
+GSM3931725	breast cancer	breast epithelial cell
+GSM3931726	adjacent normal	breast epithelial cell
+GSM3931727	adjacent normal	breast epithelial cell
+GSM3931728	breast cancer	breast epithelial cell
+GSM3931729	adjacent normal	breast epithelial cell
+GSM3931730	adjacent normal	breast epithelial cell
+GSM3931731	breast cancer	breast epithelial cell
+GSM3936879	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936880	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936881	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936882	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936883	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936884	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936885	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936886	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936887	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936888	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936889	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936890	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936891	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936892	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936893	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936894	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936895	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936896	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936897	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936898	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936899	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936900	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936901	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936902	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936903	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936904	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936905	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936906	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936907	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936908	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936909	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936910	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936911	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936912	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936913	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936914	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936915	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936916	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936917	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936918	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936919	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936920	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936921	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936922	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936923	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936924	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936925	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936926	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936927	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936928	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936929	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936930	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936931	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936932	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936933	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936934	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936935	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936936	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936937	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936938	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936939	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936940	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936941	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936942	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936943	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936944	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936945	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936946	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936947	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936948	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936949	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936950	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936951	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936952	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936953	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936954	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936955	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936956	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936957	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936958	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936959	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936960	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936961	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936962	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936963	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936964	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936965	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936966	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936967	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936968	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936969	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936970	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936971	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936972	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936973	neuroendocrine tumor	neuroendocrine tumor cell
+GSM3936974	neuroendocrine tumor	neuroendocrine tumor cell
+GSM4140633	colorectal adenoma	colorectum
+GSM4140634	normal	colorectum
+GSM4140635	colorectal adenoma	colorectum
+GSM4140636	colorectal adenoma	colorectum
+GSM4140637	normal	colorectum
+GSM4140638	colorectal adenoma	colorectum
+GSM4140639	colorectal adenoma	colorectum
+GSM4140640	normal	colorectum
+GSM4140641	colorectal adenoma	colorectum
+GSM4140642	colorectal adenoma	colorectum
+GSM4140643	normal	colorectum
+GSM4140644	colorectal adenoma	colorectum
+GSM4140645	normal	colorectum
+GSM4140646	colorectal adenoma	colorectum
+GSM4140647	normal	colorectum
+GSM4140648	colorectal adenoma	colorectum
+GSM4140649	normal	colorectum
+GSM4140650	colorectal adenoma	colorectum
+GSM4140651	normal	colorectum
+GSM4140652	colorectal adenoma	colorectum
+GSM4140653	normal	colorectum
+GSM4140654	colorectal adenoma	colorectum
+GSM4140655	colorectal adenoma	colorectum
+GSM4140656	normal	colorectum
+GSM4140657	colorectal adenoma	colorectum
+GSM4140658	colorectal adenoma	colorectum
+GSM4140659	normal	colorectum
+GSM4140660	colorectal adenoma	colorectum
+GSM4140661	colorectal adenoma	colorectum
+GSM4140662	normal	colorectum
+GSM4140663	colorectal adenoma	colorectum
+GSM4140664	colorectal adenoma	colorectum
+GSM4140665	normal	colorectum
+GSM4140666	colorectal adenoma	colorectum
+GSM4140668	normal	colorectum
+GSM4140670	colorectal adenoma	colorectum
+GSM4140673	colorectal adenoma	colorectum
+GSM4140676	colorectal adenoma	colorectum
+GSM4140678	normal	colorectum
+GSM4140681	colorectal adenoma	colorectum
+GSM4140683	colorectal adenoma	colorectum
+GSM4140687	normal	colorectum
+GSM4140689	colorectal adenoma	colorectum
+GSM4140691	normal	colorectum
+GSM4140693	colorectal adenoma	colorectum
+GSM4140696	colorectal adenoma	colorectum
+GSM4140699	normal	colorectum
+GSM4140702	colorectal adenoma	colorectum
+GSM4140704	normal	colorectum
+GSM4140709	colorectal adenoma	colorectum
+GSM4140711	colorectal adenoma	colorectum
+GSM4140714	normal	colorectum
+GSM4140717	colorectal adenoma	colorectum
+GSM4140720	colorectal adenoma	colorectum
+GSM4140722	colorectal adenoma	colorectum
+GSM4140725	colorectal adenoma	colorectum
+GSM4140728	colorectal adenoma	colorectum
+GSM4140731	colorectal adenoma	colorectum
+GSM4140734	colorectal adenoma	colorectum
+GSM4140737	colorectal adenoma	colorectum
+GSM4151814	breast cancer	blood
+GSM4151815	breast cancer	blood
+GSM4151816	breast cancer	blood
+GSM4151817	breast cancer	blood
+GSM4151818	breast cancer	blood
+GSM4151819	breast cancer	blood
+GSM4151820	breast cancer	blood
+GSM4151821	breast cancer	blood
+GSM4151822	breast cancer	blood
+GSM4151823	breast cancer	blood
+GSM4151824	breast cancer	blood
+GSM4151825	breast cancer	blood
+GSM4151826	breast cancer	blood
+GSM4151827	breast cancer	blood
+GSM4151828	breast cancer	blood
+GSM4151829	breast cancer	blood
+GSM4151830	breast cancer	blood
+GSM4151831	breast cancer	blood
+GSM4151832	breast cancer	blood
+GSM4151833	breast cancer	blood
+GSM4151834	breast cancer	blood
+GSM4151835	breast cancer	blood
+GSM4151836	breast cancer	blood
+GSM4151837	breast cancer	blood
+GSM4151838	breast cancer	blood
+GSM4151839	breast cancer	blood
+GSM4151840	breast cancer	blood
+GSM4151841	breast cancer	blood
+GSM4151842	breast cancer	blood
+GSM4151843	breast cancer	blood
+GSM4151844	breast cancer	blood
+GSM4151845	breast cancer	blood
+GSM4151846	breast cancer	blood
+GSM4151847	breast cancer	blood
+GSM4151848	breast cancer	blood
+GSM4151849	breast cancer	blood
+GSM4151850	breast cancer	blood
+GSM4151851	breast cancer	blood
+GSM4151852	breast cancer	blood
+GSM4151853	breast cancer	blood
+GSM4151854	breast cancer	blood
+GSM4151855	breast cancer	blood
+GSM4151856	breast cancer	blood
+GSM4151857	breast cancer	blood
+GSM4151858	breast cancer	blood
+GSM4151859	breast cancer	blood
+GSM4151860	breast cancer	blood
+GSM4151861	breast cancer	blood
+GSM4151862	breast cancer	blood
+GSM4151863	breast cancer	blood
+GSM4151864	breast cancer	blood
+GSM4151865	breast cancer	blood
+GSM4151866	breast cancer	blood
+GSM4151867	breast cancer	blood
+GSM4151868	breast cancer	blood
+GSM4151869	breast cancer	blood
+GSM4151870	breast cancer	blood
+GSM4151871	breast cancer	blood
+GSM4151872	breast cancer	blood
+GSM4151873	breast cancer	blood
+GSM4151874	breast cancer	blood
+GSM4151875	breast cancer	blood
+GSM4151876	breast cancer	blood
+GSM4151877	breast cancer	blood
+GSM4151878	breast cancer	blood
+GSM4151879	breast cancer	blood
+GSM4151880	breast cancer	blood
+GSM4151881	breast cancer	blood
+GSM4151882	breast cancer	blood
+GSM4151883	breast cancer	blood
+GSM4151884	breast cancer	blood
+GSM4151885	breast cancer	blood
+GSM4151886	breast cancer	blood
+GSM4151887	breast cancer	blood
+GSM4151888	breast cancer	blood
+GSM4151889	breast cancer	blood
+GSM4151890	breast cancer	blood
+GSM4151891	breast cancer	blood
+GSM4151892	breast cancer	blood
+GSM4151893	breast cancer	blood
+GSM4151894	breast cancer	blood
+GSM4151895	breast cancer	blood
+GSM4151896	breast cancer	blood
+GSM4151897	breast cancer	blood
+GSM4151898	breast cancer	blood
+GSM4151899	breast cancer	blood
+GSM4151900	breast cancer	blood
+GSM4151901	breast cancer	blood
+GSM4151902	breast cancer	blood
+GSM4151903	breast cancer	blood
+GSM4151904	breast cancer	blood
+GSM4151905	breast cancer	blood
+GSM4151906	breast cancer	blood
+GSM4151907	breast cancer	blood
+GSM4151908	breast cancer	blood
+GSM4151909	breast cancer	blood
+GSM4151910	breast cancer	blood
+GSM4151911	breast cancer	blood
+GSM4151912	breast cancer	blood
+GSM4151913	breast cancer	blood
+GSM4151914	breast cancer	blood
+GSM4151915	breast cancer	blood
+GSM4151916	breast cancer	blood
+GSM4151917	breast cancer	blood
+GSM4151918	breast cancer	blood
+GSM4151919	breast cancer	blood
+GSM4151920	breast cancer	blood
+GSM4151921	breast cancer	blood
+GSM4151922	breast cancer	blood
+GSM4151923	breast cancer	blood
+GSM4151924	breast cancer	blood
+GSM4151925	breast cancer	blood
+GSM4151926	breast cancer	blood
+GSM4151927	breast cancer	blood
+GSM4151928	breast cancer	blood
+GSM4151929	breast cancer	blood
+GSM4151930	breast cancer	blood
+GSM4151931	breast cancer	blood
+GSM4151932	breast cancer	blood
+GSM4151933	breast cancer	blood
+GSM4151934	breast cancer	blood
+GSM4151935	breast cancer	blood
+GSM4151936	breast cancer	blood
+GSM4151937	breast cancer	blood
+GSM4151938	breast cancer	blood
+GSM4151939	breast cancer	blood
+GSM4151940	breast cancer	blood
+GSM4151941	breast cancer	blood
+GSM4151942	breast cancer	blood
+GSM4151943	breast cancer	blood
+GSM4151944	breast cancer	blood
+GSM4151945	breast cancer	blood
+GSM4151946	breast cancer	blood
+GSM4151947	breast cancer	blood
+GSM4151948	breast cancer	blood
+GSM4151949	breast cancer	blood
+GSM4151950	breast cancer	blood
+GSM4151951	breast cancer	blood
+GSM4151952	breast cancer	blood
+GSM4151953	breast cancer	blood
+GSM4151954	breast cancer	blood
+GSM4151955	breast cancer	blood
+GSM4151956	breast cancer	blood
+GSM4151957	breast cancer	blood
+GSM4156612	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156613	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156614	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156615	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156616	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156617	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156618	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156619	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156620	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156621	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156622	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156623	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156624	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156625	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156626	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156627	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156628	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156629	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156630	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156631	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156632	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156633	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156634	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156635	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4156636	sarcomatoid penile squamous cell carcinoma	squamous cell carcinoma cell
+GSM4185524	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185525	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185526	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185527	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185528	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185529	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185530	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185531	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185532	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185533	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185534	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185535	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185536	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185537	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185538	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185539	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185540	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185541	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185542	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185543	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185544	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185545	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185546	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185547	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185548	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185549	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185550	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185551	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185552	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185553	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185554	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185555	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185556	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185557	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185558	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185559	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185560	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185561	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185562	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185563	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185564	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185565	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185566	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185567	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185568	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185569	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185570	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185571	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185572	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185573	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185574	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185575	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185576	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185577	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185578	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185579	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185580	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185581	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185582	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185583	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185584	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185585	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185586	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185587	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185588	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185589	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185590	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185591	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185592	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4185593	human immunodeficiency virus infectious disease	peripheral blood mononuclear cell
+GSM4307624	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307625	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307626	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307627	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307628	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307629	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307630	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307631	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307632	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307633	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307634	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307635	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307636	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307637	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307638	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307639	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307640	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307641	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307642	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307643	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307644	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307645	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307646	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307647	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307648	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307649	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307650	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307651	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307652	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307653	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307654	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307655	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307656	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307657	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307658	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307659	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307660	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307661	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307662	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307663	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307664	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307665	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307666	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307668	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307672	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307677	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307678	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307679	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307680	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307681	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307682	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307683	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307684	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307685	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307686	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307687	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307688	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307689	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307690	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307691	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307692	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307693	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307694	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307695	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307696	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307697	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307698	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307699	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307700	lung small cell carcinoma	small cell lung cancer cell line
+GSM4307701	lung small cell carcinoma	small cell lung cancer cell line
+GSM4350063	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350064	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350065	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350066	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350067	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350068	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350069	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350070	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350071	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350072	thyroid gland anaplastic carcinoma	thyroid gland
+GSM4350073	normal	thyroid gland
+GSM4350074	normal	thyroid gland
+GSM4350075	normal	thyroid gland
+GSM4350076	normal	thyroid gland
+GSM4367839	normal-treated	RCC 786-O cell
+GSM4367840	normal-treated	RCC 786-O cell
+GSM4367841	normal-treated	RCC 786-O cell
+GSM4367842	normal-treated	RCC 786-O cell
+GSM4367843	normal-treated	RCC 786-O cell
+GSM4367844	normal-treated	RCC 786-O cell
+GSM4387256	normal-treated	bone marrow
+GSM4387257	normal-treated	bone marrow
+GSM4387258	normal-treated	bone marrow
+GSM4387259	normal-treated	bone marrow
+GSM4387260	normal-treated	bone marrow
+GSM4387261	normal-treated	bone marrow
+GSM4387262	normal-treated	bone marrow
+GSM4387263	normal-treated	bone marrow
+GSM4387264	normal-treated	bone marrow
+GSM4387265	normal-treated	bone marrow
+GSM4387266	normal-treated	bone marrow
+GSM4387267	normal-treated	bone marrow
+GSM4387268	normal-treated	bone marrow
+GSM4387269	normal-treated	bone marrow
+GSM4387270	normal-treated	bone marrow
+GSM4419333	normal	NCI-H1299 cell
+GSM4419334	normal	NCI-H1299 cell
+GSM4419335	normal	NCI-H1299 cell
+GSM4419336	normal	NCI-H1299 cell
+GSM4419337	normal	NCI-H1299 cell
+GSM4419338	normal	NCI-H1299 cell
+GSM4419339	normal	NCI-H1299 cell
+GSM4419340	normal	NCI-H1299 cell
+GSM4419341	normal	NCI-H1299 cell
+GSM4432764	breast cancer	breast cancer cell
+GSM4432765	breast cancer	breast cancer cell
+GSM4432766	colorectal cancer	colorectal cancer cell
+GSM4432767	colorectal cancer	colorectal cancer cell
+GSM4432768	breast cancer	breast cancer cell
+GSM4432769	breast cancer	breast cancer cell
+GSM4432770	breast cancer	breast cancer cell
+GSM4432771	breast cancer	breast cancer cell
+GSM4432772	breast cancer	breast cancer cell
+GSM4432773	breast cancer	breast cancer cell
+GSM4432774	colorectal cancer	colorectal cancer cell
+GSM4432775	colorectal cancer	colorectal cancer cell
+GSM4432776	breast cancer	breast cancer cell
+GSM4432777	colorectal cancer	colorectal cancer cell
+GSM4432778	colorectal cancer	colorectal cancer cell
+GSM4432779	colorectal cancer	colorectal cancer cell
+GSM4432780	colorectal cancer	colorectal cancer cell
+GSM4432781	colorectal cancer	colorectal cancer cell
+GSM4432782	colorectal cancer	colorectal cancer cell
+GSM4432783	ovarian cancer	ovary cancer cell
+GSM4432784	colorectal cancer	colorectal cancer cell
+GSM4432785	ovarian cancer	ovary cancer cell
+GSM4432786	ovarian cancer	ovary cancer cell
+GSM4432787	ovarian cancer	ovary cancer cell
+GSM4432788	breast cancer	breast cancer
+GSM4432789	colorectal cancer	colorectal cancer cell
+GSM4432790	colorectal cancer	colorectal cancer cell
+GSM4432791	colorectal cancer	colorectal cancer cell
+GSM4443975	normal	blood
+GSM4443976	normal	blood
+GSM4443977	normal	blood
+GSM4443978	normal	blood
+GSM4443979	normal	blood
+GSM4443980	normal	blood
+GSM4443981	normal	blood
+GSM4443982	normal	blood
+GSM4443983	normal	blood
+GSM4443984	normal	blood
+GSM4443985	normal	blood
+GSM4443986	normal	blood
+GSM4443987	normal	blood
+GSM4443988	normal	blood
+GSM4443989	normal	blood
+GSM4443990	normal	blood
+GSM4443991	normal	blood
+GSM4443992	normal	blood
+GSM4443993	normal	blood
+GSM4443994	normal	blood
+GSM4443995	normal	blood
+GSM4443996	normal	blood
+GSM4443997	normal	blood
+GSM4443998	normal	blood
+GSM4443999	normal	blood
+GSM4444000	normal	blood
+GSM4444001	normal	blood
+GSM4444002	normal	blood
+GSM4444003	normal	blood
+GSM4444004	normal	blood
+GSM4444005	normal	blood
+GSM4444006	normal	blood
+GSM4444007	normal	blood
+GSM4444008	normal	blood
+GSM4444009	normal	blood
+GSM4444010	normal	blood
+GSM4444011	normal	blood
+GSM4444012	normal	blood
+GSM4444013	normal	blood
+GSM4444014	normal	blood
+GSM4444015	normal	blood
+GSM4444016	normal	blood
+GSM4444017	normal	blood
+GSM4444018	normal	blood
+GSM4444019	normal	blood
+GSM4444020	normal	blood
+GSM4444021	normal	blood
+GSM4444022	normal	blood
+GSM4444023	normal	blood
+GSM4444024	normal	blood
+GSM4444025	normal	blood
+GSM4444026	normal	blood
+GSM4444027	normal	blood
+GSM4444028	normal	blood
+GSM4444029	normal	blood
+GSM4444030	normal	blood
+GSM4444031	normal	blood
+GSM4444032	normal	blood
+GSM4444033	normal	blood
+GSM4444034	normal	blood
+GSM4444035	normal	blood
+GSM4444036	normal	blood
+GSM4444037	normal	blood
+GSM4444038	normal	blood
+GSM4444039	normal	blood
+GSM4444040	normal	blood
+GSM4444041	normal	blood
+GSM4444042	normal	blood
+GSM4444043	normal	blood
+GSM4444044	normal	blood
+GSM4444045	normal	blood
+GSM4444046	normal	blood
+GSM4444047	normal	blood
+GSM4444048	normal	blood
+GSM4444049	normal	blood
+GSM4444050	normal	blood
+GSM4444051	normal	blood
+GSM4444052	normal	blood
+GSM4444053	normal	blood
+GSM4444054	normal	blood
+GSM4444055	normal	blood
+GSM4444056	normal	blood
+GSM4444057	normal	blood
+GSM4444058	normal	blood
+GSM4444059	normal	blood
+GSM4444060	normal	blood
+GSM4444061	normal	blood
+GSM4444062	normal	blood
+GSM4444063	normal	blood
+GSM4444064	normal	blood
+GSM4444065	normal	blood
+GSM4444066	normal	blood
+GSM4444067	normal	blood
+GSM4444068	normal	blood
+GSM4444069	normal	blood
+GSM4444070	normal	blood
+GSM4444071	normal	blood
+GSM4444072	normal	blood
+GSM4444073	normal	blood
+GSM4444074	normal	blood
+GSM4444075	normal	blood
+GSM4444076	normal	blood
+GSM4444077	normal	blood
+GSM4444078	normal	blood
+GSM4444079	normal	blood
+GSM4444080	normal	blood
+GSM4444081	normal	blood
+GSM4444082	normal	blood
+GSM4444083	normal	blood
+GSM4444084	normal	blood
+GSM4444085	normal	blood
+GSM4444086	normal	blood
+GSM4444087	normal	blood
+GSM4444088	normal	blood
+GSM4444089	normal	blood
+GSM4444090	normal	blood
+GSM4444091	normal	blood
+GSM4444092	normal	blood
+GSM4444093	normal	blood
+GSM4444094	normal	blood
+GSM4444095	normal	blood
+GSM4444096	normal	blood
+GSM4444097	normal	blood
+GSM4444098	normal	blood
+GSM4444099	normal	blood
+GSM4444100	normal	blood
+GSM4444101	normal	blood
+GSM4444102	normal	blood
+GSM4444103	normal	blood
+GSM4444104	normal	blood
+GSM4444105	normal	blood
+GSM4444106	normal	blood
+GSM4444107	normal	blood
+GSM4444108	normal	blood
+GSM4444109	normal	blood
+GSM4444110	normal	blood
+GSM4444111	normal	blood
+GSM4444112	normal	blood
+GSM4444113	normal	blood
+GSM4444114	normal	blood
+GSM4444115	normal	blood
+GSM4444116	normal	blood
+GSM4444117	normal	blood
+GSM4444118	normal	blood
+GSM4444119	normal	blood
+GSM4444120	normal	blood
+GSM4444121	normal	blood
+GSM4444122	normal	blood
+GSM4444123	normal	blood
+GSM4444124	normal	blood
+GSM4444125	normal	blood
+GSM4444126	normal	blood
+GSM4444127	normal	blood
+GSM4444128	normal	blood
+GSM4444129	normal	blood
+GSM4444130	normal	blood
+GSM4444131	normal	blood
+GSM4444132	normal	blood
+GSM4444133	normal	blood
+GSM4444134	normal	blood
+GSM4444135	normal	blood
+GSM4444136	normal	blood
+GSM4444137	normal	blood
+GSM4444138	normal	blood
+GSM4444139	normal	blood
+GSM4444140	normal	blood
+GSM4444141	normal	blood
+GSM4444142	normal	blood
+GSM4444143	normal	blood
+GSM4444144	normal	blood
+GSM4444145	normal	blood
+GSM4444146	normal	blood
+GSM4444147	normal	blood
+GSM4444148	normal	blood
+GSM4444149	normal	blood
+GSM4444150	normal	blood
+GSM4444151	normal	blood
+GSM4444152	normal	blood
+GSM4444153	normal	blood
+GSM4444154	normal	blood
+GSM4444155	normal	blood
+GSM4444156	normal	blood
+GSM4444157	normal	blood
+GSM4444158	normal	blood
+GSM4444159	normal	blood
+GSM4444160	normal	blood
+GSM4444161	normal	blood
+GSM4444162	normal	blood
+GSM4444163	normal	blood
+GSM4444164	normal	blood
+GSM4444165	normal	blood
+GSM4444166	normal	blood
+GSM4444167	normal	blood
+GSM4444168	normal	blood
+GSM4444169	normal	blood
+GSM4444170	normal	blood
+GSM4444171	normal	blood
+GSM4444172	normal	blood
+GSM4444173	normal	blood
+GSM4444174	normal	blood
+GSM4444175	normal	blood
+GSM4444176	normal	blood
+GSM4444177	normal	blood
+GSM4444178	normal	blood
+GSM4444179	normal	blood
+GSM4444180	normal	blood
+GSM4444181	normal	blood
+GSM4444182	normal	blood
+GSM4444183	normal	blood
+GSM4444184	normal	blood
+GSM4444185	normal	blood
+GSM4444186	normal	blood
+GSM4444187	normal	blood
+GSM4444188	normal	blood
+GSM4444189	normal	blood
+GSM4444190	normal	blood
+GSM4444191	normal	blood
+GSM4444192	normal	blood
+GSM4444193	normal	blood
+GSM4444194	normal	blood
+GSM4444195	normal	blood
+GSM4444196	normal	blood
+GSM4444197	normal	blood
+GSM4444198	normal	blood
+GSM4444199	normal	blood
+GSM4444200	normal	blood
+GSM4444201	normal	blood
+GSM4444202	normal	blood
+GSM4444203	normal	blood
+GSM4444204	normal	blood
+GSM4444205	normal	blood
+GSM4444206	normal	blood
+GSM4444207	normal	blood
+GSM4444208	normal	blood
+GSM4444209	normal	blood
+GSM4444210	normal	blood
+GSM4444211	normal	blood
+GSM4444212	normal	blood
+GSM4444213	normal	blood
+GSM4444214	normal	blood
+GSM4444215	normal	blood
+GSM4444216	normal	blood
+GSM4444217	normal	blood
+GSM4444218	normal	blood
+GSM4444219	normal	blood
+GSM4444220	normal	blood
+GSM4444221	normal	blood
+GSM4444222	normal	blood
+GSM4444223	normal	blood
+GSM4444224	normal	blood
+GSM4444225	normal	blood
+GSM4444226	normal	blood
+GSM4444227	normal	blood
+GSM4444228	normal	blood
+GSM4444229	normal	blood
+GSM4444230	normal	blood
+GSM4444231	normal	blood
+GSM4444232	normal	blood
+GSM4444233	normal	blood
+GSM4444234	normal	blood
+GSM4444235	normal	blood
+GSM4444236	normal	blood
+GSM4444237	normal	blood
+GSM4444238	normal	blood
+GSM4444239	normal	blood
+GSM4444240	normal	blood
+GSM4444241	normal	blood
+GSM4444242	normal	blood
+GSM4444243	normal	blood
+GSM4444244	normal	blood
+GSM4444245	normal	blood
+GSM4444246	normal	blood
+GSM4444247	normal	blood
+GSM4444248	normal	blood
+GSM4444249	normal	blood
+GSM4444250	normal	blood
+GSM4444251	normal	blood
+GSM4444252	normal	blood
+GSM4444253	normal	blood
+GSM4444254	normal	blood
+GSM4444255	normal	blood
+GSM4444256	normal	blood
+GSM4444257	normal	blood
+GSM4444258	normal	blood
+GSM4444259	normal	blood
+GSM4444260	normal	blood
+GSM4444261	normal	blood
+GSM4444262	normal	blood
+GSM4444263	normal	blood
+GSM4444264	normal	blood
+GSM4444265	normal	blood
+GSM4444266	normal	blood
+GSM4444267	normal	blood
+GSM4444268	normal	blood
+GSM4444269	normal	blood
+GSM4444270	normal	blood
+GSM4444271	normal	blood
+GSM4444272	normal	blood
+GSM4444273	normal	blood
+GSM4444274	normal	blood
+GSM4444275	normal	blood
+GSM4444276	normal	blood
+GSM4444277	normal	blood
+GSM4444278	normal	blood
+GSM4444279	normal	blood
+GSM4444280	normal	blood
+GSM4444281	normal	blood
+GSM4444282	normal	blood
+GSM4444283	normal	blood
+GSM4444284	normal	blood
+GSM4444285	normal	blood
+GSM4444286	normal	blood
+GSM4444287	normal	blood
+GSM4444288	normal	blood
+GSM4444289	normal	blood
+GSM4444290	normal	blood
+GSM4444291	normal	blood
+GSM4444292	normal	blood
+GSM4444293	normal	blood
+GSM4444294	normal	blood
+GSM4444295	normal	blood
+GSM4444296	normal	blood
+GSM4444297	normal	blood
+GSM4444298	normal	blood
+GSM4444299	normal	blood
+GSM4444300	normal	blood
+GSM4444301	normal	blood
+GSM4444302	normal	blood
+GSM4444303	normal	blood
+GSM4444304	normal	blood
+GSM4444305	normal	blood
+GSM4444306	normal	blood
+GSM4444307	normal	blood
+GSM4444308	normal	blood
+GSM4444309	normal	blood
+GSM4444310	normal	blood
+GSM4444311	normal	blood
+GSM4444312	normal	blood
+GSM4444313	normal	blood
+GSM4444314	normal	blood
+GSM4444315	normal	blood
+GSM4444316	normal	blood
+GSM4444317	normal	blood
+GSM4444318	normal	blood
+GSM4444319	normal	blood
+GSM4444320	normal	blood
+GSM4444321	normal	blood
+GSM4444322	normal	blood
+GSM4444323	normal	blood
+GSM4444324	normal	blood
+GSM4444325	normal	blood
+GSM4444326	normal	blood
+GSM4444327	normal	blood
+GSM4444328	normal	blood
+GSM4444329	normal	blood
+GSM4444330	normal	blood
+GSM4444331	normal	blood
+GSM4444332	normal	blood
+GSM4444333	normal	blood
+GSM4444334	normal	blood
+GSM4444335	normal	blood
+GSM4444336	normal	blood
+GSM4444337	normal	blood
+GSM4444338	normal	blood
+GSM4444339	normal	blood
+GSM4444340	normal	blood
+GSM4444341	normal	blood
+GSM4444342	normal	blood
+GSM4444343	normal	blood
+GSM4444344	normal	blood
+GSM4444345	normal	blood
+GSM4444346	normal	blood
+GSM4444347	normal	blood
+GSM4444348	normal	blood
+GSM4444349	normal	blood
+GSM4444350	normal	blood
+GSM4444351	normal	blood
+GSM4444352	normal	blood
+GSM4444353	normal	blood
+GSM4444354	normal	blood
+GSM4444355	normal	blood
+GSM4444356	normal	blood
+GSM4444357	normal	blood
+GSM4444358	normal	blood
+GSM4444359	normal	blood
+GSM4444360	normal	blood
+GSM4444361	normal	blood
+GSM4444362	normal	blood
+GSM4444363	normal	blood
+GSM4444364	normal	blood
+GSM4444365	normal	blood
+GSM4444366	normal	blood
+GSM4444367	normal	blood
+GSM4444368	normal	blood
+GSM4444369	normal	blood
+GSM4444370	normal	blood
+GSM4444371	normal	blood
+GSM4444372	normal	blood
+GSM4444373	normal	blood
+GSM4444374	normal	blood
+GSM4444375	normal	blood
+GSM4444376	normal	blood
+GSM4444377	normal	blood
+GSM4444378	normal	blood
+GSM4444379	normal	blood
+GSM4444380	normal	blood
+GSM4444381	normal	blood
+GSM4444382	normal	blood
+GSM4444383	normal	blood
+GSM4444384	normal	blood
+GSM4444385	normal	blood
+GSM4444386	normal	blood
+GSM4444387	normal	blood
+GSM4444388	normal	blood
+GSM4444389	normal	blood
+GSM4444390	normal	blood
+GSM4444391	normal	blood
+GSM4444392	normal	blood
+GSM4444393	normal	blood
+GSM4444394	normal	blood
+GSM4444395	normal	blood
+GSM4444396	normal	blood
+GSM4444397	normal	blood
+GSM4444398	normal	blood
+GSM4444399	normal	blood
+GSM4444400	normal	blood
+GSM4444401	normal	blood
+GSM4444402	normal	blood
+GSM4444403	normal	blood
+GSM4444404	normal	blood
+GSM4444405	normal	blood
+GSM4444406	normal	blood
+GSM4444407	normal	blood
+GSM4444408	normal	blood
+GSM4444409	normal	blood
+GSM4444410	normal	blood
+GSM4444411	normal	blood
+GSM4444412	normal	blood
+GSM4444413	normal	blood
+GSM4444414	normal	blood
+GSM4444415	normal	blood
+GSM4444416	normal	blood
+GSM4444417	normal	blood
+GSM4444418	normal	blood
+GSM4444419	normal	blood
+GSM4444420	normal	blood
+GSM4444421	normal	blood
+GSM4444422	normal	blood
+GSM4444423	normal	blood
+GSM4444424	normal	blood
+GSM4444425	normal	blood
+GSM4444426	normal	blood
+GSM4444427	normal	blood
+GSM4444428	normal	blood
+GSM4444429	normal	blood
+GSM4444430	normal	blood
+GSM4444431	normal	blood
+GSM4444432	normal	blood
+GSM4444433	normal	blood
+GSM4444434	normal	blood
+GSM4444435	normal	blood
+GSM4444436	normal	blood
+GSM4444437	normal	blood
+GSM4444438	normal	blood
+GSM4444439	normal	blood
+GSM4444440	normal	blood
+GSM4444441	normal	blood
+GSM4444442	normal	blood
+GSM4444443	normal	blood
+GSM4444444	normal	blood
+GSM4444445	normal	blood
+GSM4444446	normal	blood
+GSM4444447	normal	blood
+GSM4444448	normal	blood
+GSM4444449	normal	blood
+GSM4444450	normal	blood
+GSM4444451	normal	blood
+GSM4444452	normal	blood
+GSM4444453	normal	blood
+GSM4444454	normal	blood
+GSM4444455	normal	blood
+GSM4444456	normal	blood
+GSM4444457	normal	blood
+GSM4444458	normal	blood
+GSM4444459	normal	blood
+GSM4444460	normal	blood
+GSM4444461	normal	blood
+GSM4444462	normal	blood
+GSM4444463	normal	blood
+GSM4444464	normal	blood
+GSM4444465	normal	blood
+GSM4444466	normal	blood
+GSM4444467	normal	blood
+GSM4444468	normal	blood
+GSM4444469	normal	blood
+GSM4444470	normal	blood
+GSM4444471	normal	blood
+GSM4444472	normal	blood
+GSM4444473	normal	blood
+GSM4444474	normal	blood
+GSM4444475	normal	blood
+GSM4444476	normal	blood
+GSM4444477	normal	blood
+GSM4444478	normal	blood
+GSM4444479	normal	blood
+GSM4444480	normal	blood
+GSM4444481	normal	blood
+GSM4444482	normal	blood
+GSM4444483	normal	blood
+GSM4444484	normal	blood
+GSM4444485	normal	blood
+GSM4444486	normal	blood
+GSM4444487	normal	blood
+GSM4444488	normal	blood
+GSM4444489	normal	blood
+GSM4444490	normal	blood
+GSM4444491	normal	blood
+GSM4444492	normal	blood
+GSM4444493	normal	blood
+GSM4444494	normal	blood
+GSM4444495	normal	blood
+GSM4444496	normal	blood
+GSM4444497	normal	blood
+GSM4444498	normal	blood
+GSM4444499	normal	blood
+GSM4444500	normal	blood
+GSM4444501	normal	blood
+GSM4444502	normal	blood
+GSM4444503	normal	blood
+GSM4444504	normal	blood
+GSM4444505	normal	blood
+GSM4444506	normal	blood
+GSM4444507	normal	blood
+GSM4444508	normal	blood
+GSM4444509	normal	blood
+GSM4444510	normal	blood
+GSM4444511	normal	blood
+GSM4444512	normal	blood
+GSM4444513	normal	blood
+GSM4444514	normal	blood
+GSM4444515	normal	blood
+GSM4444516	normal	blood
+GSM4444517	normal	blood
+GSM4444518	normal	blood
+GSM4444519	normal	blood
+GSM4444520	normal	blood
+GSM4444521	normal	blood
+GSM4444522	normal	blood
+GSM4444523	normal	blood
+GSM4444524	normal	blood
+GSM4444525	normal	blood
+GSM4444526	normal	blood
+GSM4444527	normal	blood
+GSM4444528	normal	blood
+GSM4444529	normal	blood
+GSM4444530	normal	blood
+GSM4444531	normal	blood
+GSM4444532	normal	blood
+GSM4444533	normal	blood
+GSM4444534	normal	blood
+GSM4444535	normal	blood
+GSM4444536	normal	blood
+GSM4444537	normal	blood
+GSM4444538	normal	blood
+GSM4444539	normal	blood
+GSM4444540	normal	blood
+GSM4444541	normal	blood
+GSM4444542	normal	blood
+GSM4444543	normal	blood
+GSM4444544	normal	blood
+GSM4444545	normal	blood
+GSM4444546	normal	blood
+GSM4444547	normal	blood
+GSM4444548	normal	blood
+GSM4444549	normal	blood
+GSM4444550	normal	blood
+GSM4444551	normal	blood
+GSM4444552	normal	blood
+GSM4444553	normal	blood
+GSM4444554	normal	blood
+GSM4444555	normal	blood
+GSM4444556	normal	blood
+GSM4444557	normal	blood
+GSM4444558	normal	blood
+GSM4444559	normal	blood
+GSM4444560	normal	blood
+GSM4444561	normal	blood
+GSM4444562	normal	blood
+GSM4444563	normal	blood
+GSM4444564	normal	blood
+GSM4444565	normal	blood
+GSM4444566	normal	blood
+GSM4444567	normal	blood
+GSM4444568	normal	blood
+GSM4444569	normal	blood
+GSM4444570	normal	blood
+GSM4444571	normal	blood
+GSM4444572	normal	blood
+GSM4444573	normal	blood
+GSM4444574	normal	blood
+GSM4444575	normal	blood
+GSM4444576	normal	blood
+GSM4444577	normal	blood
+GSM4444578	normal	blood
+GSM4444579	normal	blood
+GSM4444580	normal	blood
+GSM4444581	normal	blood
+GSM4444582	normal	blood
+GSM4444583	normal	blood
+GSM4444584	normal	blood
+GSM4444585	normal	blood
+GSM4444586	normal	blood
+GSM4444587	normal	blood
+GSM4444588	normal	blood
+GSM4444589	normal	blood
+GSM4444590	normal	blood
+GSM4444591	normal	blood
+GSM4444592	normal	blood
+GSM4444593	normal	blood
+GSM4444594	normal	blood
+GSM4444595	normal	blood
+GSM4444596	normal	blood
+GSM4444597	normal	blood
+GSM4444598	normal	blood
+GSM4444599	normal	blood
+GSM4444600	normal	blood
+GSM4444601	normal	blood
+GSM4444602	normal	blood
+GSM4444603	normal	blood
+GSM4444604	normal	blood
+GSM4444605	normal	blood
+GSM4444606	normal	blood
+GSM4444607	normal	blood
+GSM4444608	normal	blood
+GSM4444609	normal	blood
+GSM4444610	normal	blood
+GSM4444611	normal	blood
+GSM4444612	normal	blood
+GSM4444613	normal	blood
+GSM4444614	normal	blood
+GSM4444615	normal	blood
+GSM4444616	normal	blood
+GSM4444617	normal	blood
+GSM4444618	normal	blood
+GSM4444619	normal	blood
+GSM4444620	normal	blood
+GSM4444621	normal	blood
+GSM4444622	normal	blood
+GSM4444623	normal	blood
+GSM4444624	normal	blood
+GSM4444625	normal	blood
+GSM4444626	normal	blood
+GSM4444627	normal	blood
+GSM4444628	normal	blood
+GSM4444629	normal	blood
+GSM4444630	normal	blood
+GSM4444631	normal	blood
+GSM4444632	normal	blood
+GSM4444633	normal	blood
+GSM4444634	normal	blood
+GSM4444635	normal	blood
+GSM4444636	normal	blood
+GSM4444637	normal	blood
+GSM4444638	normal	blood
+GSM4444639	normal	blood
+GSM4444640	normal	blood
+GSM4444641	normal	blood
+GSM4444642	normal	blood
+GSM4444643	normal	blood
+GSM4444644	normal	blood
+GSM4444645	normal	blood
+GSM4444646	normal	blood
+GSM4444647	normal	blood
+GSM4444648	normal	blood
+GSM4444649	normal	blood
+GSM4444650	normal	blood
+GSM4444651	normal	blood
+GSM4444652	normal	blood
+GSM4444653	normal	blood
+GSM4444654	normal	blood
+GSM4444655	normal	blood
+GSM4444656	normal	blood
+GSM4444657	normal	blood
+GSM4444658	normal	blood
+GSM4444659	normal	blood
+GSM4444660	normal	blood
+GSM4444661	normal	blood
+GSM4444662	normal	blood
+GSM4444663	normal	blood
+GSM4444664	normal	blood
+GSM4444665	normal	blood
+GSM4444666	normal	blood
+GSM4444667	normal	blood
+GSM4444668	normal	blood
+GSM4444669	normal	blood
+GSM4444670	normal	blood
+GSM4444671	normal	blood
+GSM4444672	normal	blood
+GSM4444673	normal	blood
+GSM4444674	normal	blood
+GSM4444675	normal	blood
+GSM4444676	normal	blood
+GSM4444677	normal	blood
+GSM4444678	normal	blood
+GSM4444679	normal	blood
+GSM4444680	normal	blood
+GSM4444681	normal	blood
+GSM4444682	normal	blood
+GSM4444683	normal	blood
+GSM4444684	normal	blood
+GSM4444685	normal	blood
+GSM4444686	normal	blood
+GSM4444687	normal	blood
+GSM4444688	normal	blood
+GSM4444689	normal	blood
+GSM4444690	normal	blood
+GSM4444691	normal	blood
+GSM4444692	normal	blood
+GSM4444693	normal	blood
+GSM4444694	normal	blood
+GSM4444695	normal	blood
+GSM4444696	normal	blood
+GSM4444697	normal	blood
+GSM4444698	normal	blood
+GSM4444699	normal	blood
+GSM4444700	normal	blood
+GSM4444701	normal	blood
+GSM4444702	normal	blood
+GSM4444703	normal	blood
+GSM4444704	normal	blood
+GSM4444705	normal	blood
+GSM4444706	normal	blood
+GSM4444707	normal	blood
+GSM4444708	normal	blood
+GSM4444709	normal	blood
+GSM4444710	normal	blood
+GSM4444711	normal	blood
+GSM4444712	normal	blood
+GSM4444713	normal	blood
+GSM4444714	normal	blood
+GSM4444715	normal	blood
+GSM4444716	normal	blood
+GSM4444717	normal	blood
+GSM4444718	normal	blood
+GSM4444719	normal	blood
+GSM4444720	normal	blood
+GSM4444721	normal	blood
+GSM4444722	normal	blood
+GSM4444723	normal	blood
+GSM4444724	normal	blood
+GSM4444725	normal	blood
+GSM4444726	normal	blood
+GSM4444727	normal	blood
+GSM4444728	normal	blood
+GSM4444729	normal	blood
+GSM4444730	normal	blood
+GSM4444731	normal	blood
+GSM4444732	normal	blood
+GSM4444733	normal	blood
+GSM4444734	normal	blood
+GSM4444735	normal	blood
+GSM4444736	normal	blood
+GSM4444737	normal	blood
+GSM4444738	normal	blood
+GSM4444739	normal	blood
+GSM4444740	normal	blood
+GSM4444741	normal	blood
+GSM4444742	normal	blood
+GSM4444743	normal	blood
+GSM4444744	normal	blood
+GSM4444745	normal	blood
+GSM4444746	normal	blood
+GSM4444747	normal	blood
+GSM4444748	normal	blood
+GSM4444749	normal	blood
+GSM4444750	normal	blood
+GSM4444751	normal	blood
+GSM4444752	normal	blood
+GSM4444753	normal	blood
+GSM4444754	normal	blood
+GSM4444755	normal	blood
+GSM4444756	normal	blood
+GSM4444757	normal	blood
+GSM4444758	normal	blood
+GSM4444759	normal	blood
+GSM4444760	normal	blood
+GSM4444761	normal	blood
+GSM4444762	normal	blood
+GSM4444763	normal	blood
+GSM4444764	normal	blood
+GSM4444765	normal	blood
+GSM4444766	normal	blood
+GSM4444767	normal	blood
+GSM4444768	normal	blood
+GSM4444769	normal	blood
+GSM4444770	normal	blood
+GSM4444771	normal	blood
+GSM4444772	normal	blood
+GSM4444773	normal	blood
+GSM4444774	normal	blood
+GSM4444775	normal	blood
+GSM4444776	normal	blood
+GSM4444777	normal	blood
+GSM4444778	normal	blood
+GSM4444779	normal	blood
+GSM4444780	normal	blood
+GSM4444781	normal	blood
+GSM4444782	normal	blood
+GSM4444783	normal	blood
+GSM4444784	normal	blood
+GSM4444785	normal	blood
+GSM4444786	normal	blood
+GSM4444787	normal	blood
+GSM4444788	normal	blood
+GSM4444789	normal	blood
+GSM4444790	normal	blood
+GSM4444791	normal	blood
+GSM4444792	normal	blood
+GSM4444793	normal	blood
+GSM4444794	normal	blood
+GSM4444795	normal	blood
+GSM4444796	normal	blood
+GSM4444797	normal	blood
+GSM4444798	normal	blood
+GSM4444799	normal	blood
+GSM4444800	normal	blood
+GSM4444801	normal	blood
+GSM4444802	normal	blood
+GSM4444803	normal	blood
+GSM4444804	normal	blood
+GSM4444805	normal	blood
+GSM4444806	normal	blood
+GSM4444807	normal	blood
+GSM4444808	normal	blood
+GSM4444809	normal	blood
+GSM4444810	normal	blood
+GSM4444811	normal	blood
+GSM4444812	normal	blood
+GSM4444813	normal	blood
+GSM4444814	normal	blood
+GSM4444815	normal	blood
+GSM4444816	normal	blood
+GSM4444817	normal	blood
+GSM4444818	normal	blood
+GSM4444819	normal	blood
+GSM4444820	normal	blood
+GSM4444821	normal	blood
+GSM4444822	normal	blood
+GSM4444823	normal	blood
+GSM4444824	normal	blood
+GSM4444825	normal	blood
+GSM4444826	normal	blood
+GSM4444827	normal	blood
+GSM4444828	normal	blood
+GSM4444829	normal	blood
+GSM4444830	normal	blood
+GSM4444831	normal	blood
+GSM4444832	normal	blood
+GSM4444833	normal	blood
+GSM4444834	normal	blood
+GSM4444835	normal	blood
+GSM4444836	normal	blood
+GSM4444837	normal	blood
+GSM4444838	normal	blood
+GSM4444839	normal	blood
+GSM4444840	normal	blood
+GSM4444841	normal	blood
+GSM4444842	normal	blood
+GSM4444843	normal	blood
+GSM4444844	normal	blood
+GSM4444845	normal	blood
+GSM4444846	normal	blood
+GSM4444847	normal	blood
+GSM4444848	normal	blood
+GSM4444849	normal	blood
+GSM4444850	normal	blood
+GSM4444851	normal	blood
+GSM4444852	normal	blood
+GSM4444853	normal	blood
+GSM4444854	normal	blood
+GSM4444855	normal	blood
+GSM4444856	normal	blood
+GSM4444857	normal	blood
+GSM4444858	normal	blood
+GSM4444859	normal	blood
+GSM4444860	normal	blood
+GSM4444861	normal	blood
+GSM4444862	normal	blood
+GSM4444863	normal	blood
+GSM4444864	normal	blood
+GSM4444865	normal	blood
+GSM4444866	normal	blood
+GSM4444867	normal	blood
+GSM4444868	normal	blood
+GSM4444869	normal	blood
+GSM4444870	normal	blood
+GSM4444871	normal	blood
+GSM4444872	normal	blood
+GSM4444873	normal	blood
+GSM4444874	normal	blood
+GSM4444875	normal	blood
+GSM4444876	normal	blood
+GSM4444877	normal	blood
+GSM4444878	normal	blood
+GSM4444879	normal	blood
+GSM4444880	normal	blood
+GSM4444881	normal	blood
+GSM4444882	normal	blood
+GSM4444883	normal	blood
+GSM4444884	normal	blood
+GSM4444885	normal	blood
+GSM4444886	normal	blood
+GSM4444887	normal	blood
+GSM4444888	normal	blood
+GSM4444889	normal	blood
+GSM4444890	normal	blood
+GSM4444891	normal	blood
+GSM4444892	normal	blood
+GSM4444893	normal	blood
+GSM4444894	normal	blood
+GSM4444895	normal	blood
+GSM4444896	normal	blood
+GSM4444897	normal	blood
+GSM4444898	normal	blood
+GSM4444899	normal	blood
+GSM4444900	normal	blood
+GSM4444901	normal	blood
+GSM4444902	normal	blood
+GSM4444903	normal	blood
+GSM4444904	normal	blood
+GSM4444905	normal	blood
+GSM4444906	normal	blood
+GSM4444907	normal	blood
+GSM4444908	normal	blood
+GSM4444909	normal	blood
+GSM4444910	normal	blood
+GSM4444911	normal	blood
+GSM4444912	normal	blood
+GSM4444913	normal	blood
+GSM4444914	normal	blood
+GSM4444915	normal	blood
+GSM4444916	normal	blood
+GSM4444917	normal	blood
+GSM4444918	normal	blood
+GSM4444919	normal	blood
+GSM4444920	normal	blood
+GSM4444921	normal	blood
+GSM4444922	normal	blood
+GSM4444923	normal	blood
+GSM4444924	normal	blood
+GSM4444925	normal	blood
+GSM4444926	normal	blood
+GSM4444927	normal	blood
+GSM4444928	normal	blood
+GSM4444929	normal	blood
+GSM4444930	normal	blood
+GSM4444931	normal	blood
+GSM4444932	normal	blood
+GSM4444933	normal	blood
+GSM4444934	normal	blood
+GSM4444935	normal	blood
+GSM4444936	normal	blood
+GSM4444937	normal	blood
+GSM4444938	normal	blood
+GSM4444939	normal	blood
+GSM4444940	normal	blood
+GSM4444941	normal	blood
+GSM4444942	normal	blood
+GSM4444943	normal	blood
+GSM4444944	normal	blood
+GSM4444945	normal	blood
+GSM4444946	normal	blood
+GSM4444947	normal	blood
+GSM4444948	normal	blood
+GSM4444949	normal	blood
+GSM4444950	normal	blood
+GSM4444951	normal	blood
+GSM4444952	normal	blood
+GSM4444953	normal	blood
+GSM4444954	normal	blood
+GSM4444955	normal	blood
+GSM4444956	normal	blood
+GSM4444957	normal	blood
+GSM4444958	normal	blood
+GSM4444959	normal	blood
+GSM4444960	normal	blood
+GSM4444961	normal	blood
+GSM4444962	normal	blood
+GSM4444963	normal	blood
+GSM4444964	normal	blood
+GSM4444965	normal	blood
+GSM4444966	normal	blood
+GSM4444967	normal	blood
+GSM4444968	normal	blood
+GSM4444969	normal	blood
+GSM4444970	normal	blood
+GSM4444971	normal	blood
+GSM4444972	normal	blood
+GSM4444973	normal	blood
+GSM4444974	normal	blood
+GSM4444975	normal	blood
+GSM4444976	normal	blood
+GSM4444977	normal	blood
+GSM4444978	normal	blood
+GSM4444979	normal	blood
+GSM4444980	normal	blood
+GSM4444981	normal	blood
+GSM4444982	normal	blood
+GSM4444983	normal	blood
+GSM4444984	normal	blood
+GSM4444985	normal	blood
+GSM4444986	normal	blood
+GSM4444987	normal	blood
+GSM4444988	normal	blood
+GSM4444989	normal	blood
+GSM4444990	normal	blood
+GSM4444991	normal	blood
+GSM4444992	normal	blood
+GSM4444993	normal	blood
+GSM4444994	normal	blood
+GSM4444995	normal	blood
+GSM4444996	normal	blood
+GSM4444997	normal	blood
+GSM4444998	normal	blood
+GSM4444999	normal	blood
+GSM4445000	normal	blood
+GSM4445001	normal	blood
+GSM4445002	normal	blood
+GSM4445003	normal	blood
+GSM4445004	normal	blood
+GSM4445005	normal	blood
+GSM4445006	normal	blood
+GSM4445007	normal	blood
+GSM4445008	normal	blood
+GSM4445009	normal	blood
+GSM4445010	normal	blood
+GSM4445011	normal	blood
+GSM4445012	normal	blood
+GSM4445013	normal	blood
+GSM4445014	normal	blood
+GSM4445015	normal	blood
+GSM4445016	normal	blood
+GSM4445017	normal	blood
+GSM4445018	normal	blood
+GSM4445019	normal	blood
+GSM4445020	normal	blood
+GSM4445021	normal	blood
+GSM4445022	normal	blood
+GSM4445023	normal	blood
+GSM4445024	normal	blood
+GSM4445025	normal	blood
+GSM4445026	normal	blood
+GSM4445027	normal	blood
+GSM4445028	normal	blood
+GSM4445029	normal	blood
+GSM4445030	normal	blood
+GSM4445031	normal	blood
+GSM4445032	normal	blood
+GSM4445033	normal	blood
+GSM4445034	normal	blood
+GSM4445035	normal	blood
+GSM4445036	normal	blood
+GSM4445037	normal	blood
+GSM4445038	normal	blood
+GSM4445039	normal	blood
+GSM4445040	normal	blood
+GSM4445041	normal	blood
+GSM4445042	normal	blood
+GSM4445043	normal	blood
+GSM4445044	normal	blood
+GSM4445045	normal	blood
+GSM4445046	normal	blood
+GSM4445047	normal	blood
+GSM4445048	normal	blood
+GSM4445049	normal	blood
+GSM4445050	normal	blood
+GSM4445051	normal	blood
+GSM4445052	normal	blood
+GSM4445053	normal	blood
+GSM4445054	normal	blood
+GSM4445055	normal	blood
+GSM4445056	normal	blood
+GSM4445057	normal	blood
+GSM4445058	normal	blood
+GSM4445059	normal	blood
+GSM4445060	normal	blood
+GSM4445061	normal	blood
+GSM4445062	normal	blood
+GSM4445063	normal	blood
+GSM4445064	normal	blood
+GSM4445065	normal	blood
+GSM4445066	normal	blood
+GSM4445067	normal	blood
+GSM4445068	normal	blood
+GSM4445069	normal	blood
+GSM4445070	normal	blood
+GSM4445071	normal	blood
+GSM4445072	normal	blood
+GSM4445073	normal	blood
+GSM4445074	normal	blood
+GSM4445075	normal	blood
+GSM4445076	normal	blood
+GSM4445077	normal	blood
+GSM4445078	normal	blood
+GSM4445079	normal	blood
+GSM4445080	normal	blood
+GSM4445081	normal	blood
+GSM4445082	normal	blood
+GSM4445083	normal	blood
+GSM4445084	normal	blood
+GSM4445085	normal	blood
+GSM4445086	normal	blood
+GSM4445087	normal	blood
+GSM4445088	normal	blood
+GSM4445089	normal	blood
+GSM4445090	normal	blood
+GSM4445091	normal	blood
+GSM4445092	normal	blood
+GSM4445093	normal	blood
+GSM4445094	normal	blood
+GSM4445095	normal	blood
+GSM4445096	normal	blood
+GSM4445097	normal	blood
+GSM4445098	normal	blood
+GSM4445099	normal	blood
+GSM4445100	normal	blood
+GSM4445101	normal	blood
+GSM4445102	normal	blood
+GSM4445103	normal	blood
+GSM4494905	pancreatic ductal adenocarcinoma	pancreas
+GSM4494906	pancreatic ductal adenocarcinoma	pancreas
+GSM4494907	pancreatic ductal adenocarcinoma	pancreas
+GSM4494908	pancreatic ductal adenocarcinoma	pancreas
+GSM4494909	pancreatic ductal adenocarcinoma	pancreas
+GSM4494910	pancreatic ductal adenocarcinoma	pancreas
+GSM4494911	normal	pancreas
+GSM4494912	normal	pancreas
+GSM4494913	normal	pancreas
+GSM4494914	normal	pancreas
+GSM4494915	normal	pancreas
+GSM4494916	normal	pancreas
+GSM4494917	normal	pancreas
+GSM4494918	normal	pancreas
+GSM4494919	normal	pancreas
+GSM4495491	normal	colon
+GSM4495492	colon cancer	colon
+GSM4495493	normal	colon
+GSM4495494	colon cancer	colon
+GSM4495495	normal	colon
+GSM4495496	colon cancer	colon
+GSM4495497	normal	colon
+GSM4495498	colon cancer	colon
+GSM4495499	normal	colon
+GSM4495500	colon cancer	colon
+GSM4495501	normal	colon
+GSM4495502	colon cancer	colon
+GSM4495503	normal	colon
+GSM4495504	colon cancer	colon
+GSM4495505	normal	colon
+GSM4495506	colon cancer	colon
+GSM4495507	colon cancer	colon
+GSM4495508	normal	colon
+GSM4495509	colon cancer	colon
+GSM4495510	normal	colon
+GSM4495511	colon cancer	colon
+GSM4495512	normal	colon
+GSM4495513	colon cancer	colon
+GSM4495514	normal	colon
+GSM4518921	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518922	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518923	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518924	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518925	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518926	normal	skin fibroblast
+GSM4518927	normal	skin fibroblast
+GSM4518928	normal	skin fibroblast
+GSM4518929	normal	skin fibroblast
+GSM4518930	normal	skin fibroblast
+GSM4518931	normal	skin fibroblast
+GSM4518932	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518933	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518934	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4518935	Hutchinson-Gilford progeria syndrome	skin fibroblast
+GSM4560406	normal	buccal mucosa
+GSM4560407	normal	buccal mucosa
+GSM4560408	normal	buccal mucosa
+GSM4560409	normal	buccal mucosa
+GSM4560410	normal	buccal mucosa
+GSM4560411	normal	buccal mucosa
+GSM4560412	normal	buccal mucosa
+GSM4560413	normal	buccal mucosa
+GSM4560414	normal	buccal mucosa
+GSM4560415	normal	buccal mucosa
+GSM4560416	normal	buccal mucosa
+GSM4560417	normal	buccal mucosa
+GSM4560418	normal	buccal mucosa
+GSM4560419	normal	buccal mucosa
+GSM4560420	normal	buccal mucosa
+GSM4560421	normal	buccal mucosa
+GSM4560422	normal	buccal mucosa
+GSM4560423	normal	buccal mucosa
+GSM4560424	normal	buccal mucosa
+GSM4560425	normal	buccal mucosa
+GSM4560426	normal	buccal mucosa
+GSM4560427	normal	buccal mucosa
+GSM4560428	normal	buccal mucosa
+GSM4560429	normal	buccal mucosa
+GSM4560430	normal	buccal mucosa
+GSM4560431	normal	buccal mucosa
+GSM4560432	normal	buccal mucosa
+GSM4560433	normal	buccal mucosa
+GSM4560434	normal	buccal mucosa
+GSM4560435	normal	buccal mucosa
+GSM4560436	normal	buccal mucosa
+GSM4560437	normal	buccal mucosa
+GSM4560438	normal	buccal mucosa
+GSM4560439	normal	buccal mucosa
+GSM4560440	normal	buccal mucosa
+GSM4560441	normal	buccal mucosa
+GSM4560442	normal	buccal mucosa
+GSM4560443	normal	buccal mucosa
+GSM4560444	normal	buccal mucosa
+GSM4560445	normal	buccal mucosa
+GSM4560446	normal	buccal mucosa
+GSM4560447	normal	buccal mucosa
+GSM4560448	normal	buccal mucosa
+GSM4560449	normal	buccal mucosa
+GSM4560450	normal	buccal mucosa
+GSM4560451	normal	buccal mucosa
+GSM4560452	normal	buccal mucosa
+GSM4560453	normal	buccal mucosa
+GSM4564348	normal	bronchoalveolar lavage fluid
+GSM4564349	normal	bronchoalveolar lavage fluid
+GSM4564350	normal	bronchoalveolar lavage fluid
+GSM4564351	normal	bronchoalveolar lavage fluid
+GSM4564352	normal	bronchoalveolar lavage fluid
+GSM4564353	normal	bronchoalveolar lavage fluid
+GSM4564354	normal	bronchoalveolar lavage fluid
+GSM4564355	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564356	normal	bronchoalveolar lavage fluid
+GSM4564357	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564358	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564359	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564360	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564361	normal	bronchoalveolar lavage fluid
+GSM4564362	normal	bronchoalveolar lavage fluid
+GSM4564363	normal	bronchoalveolar lavage fluid
+GSM4564364	normal	bronchoalveolar lavage fluid
+GSM4564365	normal	bronchoalveolar lavage fluid
+GSM4564366	normal	bronchoalveolar lavage fluid
+GSM4564367	normal	bronchoalveolar lavage fluid
+GSM4564368	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564369	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564370	normal	bronchoalveolar lavage fluid
+GSM4564371	normal	bronchoalveolar lavage fluid
+GSM4564372	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564373	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564374	normal	bronchoalveolar lavage fluid
+GSM4564375	normal	bronchoalveolar lavage fluid
+GSM4564376	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564377	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564378	normal	bronchoalveolar lavage fluid
+GSM4564379	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564380	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564381	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564382	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564383	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564384	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564385	normal	bronchoalveolar lavage fluid
+GSM4564386	normal	bronchoalveolar lavage fluid
+GSM4564387	normal	bronchoalveolar lavage fluid
+GSM4564388	normal	bronchoalveolar lavage fluid
+GSM4564389	normal	bronchoalveolar lavage fluid
+GSM4564390	normal	bronchoalveolar lavage fluid
+GSM4564391	normal	bronchoalveolar lavage fluid
+GSM4564392	normal	bronchoalveolar lavage fluid
+GSM4564393	normal	bronchoalveolar lavage fluid
+GSM4564394	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564395	normal	bronchoalveolar lavage fluid
+GSM4564396	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564397	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564398	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564399	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564400	normal	bronchoalveolar lavage fluid
+GSM4564401	normal	bronchoalveolar lavage fluid
+GSM4564402	normal	bronchoalveolar lavage fluid
+GSM4564403	normal	bronchoalveolar lavage fluid
+GSM4564404	normal	bronchoalveolar lavage fluid
+GSM4564405	normal	bronchoalveolar lavage fluid
+GSM4564406	normal	bronchoalveolar lavage fluid
+GSM4564407	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564408	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564409	normal	bronchoalveolar lavage fluid
+GSM4564410	normal	bronchoalveolar lavage fluid
+GSM4564411	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564412	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564413	normal	bronchoalveolar lavage fluid
+GSM4564414	normal	bronchoalveolar lavage fluid
+GSM4564415	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564416	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564417	normal	bronchoalveolar lavage fluid
+GSM4564418	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564419	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564420	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564421	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564422	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564423	multiple sclerosis	bronchoalveolar lavage fluid
+GSM4564424	normal	bronchoalveolar lavage fluid
+GSM4564425	normal	bronchoalveolar lavage fluid
+GSM4564729	normal	umbilical cord blood
+GSM4564730	normal	umbilical cord blood
+GSM4564731	normal	umbilical cord blood
+GSM4564732	normal	umbilical cord blood
+GSM4564733	normal	umbilical cord blood
+GSM4564734	normal	umbilical cord blood
+GSM4564735	normal	umbilical cord blood
+GSM4564736	normal	umbilical cord blood
+GSM4564737	normal	umbilical cord blood
+GSM4564738	normal	umbilical cord blood
+GSM4564739	normal	umbilical cord blood
+GSM4564740	normal	umbilical cord blood
+GSM4564741	normal	umbilical cord blood
+GSM4564742	normal	umbilical cord blood
+GSM4564743	normal	umbilical cord blood
+GSM4564744	normal	umbilical cord blood
+GSM4564745	normal	umbilical cord blood
+GSM4564746	normal	umbilical cord blood
+GSM4564747	normal	umbilical cord blood
+GSM4564748	normal	umbilical cord blood
+GSM4564749	normal	umbilical cord blood
+GSM4564750	normal	umbilical cord blood
+GSM4564751	normal	umbilical cord blood
+GSM4564752	normal	umbilical cord blood
+GSM4564753	normal	umbilical cord blood
+GSM4564754	normal	umbilical cord blood
+GSM4564755	normal	umbilical cord blood
+GSM4564756	normal	umbilical cord blood
+GSM4564757	normal	umbilical cord blood
+GSM4564758	normal	umbilical cord blood
+GSM4564759	normal	umbilical cord blood
+GSM4564760	normal	umbilical cord blood
+GSM4564761	normal	umbilical cord blood
+GSM4564762	normal	umbilical cord blood
+GSM4564763	normal	umbilical cord blood
+GSM4564764	normal	umbilical cord blood
+GSM4564765	normal	umbilical cord blood
+GSM4564766	normal	umbilical cord blood
+GSM4564767	normal	umbilical cord blood
+GSM4564768	normal	umbilical cord blood
+GSM4564769	normal	umbilical cord blood
+GSM4564770	normal	umbilical cord blood
+GSM4564771	normal	umbilical cord blood
+GSM4564772	normal	umbilical cord blood
+GSM4564773	normal	umbilical cord blood
+GSM4564774	normal	umbilical cord blood
+GSM4564775	normal	umbilical cord blood
+GSM4564776	normal	umbilical cord blood
+GSM4564777	normal	umbilical cord blood
+GSM4564778	normal	umbilical cord blood
+GSM4564779	normal	umbilical cord blood
+GSM4564780	normal	umbilical cord blood
+GSM4564781	normal	umbilical cord blood
+GSM4564782	normal	umbilical cord blood
+GSM4564783	normal	umbilical cord blood
+GSM4564784	normal	umbilical cord blood
+GSM4564785	normal	umbilical cord blood
+GSM4564786	normal	umbilical cord blood
+GSM4564787	normal	umbilical cord blood
+GSM4564788	normal	umbilical cord blood
+GSM4564789	normal	umbilical cord blood
+GSM4564790	normal	umbilical cord blood
+GSM4564791	normal	umbilical cord blood
+GSM4564792	normal	umbilical cord blood
+GSM4564793	normal	umbilical cord blood
+GSM4564794	normal	umbilical cord blood
+GSM4564795	normal	umbilical cord blood
+GSM4564796	normal	umbilical cord blood
+GSM4564797	normal	umbilical cord blood
+GSM4564798	normal	umbilical cord blood
+GSM4564799	normal	umbilical cord blood
+GSM4564800	normal	umbilical cord blood
+GSM4564801	normal	umbilical cord blood
+GSM4564802	normal	umbilical cord blood
+GSM4564803	normal	umbilical cord blood
+GSM4564804	normal	umbilical cord blood
+GSM4564805	normal	umbilical cord blood
+GSM4564806	normal	umbilical cord blood
+GSM4564807	normal	umbilical cord blood
+GSM4564808	normal	umbilical cord blood
+GSM4564809	normal	umbilical cord blood
+GSM4564810	normal	umbilical cord blood
+GSM4564811	normal	umbilical cord blood
+GSM4564812	normal	umbilical cord blood
+GSM4564813	normal	umbilical cord blood
+GSM4564814	normal	umbilical cord blood
+GSM4564815	normal	umbilical cord blood
+GSM4564816	normal	umbilical cord blood
+GSM4564817	normal	umbilical cord blood
+GSM4564818	normal	umbilical cord blood
+GSM4564819	normal	umbilical cord blood
+GSM4564820	normal	umbilical cord blood
+GSM4564821	normal	umbilical cord blood
+GSM4564822	normal	umbilical cord blood
+GSM4564823	normal	umbilical cord blood
+GSM4564824	normal	umbilical cord blood
+GSM4564825	normal	umbilical cord blood
+GSM4564826	normal	umbilical cord blood
+GSM4564827	normal	umbilical cord blood
+GSM4564828	normal	umbilical cord blood
+GSM4564829	normal	umbilical cord blood
+GSM4564830	normal	umbilical cord blood
+GSM4564831	normal	umbilical cord blood
+GSM4564832	normal	umbilical cord blood
+GSM4564833	normal	umbilical cord blood
+GSM4564834	normal	umbilical cord blood
+GSM4564835	normal	umbilical cord blood
+GSM4564836	normal	umbilical cord blood
+GSM4564837	normal	umbilical cord blood
+GSM4564838	normal	umbilical cord blood
+GSM4564839	normal	umbilical cord blood
+GSM4564840	normal	umbilical cord blood
+GSM4564841	normal	umbilical cord blood
+GSM4564842	normal	umbilical cord blood
+GSM4564843	normal	umbilical cord blood
+GSM4564844	normal	umbilical cord blood
+GSM4564845	normal	umbilical cord blood
+GSM4564846	normal	umbilical cord blood
+GSM4564847	normal	umbilical cord blood
+GSM4564848	normal	umbilical cord blood
+GSM4564849	normal	umbilical cord blood
+GSM4564850	normal	umbilical cord blood
+GSM4564851	normal	umbilical cord blood
+GSM4564852	normal	umbilical cord blood
+GSM4564853	normal	umbilical cord blood
+GSM4564854	normal	umbilical cord blood
+GSM4564855	normal	umbilical cord blood
+GSM4564856	normal	umbilical cord blood
+GSM4564857	normal	umbilical cord blood
+GSM4564858	normal	umbilical cord blood
+GSM4564859	normal	umbilical cord blood
+GSM4564860	normal	umbilical cord blood
+GSM4564861	normal	umbilical cord blood
+GSM4564862	normal	umbilical cord blood
+GSM4564863	normal	umbilical cord blood
+GSM4564864	normal	umbilical cord blood
+GSM4564865	normal	umbilical cord blood
+GSM4564866	normal	umbilical cord blood
+GSM4564867	normal	umbilical cord blood
+GSM4564868	normal	umbilical cord blood
+GSM4564869	normal	umbilical cord blood
+GSM4564870	normal	umbilical cord blood
+GSM4564871	normal	umbilical cord blood
+GSM4564872	normal	umbilical cord blood
+GSM4564873	normal	umbilical cord blood
+GSM4564874	normal	umbilical cord blood
+GSM4564875	normal	umbilical cord blood
+GSM4564876	normal	umbilical cord blood
+GSM4564877	normal	umbilical cord blood
+GSM4564878	normal	umbilical cord blood
+GSM4564879	normal	umbilical cord blood
+GSM4564880	normal	umbilical cord blood
+GSM4564881	normal	umbilical cord blood
+GSM4564882	normal	umbilical cord blood
+GSM4564883	normal	umbilical cord blood
+GSM4564884	normal	umbilical cord blood
+GSM4564885	normal	umbilical cord blood
+GSM4564886	normal	umbilical cord blood
+GSM4564887	normal	umbilical cord blood
+GSM4564888	normal	umbilical cord blood
+GSM4564889	normal	umbilical cord blood
+GSM4564890	normal	umbilical cord blood
+GSM4564891	normal	umbilical cord blood
+GSM4564892	normal	umbilical cord blood
+GSM4564893	normal	umbilical cord blood
+GSM4564894	normal	umbilical cord blood
+GSM4564895	normal	umbilical cord blood
+GSM4564896	normal	umbilical cord blood
+GSM4564897	normal	umbilical cord blood
+GSM4564898	normal	umbilical cord blood
+GSM4564899	normal	umbilical cord blood
+GSM4564900	normal	umbilical cord blood
+GSM4564901	normal	umbilical cord blood
+GSM4564902	normal	umbilical cord blood
+GSM4564903	normal	umbilical cord blood
+GSM4564904	normal	umbilical cord blood
+GSM4564905	normal	umbilical cord blood
+GSM4564906	normal	umbilical cord blood
+GSM4564907	normal	umbilical cord blood
+GSM4564908	normal	umbilical cord blood
+GSM4564909	normal	umbilical cord blood
+GSM4564910	normal	umbilical cord blood
+GSM4564911	normal	umbilical cord blood
+GSM4564912	normal	umbilical cord blood
+GSM4564913	normal	umbilical cord blood
+GSM4564914	normal	umbilical cord blood
+GSM4564915	normal	umbilical cord blood
+GSM4564916	normal	umbilical cord blood
+GSM4564917	normal	umbilical cord blood
+GSM4564918	normal	umbilical cord blood
+GSM4564919	normal	umbilical cord blood
+GSM4564920	normal	umbilical cord blood
+GSM4564921	normal	umbilical cord blood
+GSM4564922	normal	umbilical cord blood
+GSM4564923	normal	umbilical cord blood
+GSM4564924	normal	umbilical cord blood
+GSM4564925	normal	umbilical cord blood
+GSM4564926	normal	umbilical cord blood
+GSM4564927	normal	umbilical cord blood
+GSM4564928	normal	umbilical cord blood
+GSM4564929	normal	umbilical cord blood
+GSM4564930	normal	umbilical cord blood
+GSM4564931	normal	umbilical cord blood
+GSM4564932	normal	umbilical cord blood
+GSM4564933	normal	umbilical cord blood
+GSM4564934	normal	umbilical cord blood
+GSM4564935	normal	umbilical cord blood
+GSM4564936	normal	umbilical cord blood
+GSM4564937	normal	umbilical cord blood
+GSM4564938	normal	umbilical cord blood
+GSM4564939	normal	umbilical cord blood
+GSM4564940	normal	umbilical cord blood
+GSM4564941	normal	umbilical cord blood
+GSM4564942	normal	umbilical cord blood
+GSM4564943	normal	umbilical cord blood
+GSM4564944	normal	umbilical cord blood
+GSM4564945	normal	umbilical cord blood
+GSM4564946	normal	umbilical cord blood
+GSM4564947	normal	umbilical cord blood
+GSM4564948	normal	umbilical cord blood
+GSM4564949	normal	umbilical cord blood
+GSM4564950	normal	umbilical cord blood
+GSM4564951	normal	umbilical cord blood
+GSM4564952	normal	umbilical cord blood
+GSM4564953	normal	umbilical cord blood
+GSM4564954	normal	umbilical cord blood
+GSM4564955	normal	umbilical cord blood
+GSM4564956	normal	umbilical cord blood
+GSM4564957	normal	umbilical cord blood
+GSM4564958	normal	umbilical cord blood
+GSM4564959	normal	umbilical cord blood
+GSM4564960	normal	umbilical cord blood
+GSM4564961	normal	umbilical cord blood
+GSM4564962	normal	umbilical cord blood
+GSM4564963	normal	umbilical cord blood
+GSM4564964	normal	umbilical cord blood
+GSM4564965	normal	umbilical cord blood
+GSM4564966	normal	umbilical cord blood
+GSM4564967	normal	umbilical cord blood
+GSM4564968	normal	umbilical cord blood
+GSM4564969	normal	umbilical cord blood
+GSM4564970	normal	umbilical cord blood
+GSM4564971	normal	umbilical cord blood
+GSM4564972	normal	umbilical cord blood
+GSM4564973	normal	umbilical cord blood
+GSM4564974	normal	umbilical cord blood
+GSM4564975	normal	umbilical cord blood
+GSM4564976	normal	umbilical cord blood
+GSM4564977	normal	umbilical cord blood
+GSM4564978	normal	umbilical cord blood
+GSM4564979	normal	umbilical cord blood
+GSM4564980	normal	umbilical cord blood
+GSM4564981	normal	umbilical cord blood
+GSM4564982	normal	umbilical cord blood
+GSM4564983	normal	umbilical cord blood
+GSM4564984	normal	umbilical cord blood
+GSM4564985	normal	umbilical cord blood
+GSM4564986	normal	umbilical cord blood
+GSM4564987	normal	umbilical cord blood
+GSM4564988	normal	umbilical cord blood
+GSM4564989	normal	umbilical cord blood
+GSM4564990	normal	umbilical cord blood
+GSM4564991	normal	umbilical cord blood
+GSM4564992	normal	umbilical cord blood
+GSM4564993	normal	umbilical cord blood
+GSM4564994	normal	umbilical cord blood
+GSM4564995	normal	umbilical cord blood
+GSM4564996	normal	umbilical cord blood
+GSM4564997	normal	umbilical cord blood
+GSM4564998	normal	umbilical cord blood
+GSM4564999	normal	umbilical cord blood
+GSM4565000	normal	umbilical cord blood
+GSM4565001	normal	umbilical cord blood
+GSM4565002	normal	umbilical cord blood
+GSM4565003	normal	umbilical cord blood
+GSM4565004	normal	umbilical cord blood
+GSM4565005	normal	umbilical cord blood
+GSM4565006	normal	umbilical cord blood
+GSM4565007	normal	umbilical cord blood
+GSM4565008	normal	umbilical cord blood
+GSM4565009	normal	umbilical cord blood
+GSM4565010	normal	umbilical cord blood
+GSM4565011	normal	umbilical cord blood
+GSM4565012	normal	umbilical cord blood
+GSM4565013	normal	umbilical cord blood
+GSM4565014	normal	umbilical cord blood
+GSM4565015	normal	umbilical cord blood
+GSM4565016	normal	umbilical cord blood
+GSM4565017	normal	umbilical cord blood
+GSM4565018	normal	umbilical cord blood
+GSM4565019	normal	umbilical cord blood
+GSM4565020	normal	umbilical cord blood
+GSM4565021	normal	umbilical cord blood
+GSM4565022	normal	umbilical cord blood
+GSM4565023	normal	umbilical cord blood
+GSM4565024	normal	umbilical cord blood
+GSM4565025	normal	umbilical cord blood
+GSM4565026	normal	umbilical cord blood
+GSM4565027	normal	umbilical cord blood
+GSM4565028	normal	umbilical cord blood
+GSM4565029	normal	umbilical cord blood
+GSM4565030	normal	umbilical cord blood
+GSM4565031	normal	umbilical cord blood
+GSM4565032	normal	umbilical cord blood
+GSM4565033	normal	umbilical cord blood
+GSM4565034	normal	umbilical cord blood
+GSM4565035	normal	umbilical cord blood
+GSM4565036	normal	umbilical cord blood
+GSM4565037	normal	umbilical cord blood
+GSM4565038	normal	umbilical cord blood
+GSM4565039	normal	umbilical cord blood
+GSM4565040	normal	umbilical cord blood
+GSM4565041	normal	umbilical cord blood
+GSM4565042	normal	umbilical cord blood
+GSM4565043	normal	umbilical cord blood
+GSM4565044	normal	umbilical cord blood
+GSM4565045	normal	umbilical cord blood
+GSM4565046	normal	umbilical cord blood
+GSM4565047	normal	umbilical cord blood
+GSM4565048	normal	umbilical cord blood
+GSM4565049	normal	umbilical cord blood
+GSM4565050	normal	umbilical cord blood
+GSM4565051	normal	umbilical cord blood
+GSM4565052	normal	umbilical cord blood
+GSM4565053	normal	umbilical cord blood
+GSM4565054	normal	umbilical cord blood
+GSM4565055	normal	umbilical cord blood
+GSM4565056	normal	umbilical cord blood
+GSM4565057	normal	umbilical cord blood
+GSM4565058	normal	umbilical cord blood
+GSM4565059	normal	umbilical cord blood
+GSM4565060	normal	umbilical cord blood
+GSM4565061	normal	umbilical cord blood
+GSM4565062	normal	umbilical cord blood
+GSM4565063	normal	umbilical cord blood
+GSM4565064	normal	umbilical cord blood
+GSM4565065	normal	umbilical cord blood
+GSM4565066	normal	umbilical cord blood
+GSM4565067	normal	umbilical cord blood
+GSM4565068	normal	umbilical cord blood
+GSM4565069	normal	umbilical cord blood
+GSM4565070	normal	umbilical cord blood
+GSM4565071	normal	umbilical cord blood
+GSM4565072	normal	umbilical cord blood
+GSM4565073	normal	umbilical cord blood
+GSM4565074	normal	umbilical cord blood
+GSM4565075	normal	umbilical cord blood
+GSM4565076	normal	umbilical cord blood
+GSM4565077	normal	umbilical cord blood
+GSM4565078	normal	umbilical cord blood
+GSM4565079	normal	umbilical cord blood
+GSM4565080	normal	umbilical cord blood
+GSM4565081	normal	umbilical cord blood
+GSM4565082	normal	umbilical cord blood
+GSM4565083	normal	umbilical cord blood
+GSM4565084	normal	umbilical cord blood
+GSM4565085	normal	umbilical cord blood
+GSM4565086	normal	umbilical cord blood
+GSM4565087	normal	umbilical cord blood
+GSM4565088	normal	umbilical cord blood
+GSM4565089	normal	umbilical cord blood
+GSM4565090	normal	umbilical cord blood
+GSM4565091	normal	umbilical cord blood
+GSM4565092	normal	umbilical cord blood
+GSM4565093	normal	umbilical cord blood
+GSM4565094	normal	umbilical cord blood
+GSM4565095	normal	umbilical cord blood
+GSM4565096	normal	umbilical cord blood
+GSM4565097	normal	umbilical cord blood
+GSM4565098	normal	umbilical cord blood
+GSM4565099	normal	umbilical cord blood
+GSM4565100	normal	umbilical cord blood
+GSM4565101	normal	umbilical cord blood
+GSM4565102	normal	umbilical cord blood
+GSM4565103	normal	umbilical cord blood
+GSM4565104	normal	umbilical cord blood
+GSM4565105	normal	umbilical cord blood
+GSM4565106	normal	umbilical cord blood
+GSM4565107	normal	umbilical cord blood
+GSM4565108	normal	umbilical cord blood
+GSM4565109	normal	umbilical cord blood
+GSM4565110	normal	umbilical cord blood
+GSM4565111	normal	umbilical cord blood
+GSM4565112	normal	umbilical cord blood
+GSM4565113	normal	umbilical cord blood
+GSM4565114	normal	umbilical cord blood
+GSM4565115	normal	umbilical cord blood
+GSM4565116	normal	umbilical cord blood
+GSM4565117	normal	umbilical cord blood
+GSM4565118	normal	umbilical cord blood
+GSM4565119	normal	umbilical cord blood
+GSM4565120	normal	umbilical cord blood
+GSM4565121	normal	umbilical cord blood
+GSM4565122	normal	umbilical cord blood
+GSM4565123	normal	umbilical cord blood
+GSM4565124	normal	umbilical cord blood
+GSM4565125	normal	umbilical cord blood
+GSM4565126	normal	umbilical cord blood
+GSM4565127	normal	umbilical cord blood
+GSM4565128	normal	umbilical cord blood
+GSM4565129	normal	umbilical cord blood
+GSM4565130	normal	umbilical cord blood
+GSM4565131	normal	umbilical cord blood
+GSM4565132	normal	umbilical cord blood
+GSM4565133	normal	umbilical cord blood
+GSM4565134	normal	umbilical cord blood
+GSM4565135	normal	umbilical cord blood
+GSM4565136	normal	umbilical cord blood
+GSM4565137	normal	umbilical cord blood
+GSM4565138	normal	umbilical cord blood
+GSM4565139	normal	umbilical cord blood
+GSM4565140	normal	umbilical cord blood
+GSM4565141	normal	umbilical cord blood
+GSM4565142	normal	umbilical cord blood
+GSM4565143	normal	umbilical cord blood
+GSM4565144	normal	umbilical cord blood
+GSM4565145	normal	umbilical cord blood
+GSM4565146	normal	umbilical cord blood
+GSM4565147	normal	umbilical cord blood
+GSM4565148	normal	umbilical cord blood
+GSM4565149	normal	umbilical cord blood
+GSM4565150	normal	umbilical cord blood
+GSM4565151	normal	umbilical cord blood
+GSM4565152	normal	umbilical cord blood
+GSM4565153	normal	umbilical cord blood
+GSM4565154	normal	umbilical cord blood
+GSM4565155	normal	umbilical cord blood
+GSM4565156	normal	umbilical cord blood
+GSM4565157	normal	umbilical cord blood
+GSM4565158	normal	umbilical cord blood
+GSM4565159	normal	umbilical cord blood
+GSM4565160	normal	umbilical cord blood
+GSM4565161	normal	umbilical cord blood
+GSM4565162	normal	umbilical cord blood
+GSM4565163	normal	umbilical cord blood
+GSM4565164	normal	umbilical cord blood
+GSM4565165	normal	umbilical cord blood
+GSM4565166	normal	umbilical cord blood
+GSM4565167	normal	umbilical cord blood
+GSM4565168	normal	umbilical cord blood
+GSM4565169	normal	umbilical cord blood
+GSM4565170	normal	umbilical cord blood
+GSM4565171	normal	umbilical cord blood
+GSM4565172	normal	umbilical cord blood
+GSM4565173	normal	umbilical cord blood
+GSM4565174	normal	umbilical cord blood
+GSM4565175	normal	umbilical cord blood
+GSM4565176	normal	umbilical cord blood
+GSM4565177	normal	umbilical cord blood
+GSM4565178	normal	umbilical cord blood
+GSM4565179	normal	umbilical cord blood
+GSM4565180	normal	umbilical cord blood
+GSM4565181	normal	umbilical cord blood
+GSM4565182	normal	umbilical cord blood
+GSM4565183	normal	umbilical cord blood
+GSM4565184	normal	umbilical cord blood
+GSM4565185	normal	umbilical cord blood
+GSM4565186	normal	umbilical cord blood
+GSM4565187	normal	umbilical cord blood
+GSM4565188	normal	umbilical cord blood
+GSM4565189	normal	umbilical cord blood
+GSM4565190	normal	umbilical cord blood
+GSM4565191	normal	umbilical cord blood
+GSM4565192	normal	umbilical cord blood
+GSM4565193	normal	umbilical cord blood
+GSM4565194	normal	umbilical cord blood
+GSM4565195	normal	umbilical cord blood
+GSM4565196	normal	umbilical cord blood
+GSM4565197	normal	umbilical cord blood
+GSM4565198	normal	umbilical cord blood
+GSM4565199	normal	umbilical cord blood
+GSM4565200	normal	umbilical cord blood
+GSM4565201	normal	umbilical cord blood
+GSM4565202	normal	umbilical cord blood
+GSM4565203	normal	umbilical cord blood
+GSM4565204	normal	umbilical cord blood
+GSM4565205	normal	umbilical cord blood
+GSM4565206	normal	umbilical cord blood
+GSM4565207	normal	umbilical cord blood
+GSM4565208	normal	umbilical cord blood
+GSM4565209	normal	umbilical cord blood
+GSM4565210	normal	umbilical cord blood
+GSM4565211	normal	umbilical cord blood
+GSM4565212	normal	umbilical cord blood
+GSM4565213	normal	umbilical cord blood
+GSM4565214	normal	umbilical cord blood
+GSM4565215	normal	umbilical cord blood
+GSM4565216	normal	umbilical cord blood
+GSM4565217	normal	umbilical cord blood
+GSM4565218	normal	umbilical cord blood
+GSM4565219	normal	umbilical cord blood
+GSM4565220	normal	umbilical cord blood
+GSM4565721	intracranial meningioma	meninx
+GSM4565722	intracranial meningioma	meninx
+GSM4565723	intracranial meningioma	meninx
+GSM4565724	intracranial meningioma	meninx
+GSM4565725	intracranial meningioma	meninx
+GSM4565726	intracranial meningioma	meninx
+GSM4565727	intracranial meningioma	meninx
+GSM4565728	intracranial meningioma	meninx
+GSM4565729	intracranial meningioma	meninx
+GSM4565730	intracranial meningioma	meninx
+GSM4565731	intracranial meningioma	meninx
+GSM4565732	intracranial meningioma	meninx
+GSM4565733	intracranial meningioma	meninx
+GSM4565734	intracranial meningioma	meninx
+GSM4565735	intracranial meningioma	meninx
+GSM4565736	intracranial meningioma	meninx
+GSM4565737	intracranial meningioma	meninx
+GSM4565738	intracranial meningioma	meninx
+GSM4565739	intracranial meningioma	meninx
+GSM4565740	intracranial meningioma	meninx
+GSM4565741	intracranial meningioma	meninx
+GSM4565742	intracranial meningioma	meninx
+GSM4565743	intracranial meningioma	meninx
+GSM4565744	intracranial meningioma	meninx
+GSM4565745	intracranial meningioma	meninx
+GSM4565746	intracranial meningioma	meninx
+GSM4565747	intracranial meningioma	meninx
+GSM4565748	intracranial meningioma	meninx
+GSM4565749	intracranial meningioma	meninx
+GSM4565750	intracranial meningioma	meninx
+GSM4565751	intracranial meningioma	meninx
+GSM4565752	intracranial meningioma	meninx
+GSM4565753	intracranial meningioma	meninx
+GSM4565754	intracranial meningioma	meninx
+GSM4565755	intracranial meningioma	meninx
+GSM4565756	intracranial meningioma	meninx
+GSM4565757	intracranial meningioma	meninx
+GSM4565758	intracranial meningioma	meninx
+GSM4565759	intracranial meningioma	meninx
+GSM4565760	intracranial meningioma	meninx
+GSM4565761	intracranial meningioma	meninx
+GSM4565762	intracranial meningioma	meninx
+GSM4565763	intracranial meningioma	meninx
+GSM4565764	intracranial meningioma	meninx
+GSM4565765	intracranial meningioma	meninx
+GSM4565766	intracranial meningioma	meninx
+GSM4565767	intracranial meningioma	meninx
+GSM4565768	intracranial meningioma	meninx
+GSM4565769	intracranial meningioma	meninx
+GSM4565770	intracranial meningioma	meninx
+GSM4565771	intracranial meningioma	meninx
+GSM4565772	intracranial meningioma	meninx
+GSM4565773	intracranial meningioma	meninx
+GSM4565774	intracranial meningioma	meninx
+GSM4565775	intracranial meningioma	meninx
+GSM4565776	intracranial meningioma	meninx
+GSM4565777	intracranial meningioma	meninx
+GSM4565778	intracranial meningioma	meninx
+GSM4565779	intracranial meningioma	meninx
+GSM4565780	intracranial meningioma	meninx
+GSM4565781	intracranial meningioma	meninx
+GSM4565782	intracranial meningioma	meninx
+GSM4565783	intracranial meningioma	meninx
+GSM4565784	intracranial meningioma	meninx
+GSM4565785	intracranial meningioma	meninx
+GSM4565786	intracranial meningioma	meninx
+GSM4565787	intracranial meningioma	meninx
+GSM4565788	intracranial meningioma	meninx
+GSM4565789	intracranial meningioma	meninx
+GSM4565790	intracranial meningioma	meninx
+GSM4565791	intracranial meningioma	meninx
+GSM4565792	intracranial meningioma	meninx
+GSM4565793	intracranial meningioma	meninx
+GSM4565794	intracranial meningioma	meninx
+GSM4565795	intracranial meningioma	meninx
+GSM4565796	intracranial meningioma	meninx
+GSM4565797	intracranial meningioma	meninx
+GSM4565798	intracranial meningioma	meninx
+GSM4565799	intracranial meningioma	meninx
+GSM4565800	intracranial meningioma	meninx
+GSM4565801	intracranial meningioma	meninx
+GSM4565802	intracranial meningioma	meninx
+GSM4565803	intracranial meningioma	meninx
+GSM4565804	intracranial meningioma	meninx
+GSM4565805	intracranial meningioma	meninx
+GSM4565806	intracranial meningioma	meninx
+GSM4565807	intracranial meningioma	meninx
+GSM4565808	intracranial meningioma	meninx
+GSM4570206	psoriasis	peripheral blood
+GSM4570207	psoriasis	peripheral blood
+GSM4570208	psoriasis	peripheral blood
+GSM4570209	psoriasis	peripheral blood
+GSM4570210	psoriasis	peripheral blood
+GSM4570211	psoriasis	peripheral blood
+GSM4570212	psoriasis	peripheral blood
+GSM4570213	psoriasis	peripheral blood
+GSM4570214	psoriasis	peripheral blood
+GSM4570215	psoriasis	peripheral blood
+GSM4570216	psoriasis	peripheral blood
+GSM4570217	psoriasis	peripheral blood
+GSM4570218	psoriasis	peripheral blood
+GSM4570219	psoriasis	peripheral blood
+GSM4570220	psoriasis	peripheral blood
+GSM4570221	psoriasis	peripheral blood
+GSM4570222	psoriasis	peripheral blood
+GSM4570223	psoriasis	peripheral blood
+GSM4570224	psoriasis	peripheral blood
+GSM4570225	psoriasis	peripheral blood
+GSM4570226	psoriasis	peripheral blood
+GSM4570227	psoriasis	peripheral blood
+GSM4570228	psoriasis	peripheral blood
+GSM4570229	psoriasis	peripheral blood
+GSM4570230	psoriasis	peripheral blood
+GSM4570231	psoriasis	peripheral blood
+GSM4570232	psoriasis	peripheral blood
+GSM4570233	psoriasis	peripheral blood
+GSM4570234	psoriasis	peripheral blood
+GSM4570235	psoriasis	peripheral blood
+GSM4570236	psoriasis	peripheral blood
+GSM4570237	psoriasis	peripheral blood
+GSM4570238	psoriasis	peripheral blood
+GSM4570239	psoriasis	peripheral blood
+GSM4570240	psoriasis	peripheral blood
+GSM4570241	psoriasis	peripheral blood
+GSM4570242	psoriasis	peripheral blood
+GSM4570243	psoriasis	peripheral blood
+GSM4570244	psoriasis	peripheral blood
+GSM4570245	psoriasis	peripheral blood
+GSM4570246	psoriasis	peripheral blood
+GSM4570247	psoriasis	peripheral blood
+GSM4570248	psoriasis	peripheral blood
+GSM4570249	psoriasis	peripheral blood
+GSM4570250	psoriasis	peripheral blood
+GSM4570251	psoriasis	peripheral blood
+GSM4570252	psoriasis	peripheral blood
+GSM4570253	psoriasis	peripheral blood
+GSM4570254	psoriasis	peripheral blood
+GSM4570255	psoriasis	peripheral blood
+GSM4570256	psoriasis	peripheral blood
+GSM4570257	psoriasis	peripheral blood
+GSM4570258	psoriasis	peripheral blood
+GSM4570259	psoriasis	peripheral blood
+GSM4570260	psoriasis	peripheral blood
+GSM4570261	psoriasis	peripheral blood
+GSM4570262	psoriasis	peripheral blood
+GSM4570263	psoriasis	peripheral blood
+GSM4570264	psoriasis	peripheral blood
+GSM4570265	psoriasis	peripheral blood
+GSM4570266	psoriasis	peripheral blood
+GSM4570267	psoriasis	peripheral blood
+GSM4570268	psoriasis	peripheral blood
+GSM4570269	psoriasis	peripheral blood
+GSM4570270	psoriasis	peripheral blood
+GSM4570271	psoriasis	peripheral blood
+GSM4570272	psoriasis	peripheral blood
+GSM4570273	psoriasis	peripheral blood
+GSM4570274	psoriasis	peripheral blood
+GSM4570275	psoriasis	peripheral blood
+GSM4575944	Parkinsons disease	peripheral blood
+GSM4575945	Parkinsons disease	brain
+GSM4575946	Parkinsons disease	peripheral blood
+GSM4575947	Parkinsons disease	brain
+GSM4575948	Parkinsons disease	peripheral blood
+GSM4575949	Parkinsons disease	brain
+GSM4575950	Parkinsons disease	peripheral blood
+GSM4575951	Parkinsons disease	brain
+GSM4575952	Parkinsons disease	peripheral blood
+GSM4575953	Parkinsons disease	brain
+GSM4575954	Parkinsons disease	peripheral blood
+GSM4575955	Parkinsons disease	brain
+GSM4575956	Parkinsons disease	peripheral blood
+GSM4575957	Parkinsons disease	brain
+GSM4575958	Parkinsons disease	peripheral blood
+GSM4575959	Parkinsons disease	brain
+GSM4575960	Parkinsons disease	peripheral blood
+GSM4575961	Parkinsons disease	brain
+GSM4575962	Parkinsons disease	peripheral blood
+GSM4575963	Parkinsons disease	brain
+GSM4575964	Parkinsons disease	peripheral blood
+GSM4575965	Parkinsons disease	brain
+GSM4575966	Parkinsons disease	peripheral blood
+GSM4575967	Parkinsons disease	brain
+GSM4575968	Parkinsons disease	peripheral blood
+GSM4575969	Parkinsons disease	brain
+GSM4575970	Parkinsons disease	peripheral blood
+GSM4575971	Parkinsons disease	brain
+GSM4575972	Parkinsons disease	peripheral blood
+GSM4575973	Parkinsons disease	brain
+GSM4575974	Parkinsons disease	peripheral blood
+GSM4575975	Parkinsons disease	brain
+GSM4575976	Parkinsons disease	peripheral blood
+GSM4575977	Parkinsons disease	brain
+GSM4575978	Parkinsons disease	peripheral blood
+GSM4575979	Parkinsons disease	brain
+GSM4575980	Parkinsons disease	peripheral blood
+GSM4575981	Parkinsons disease	brain
+GSM4575982	Parkinsons disease	peripheral blood
+GSM4575983	Parkinsons disease	brain
+GSM4577415	normal	vastus lateralis
+GSM4577416	normal	vastus lateralis
+GSM4577417	normal	vastus lateralis
+GSM4577418	normal	vastus lateralis
+GSM4577419	normal	vastus lateralis
+GSM4577420	normal	vastus lateralis
+GSM4577421	normal	vastus lateralis
+GSM4577422	normal	vastus lateralis
+GSM4577423	normal	vastus lateralis
+GSM4577424	normal	vastus lateralis
+GSM4577425	normal	vastus lateralis
+GSM4577426	normal	vastus lateralis
+GSM4577427	normal	vastus lateralis
+GSM4577428	normal	vastus lateralis
+GSM4577429	normal	vastus lateralis
+GSM4577430	normal	vastus lateralis
+GSM4577431	normal	vastus lateralis
+GSM4577432	normal	vastus lateralis
+GSM4577433	normal	vastus lateralis
+GSM4577434	normal	vastus lateralis
+GSM4577435	normal	vastus lateralis
+GSM4577436	normal	vastus lateralis
+GSM4577437	normal	vastus lateralis
+GSM4577438	normal	vastus lateralis
+GSM4577439	normal	vastus lateralis
+GSM4577440	normal	vastus lateralis
+GSM4577441	normal	vastus lateralis
+GSM4577442	normal	vastus lateralis
+GSM4577443	normal	vastus lateralis
+GSM4577444	normal	vastus lateralis
+GSM4577445	normal	vastus lateralis
+GSM4577446	normal	vastus lateralis
+GSM4577447	normal	vastus lateralis
+GSM4577448	normal	vastus lateralis
+GSM4577449	normal	vastus lateralis
+GSM4577450	normal	vastus lateralis
+GSM4577451	normal	vastus lateralis
+GSM4577452	normal	vastus lateralis
+GSM4577453	normal	vastus lateralis
+GSM4577454	normal	vastus lateralis
+GSM4577455	normal	vastus lateralis
+GSM4577456	normal	vastus lateralis
+GSM4577457	normal	vastus lateralis
+GSM4577458	normal	vastus lateralis
+GSM4577459	normal	vastus lateralis
+GSM4577460	normal	vastus lateralis
+GSM4577461	normal	vastus lateralis
+GSM4577462	normal	vastus lateralis
+GSM4577463	normal	vastus lateralis
+GSM4577464	normal	vastus lateralis
+GSM4577465	normal	vastus lateralis
+GSM4577466	normal	vastus lateralis
+GSM4577467	normal	vastus lateralis
+GSM4577468	normal	vastus lateralis
+GSM4577469	normal	vastus lateralis
+GSM4577470	normal	vastus lateralis
+GSM4577471	normal	vastus lateralis
+GSM4577472	normal	vastus lateralis
+GSM4577473	normal	vastus lateralis
+GSM4577474	normal	vastus lateralis
+GSM4577475	normal	vastus lateralis
+GSM4577476	normal	vastus lateralis
+GSM4577477	normal	vastus lateralis
+GSM4577478	normal	vastus lateralis
+GSM4577479	normal	vastus lateralis
+GSM4577480	normal	vastus lateralis
+GSM4577481	normal	vastus lateralis
+GSM4577482	normal	vastus lateralis
+GSM4577483	normal	vastus lateralis
+GSM4577484	normal	vastus lateralis
+GSM4577485	normal	vastus lateralis
+GSM4577486	normal	vastus lateralis
+GSM4577487	normal	vastus lateralis
+GSM4577488	normal	vastus lateralis
+GSM4577489	normal	vastus lateralis
+GSM4577490	normal	vastus lateralis
+GSM4577491	normal	vastus lateralis
+GSM4577492	normal	vastus lateralis
+GSM4579298	normal	saliva
+GSM4579299	normal	saliva
+GSM4579300	normal	saliva
+GSM4579301	normal	saliva
+GSM4579302	normal	saliva
+GSM4579303	normal	saliva
+GSM4579304	normal	saliva
+GSM4579305	normal	saliva
+GSM4579306	normal	saliva
+GSM4579307	normal	saliva
+GSM4579308	normal	saliva
+GSM4579309	normal	saliva
+GSM4579310	normal	saliva
+GSM4579311	normal	saliva
+GSM4579312	normal	saliva
+GSM4579313	normal	saliva
+GSM4579314	normal	saliva
+GSM4579315	normal	saliva
+GSM4579316	normal	saliva
+GSM4579317	normal	saliva
+GSM4579318	normal	saliva
+GSM4579319	normal	saliva
+GSM4579320	normal	saliva
+GSM4579321	normal	saliva
+GSM4579322	normal	saliva
+GSM4579323	normal	saliva
+GSM4579324	normal	saliva
+GSM4579325	normal	saliva
+GSM4579326	normal	saliva
+GSM4579327	normal	saliva
+GSM4579328	normal	saliva
+GSM4579329	normal	saliva
+GSM4579330	normal	saliva
+GSM4579331	normal	saliva
+GSM4579332	normal	saliva
+GSM4579333	normal	saliva
+GSM4579334	normal	saliva
+GSM4579335	normal	saliva
+GSM4579336	normal	saliva
+GSM4579337	normal	saliva
+GSM4579338	normal	saliva
+GSM4579339	normal	saliva
+GSM4579340	normal	saliva
+GSM4579341	normal	saliva
+GSM4579342	normal	saliva
+GSM4579343	normal	saliva
+GSM4579344	normal	saliva
+GSM4579345	normal	saliva
+GSM4579346	normal	saliva
+GSM4579347	normal	saliva
+GSM4579348	normal	saliva
+GSM4579349	normal	saliva
+GSM4579350	normal	saliva
+GSM4579351	normal	saliva
+GSM4579352	normal	saliva
+GSM4579353	normal	saliva
+GSM4579354	normal	saliva
+GSM4579355	normal	saliva
+GSM4579356	normal	saliva
+GSM4579357	normal	saliva
+GSM4579358	normal	saliva
+GSM4579359	normal	saliva
+GSM4579360	normal	saliva
+GSM4579361	normal	saliva
+GSM4579362	normal	saliva
+GSM4579363	normal	saliva
+GSM4579364	normal	saliva
+GSM4579365	normal	saliva
+GSM4579366	normal	saliva
+GSM4579367	normal	saliva
+GSM4579368	normal	saliva
+GSM4579369	normal	saliva
+GSM4579370	normal	saliva
+GSM4579371	normal	saliva
+GSM4579372	normal	saliva
+GSM4579373	normal	saliva
+GSM4579374	normal	saliva
+GSM4579375	normal	saliva
+GSM4579376	normal	saliva
+GSM4579377	normal	saliva
+GSM4579378	normal	saliva
+GSM4579379	normal	saliva
+GSM4579380	normal	saliva
+GSM4579381	normal	saliva
+GSM4579382	normal	saliva
+GSM4579383	normal	saliva
+GSM4579384	normal	saliva
+GSM4579385	normal	saliva
+GSM4579386	normal	saliva
+GSM4579387	normal	saliva
+GSM4579388	normal	saliva
+GSM4579389	normal	saliva
+GSM4579390	normal	saliva
+GSM4579391	normal	saliva
+GSM4579392	normal	saliva
+GSM4579393	normal	saliva
+GSM4579394	normal	saliva
+GSM4579395	normal	saliva
+GSM4579396	normal	saliva
+GSM4579397	normal	saliva
+GSM4586444	normal	skin
+GSM4586445	normal	skin
+GSM4586446	normal	skin
+GSM4586447	normal	skin
+GSM4586448	normal	skin
+GSM4586449	normal	skin
+GSM4586450	normal	skin
+GSM4586451	normal	skin
+GSM4586452	normal	skin
+GSM4586453	normal	skin
+GSM4586454	normal	skin
+GSM4586455	normal	skin
+GSM4586456	normal	skin
+GSM4586457	normal	skin
+GSM4586458	normal	skin
+GSM4586459	normal	skin
