@@ -194,14 +194,12 @@ get_metadata_encode<-function(accession_name,out_directory='data/ENCODE/') {
   source_type <- metadata[, biosample_type]
   source <- metadata[, biosample_name]
   platform <- metadata[, platform]
-  data_description <- metadata[, dataset_description]
   ENCODE_metadata <-
     data.frame(
       'Samples' = sample,
       'Assay_type' = platform,
       'Source' = source,
       'Source_type' = source_type,
-      'Description' = data_description,
       'Series' = experiment,
       'Database' = database
     )
