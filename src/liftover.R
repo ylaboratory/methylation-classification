@@ -12,11 +12,11 @@ liftover <- function(dir2chain, GRset_BMIQ_genome_loci) {
     GRanges(seqnames = seqname,
             ranges = IRanges(start = as.numeric(start), width = 1))
   Grange38 <- liftOver(Grange19, chain)
-  GRset_BMIQ_genome_loci$chr <- as.character(seqnames(Grange38))
-  GRset_BMIQ_genome_loci$loci <- as.numeric(start(Grange38))
-  start_new <- GRset_BMIQ_genome_loci$loci
-  rownames(start_new) <- NULL
-  GRset_BMIQ_genome_loci_lift <-
-    GRset_BMIQ_genome_loci[which(!is.na(start_new)), ]
+  Grange38_elementlen<-elementNROWS(Grange38)
+  rownames(Grange38_elementlen)=NULL
+  unmatched<-which(Grange38_elementlen==0)
+  GRset_BMIQ_genome_loci_lift=GRset_BMIQ_genome_loci[-unmatched,]
+  GRset_BMIQ_genome_loci_lift$chr=as.character(data.frame(Grange38@unlistData)$seqnames)
+  GRset_BMIQ_genome_loci_lift$loci=as.character(data.frame(Grange38@unlistData)$start)
   return(GRset_BMIQ_genome_loci_lift)
 }
