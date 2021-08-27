@@ -48,10 +48,11 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
   
 }
 
+
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
 download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
-  gse_series <- getGEO(accession_num, GSEMatrix = F)
+  gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = 'tmp')
   if (length(gse_series)>1){
     stop(paste0('This is a super series, please use the series list: ', names(gse_series)))
   }
@@ -71,10 +72,13 @@ download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
   gsm_status_all <- vector()
   gsm_character_all <- vector()
   for (i in 1:length(gsm_names)) {
-    gsm_sample <- getGEO(gsm_names[i])
+    gsm_sample <- getGEO(gsm_names[i], destdir = 'tmp')
     gsm_source <- gsm_sample@header$source_name_ch1
+    gsub('\t', " ", gsm_source)
     gsm_status <- gsm_sample@header$title
-    gsm_character <- gsm_sample@header$characteristics_ch1
+    gsub('\t', " ", gsm_status)
+    gsm_character <- paste(gsm_sample@header$characteristics_ch1, sep = "", collapse = " ")
+    gsub('\t', " ", gsm_character)
     gsm_source_all <- c(gsm_source_all, gsm_source)
     gsm_status_all <- c(gsm_status_all, gsm_status)
     gsm_character_all <- c(gsm_character_all, gsm_character)
@@ -151,23 +155,30 @@ convert2target <- function(accession_name,download_directory='raw/ENCODE/') {
     files_all<-files_all_rep[which(files_all_rep[,replicate_libraries]==sample_names[i]),]
     pattern_name_red <-
       files_all[which(files_all[, output_type] == 'idat red channel'), file_accession]
-    replace_name_red <-
-      paste0(files_all[which(files_all[, output_type] == 'idat red channel'), replicate_libraries], '_Red')
-    pattern_name_green <-
-      files_all[which(files_all[, output_type] == 'idat green channel'), file_accession]
-    replace_name_green <-
-      paste0(files_all[which(files_all[, output_type] == 'idat green channel'), replicate_libraries], '_Grn')
-    file.rename(
-      from =  paste0(download_directory,accession_name,'/',pattern_name_red, '.idat'),
-      to = paste0(download_directory,accession_name,'/', replace_name_red, '.idat')
-    )
-    file.rename(
-      from =  paste0(download_directory,accession_name,'/', pattern_name_green, '.idat'),
-      to = paste0(download_directory,accession_name,'/', replace_name_green, '.idat')
-    )
+    if (length(pattern_name_red)==0){
+      return('No_red')
+      print('No_red')
+      break
+    }else{
+      replace_name_red <-
+        paste0(files_all[which(files_all[, output_type] == 'idat red channel'), replicate_libraries], '_Red')
+      pattern_name_green <-
+        files_all[which(files_all[, output_type] == 'idat green channel'), file_accession]
+      replace_name_green <-
+        paste0(files_all[which(files_all[, output_type] == 'idat green channel'), replicate_libraries], '_Grn')
+      file.rename(
+        from =  paste0(download_directory,accession_name,'/',pattern_name_red, '.idat'),
+        to = paste0(download_directory,accession_name,'/', replace_name_red, '.idat')
+      )
+      file.rename(
+        from =  paste0(download_directory,accession_name,'/', pattern_name_green, '.idat'),
+        to = paste0(download_directory,accession_name,'/', replace_name_green, '.idat')
+      )
+    }
+    
     
   }
-  
+  return('fine')
 }
 
 # This file extracts the metadata for all microarray data in the encode database
@@ -192,14 +203,14 @@ get_metadata_encode<-function(accession_name,out_directory='data/ENCODE/') {
       'Series' = experiment,
       'Database' = database
     )
-  
+
   write.table(
     ENCODE_metadata,
     paste0(out_directory, accession_name, '_sample_metadata.txt'),
     quote = F,
     sep = '\t',
-    row.names = F
-  )
+    row.names = F)
+  return(platform)
 }
 
 # This script downloads the TCGA microarray data
