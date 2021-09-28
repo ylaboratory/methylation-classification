@@ -3,7 +3,8 @@
 *.tar
 *.zip
 *.ipynb_checkpoints
-data/*
-raw/**/*.idat
-processed/**/*.fastq
-processed/**/*.txt
+data/**
+raw/**
+processed/**
+src_sunny/**
+annotation/*.obo

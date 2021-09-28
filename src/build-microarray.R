@@ -1,14 +1,22 @@
 # Take in accession and database from the command line
 # The working directory needs to be changed accordingly
 args <- commandArgs(trailingOnly = TRUE)
+
+#fornow_start
+args[1]<-'GEO'
+args[2]<-'F'
+args[3]<-'GEO_microarray_accession_full.txt'
+#fornow_end
+
 database_type<- args[1]
+manifest_file<- args[3]
+
 if (args[2]=="F") {
   ignore_exist_state<-F
 } else if (args[2]=="T"){
   ignore_exist_state<-T
 }
-manifest_file<- args[3]
-setwd('/local/yc89/Methylation-classification')
+setwd('/grain/mk98/methyl/methylation-classification')
 # This script is an example of preprocessing the geo and ENCODEmicroarray data given an accession number
 if (!require('RPMM')) {
   install.packages("RPMM", repos = "http://cran.us.r-project.org")
@@ -65,18 +73,23 @@ if (database_type == 'GEO') {
   for (accession in as.character(accession_list$V1)) {
     print('Here')
     print(accession)
-    download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
-    download_geo_metadata(accession)
-    corrected_data <-
-      background_correction(paste0('raw/', database_type, '/', accession))
-    normalized_data <-
-      normalization(corrected_data,
-                    paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-    lifted_data <-
-      liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-    write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
-                quote = F,
-                sep = '\t', row.names = F, col.names = T)
+    tryCatch(
+      {
+        download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
+        download_geo_metadata(accession)
+        corrected_data <-
+          background_correction(paste0('raw/', database_type, '/', accession))
+        normalized_data <-
+          normalization(corrected_data,
+                        paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
+        lifted_data <-
+          liftover('annotation/hg19ToHg38.over.chain', normalized_data)
+        write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
+                    quote = F,
+                    sep = '\t', row.names = F, col.names = T)
+        unlink(paste0('raw/GEO/', accession,"/*"), force=TRUE)
+      },
+      error=function(e) print(paste("ERROR: ",accession)))
   }
 } else if (database_type == 'ENCODE') {
   accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
@@ -131,7 +144,7 @@ if (database_type == 'GEO') {
                   sep = '\t', row.names = F, col.names = T)
     }
 }
-
+database_type='GEO'
 # This script merges all sample metadata from the corresponding dataset
 all_metadata_name <-
   list.files(path = paste0('data/', database_type), pattern = '_sample_metadata.txt', full.names = T)
@@ -141,11 +154,15 @@ metadata_total <-
   }), use.names = T, fill = T)
 write.table(
   metadata_total,
-  file = paste0('data/', database_type, '/all_samplemetadata.txt'),
+  file = paste0('data/', database_type, '/all_metadata.txt'),
   quote = F,
   row.names = F,
   sep = "\t"
 )
+library(R.utils)
+library(data.table)
+gzip(filename=paste0('data/', database_type, '/all_metadata.txt'), 
+     destname=paste0('data/', database_type, '/all_metadata.txt.gz'), overwrite=TRUE, remove=TRUE)
 
 # This script merges all beta_value files together and only keeps the loci that are present in all the files
 # The script only merges 450k data(485344 loci) and EpicBeadchip data (865613 loci)
@@ -160,10 +177,10 @@ total_matrix<-list()
 # This function removes the duplicated loci in 450k and Beadchip data
 for (i in 1:length(betavaluedf)){
   dataset_sample<-betavaluedf[[i]]
-  datatype1=betavaluedf[[2]]#Here put in a dataset in the matrix list that is Beadchip data
+  datatype1=betavaluedf[[1]]#Here put in a dataset in the matrix list that is Beadchip data
   loci1=paste(datatype1$chr,datatype1$loci, sep = ' ')
   duplicate1<-which(loci1%in%loci1[duplicated(loci1)])
-  datatype2=betavaluedf[[4]]#Here put in a dataset in the matrix list that is 450k data
+  datatype2=betavaluedf[[3]]#Here put in a dataset in the matrix list that is 450k data
   loci2=paste(datatype2$chr,datatype2$loci, sep = ' ')
   duplicate2<-which(loci2%in%loci2[duplicated(loci2)])
   if (nrow(dataset_sample)>800000){
@@ -174,8 +191,10 @@ for (i in 1:length(betavaluedf)){
     total_matrix[[i]]<-dataset_sample_removed
   }
 }
-loci1_rm=paste(total_matrix[[2]]$chr,total_matrix[[2]]$loci, sep = ' ')#Here put in a dataset(like the second in total_matrix) in the deduplicated matrix list that is Beadchip data
-loci2_rm=paste(total_matrix[[4]]$chr,total_matrix[[4]]$loci, sep = ' ')#Here put in a dataset in the deduplicated matrix list that is 450k data
+#Here put in a dataset(like the second in total_matrix) in the deduplicated matrix list that is Beadchip data
+loci1_rm=paste(total_matrix[[1]]$chr,total_matrix[[1]]$loci, sep = ' ')
+#Here put in a dataset in the deduplicated matrix list that is 450k data
+loci2_rm=paste(total_matrix[[3]]$chr,total_matrix[[3]]$loci, sep = ' ')
 loci_location1<-which(loci1_rm%in%intersect(loci1_rm,loci2_rm))
 loci_location2<-which(loci2_rm%in%intersect(loci1_rm,loci2_rm))
 intersect_matrix<-cbind(datatype1$chr[loci_location1],datatype1$loci[loci_location1])
@@ -193,8 +212,10 @@ for (i in 1:length(total_matrix)){
 }
 write.table(
   intersect_matrix,
-  file = paste0('data/', database_type, '/all_betavalues_2.txt'),
+  file = paste0('data/', database_type, '/all_betavalues.txt'),
   quote = F,
   row.names = F,
   sep = "\t"
 )
+gzip(filename=paste0('data/', database_type, '/all_betavalues.txt'), 
+     destname=paste0('data/', database_type, '/all_betavalues.txt.gz'), overwrite=TRUE, remove=TRUE, BFR.SIZE=1e+07)

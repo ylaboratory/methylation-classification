@@ -6,13 +6,12 @@ library(TCGAbiolinks)
 # This script is used for downloading and extracting raw microarray files from the GEO database
 # To donwload data even if directory exists, use download.data.geo.microarray(accession.num, ignore.exisiting = T)
 download_data_geo_microarray <- function(accession_num, ignore_exist=F, download_directory='raw/GEO/') {
-  if (dir.exists(
-    paste(
+  if (dir.exists(paste(
       download_directory,
       accession_num,
       sep = ""
-    )
-  ) == FALSE | ignore_exist) {
+    )) == FALSE || ignore_exist) {
+    print("downloading beta values")
     result <-
       getGEOSuppFiles(
         accession_num,
@@ -44,6 +43,7 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
     )
     
   }
+  else{print(paste0(accession_num, ' beta value already exists'))}
   print(paste0('Executed downloading command for ', accession_num))
   
 }
@@ -52,84 +52,95 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
 download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
-  gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = 'tmp')
-  if (length(gse_series)>1){
-    stop(paste0('This is a super series, please use the series list: ', names(gse_series)))
-  }
-  gsm_names <- names(GSMList(gse_series))
-  platform_all<-rep(gse_series@header$platform_id, length(gsm_names))
-  series_all<-rep(accession_num,length(gsm_names))
-  database_all<-rep('GEO',length(gsm_names))
-  if (dir.exists(
-    out_directory
-  )
-  == FALSE) {
-    dir.create(
+  if (file.exists(paste0(
+    out_directory,
+    accession_num, 
+    "_sample_metadata.txt",
+    sep = ""
+  )) == FALSE || ignore_exist){
+    print("downloading metadata")
+    gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = tempdir())
+    if (length(gse_series)>1){
+      stop(paste0('This is a super series, please use the series list: ', names(gse_series)))
+    }
+    gsm_names <- names(GSMList(gse_series))
+    platform_all<-rep(gse_series@header$platform_id, length(gsm_names))
+    series_all<-rep(accession_num,length(gsm_names))
+    database_all<-rep('GEO',length(gsm_names))
+
+    gsm_source_all <- vector()
+    gsm_status_all <- vector()
+    gsm_character_all <- vector()
+    for (i in 1:length(gsm_names)) {
+      gsm_sample <- getGEO(gsm_names[i], destdir = tempdir())
+      gsm_source <- gsm_sample@header$source_name_ch1
+      gsub('\t', " ", gsm_source)
+      gsm_status <- gsm_sample@header$title
+      gsub('\t', " ", gsm_status)
+      gsm_character <- paste(gsm_sample@header$characteristics_ch1, sep = "", collapse = " ")
+      gsub('\t', " ", gsm_character)
+      gsm_source_all <- c(gsm_source_all, gsm_source)
+      gsm_status_all <- c(gsm_status_all, gsm_status)
+      gsm_character_all <- c(gsm_character_all, gsm_character)
+    }
+    metadata <-
+      data.table(
+        'Samples' = gsm_names,
+        'Source' = gsm_source_all,
+        'Characteristics' = gsm_character_all,
+        'Title' = gsm_status_all,
+        'Series'= series_all,
+        'Platform' = platform_all,
+        'Database' = database_all
+      )
+    
+    series_relation <- gse_series@header$relation
+    series_design <- gse_series@header$overall_design
+    series_name <- gse_series@header$geo_accession
+    series_supp <- gse_series@header$supplementary_file
+    series_title <- gse_series@header$title
+    series_info <-
+      data.table(
+        'name' = series_name,
+        'design' = series_design,
+        'relation' = series_relation,
+        'supplement' = series_supp,
+        'title' = series_title,
+        key = c('name', 'design', 'relation', 'supplement', 'title')
+      )
+    
+    if (dir.exists(
       out_directory
     )
-  }
-  gsm_source_all <- vector()
-  gsm_status_all <- vector()
-  gsm_character_all <- vector()
-  for (i in 1:length(gsm_names)) {
-    gsm_sample <- getGEO(gsm_names[i], destdir = 'tmp')
-    gsm_source <- gsm_sample@header$source_name_ch1
-    gsub('\t', " ", gsm_source)
-    gsm_status <- gsm_sample@header$title
-    gsub('\t', " ", gsm_status)
-    gsm_character <- paste(gsm_sample@header$characteristics_ch1, sep = "", collapse = " ")
-    gsub('\t', " ", gsm_character)
-    gsm_source_all <- c(gsm_source_all, gsm_source)
-    gsm_status_all <- c(gsm_status_all, gsm_status)
-    gsm_character_all <- c(gsm_character_all, gsm_character)
-  }
-  metadata <-
-    data.table(
-      'Samples' = gsm_names,
-      'Source' = gsm_source_all,
-      'Characteristics' = gsm_character_all,
-      'Title' = gsm_status_all,
-      'Series'= series_all,
-      'Platform' = platform_all,
-      'Database' = database_all
+    == FALSE) {
+      dir.create(
+        out_directory
+      )
+    }
+    write.table(
+      metadata,
+      paste0(out_directory,
+             accession_num,
+             '_sample_metadata.txt',
+             sep = "")
+      ,
+      sep = "\t",
+      row.names = FALSE,
+      quote = F
     )
-  write.table(
-    metadata,
-    paste0(out_directory,
-           accession_num,
-           '_sample_metadata.txt',
-           sep = "")
-    ,
-    sep = "\t",
-    row.names = FALSE,
-    quote = F
-  )
-  series_relation <- gse_series@header$relation
-  series_design <- gse_series@header$overall_design
-  series_name <- gse_series@header$geo_accession
-  series_supp <- gse_series@header$supplementary_file
-  series_title <- gse_series@header$title
-  series_info <-
-    data.table(
-      'name' = series_name,
-      'design' = series_design,
-      'relation' = series_relation,
-      'supplement' = series_supp,
-      'title' = series_title,
-      key = c('name', 'design', 'relation', 'supplement', 'title')
+    write.table(
+      series_info,
+      paste0(out_directory,
+             accession_num,
+             '_series_metadata.txt',
+             sep = "")
+      ,
+      sep = "\t",
+      row.names = FALSE,
+      quote = F
     )
-  write.table(
-    series_info,
-    paste0(out_directory,
-           accession_num,
-           '_series_metadata.txt',
-           sep = "")
-    ,
-    sep = "\t",
-    row.names = FALSE,
-    quote = F
-  )
-  
+  }
+  else{print(paste0(accession_num, ' metadata already exists'))}
 }
 # This function downloads the microarray data in ENCODE
 # Input is the accession name of the experiment staring with ENCS
