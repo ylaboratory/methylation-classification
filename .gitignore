@@ -3,8 +3,13 @@
 *.tar
 *.zip
 *.ipynb_checkpoints
+*.gz
+*~
+
+deletion/**
 data/**
 raw/**
 processed/**
 src_sunny/**
 annotation/*.obo
+annotation/SRA/**
