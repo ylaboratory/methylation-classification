@@ -10,5 +10,5 @@ deletion/**
 data/**
 raw/**
 processed/**
-src_sunny/**
+workspace/**
 annotation/*.obo
