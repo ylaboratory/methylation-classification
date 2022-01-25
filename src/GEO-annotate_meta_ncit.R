@@ -1,10 +1,11 @@
 library(data.table)
-meta_dir='data/GEO/'
+library(R.utils)
+meta_dir='data/GEO_recovered/'
 database_type='GEO'
 
 annot<-function(total_metadata, meta_dir, sample, disease_vec, tissue_vec, 
                 treatment_vec=c(rep('False',length(disease_vec)))){
-  sample_matrix<-read.csv(paste0(meta_dir, sample,'_sample_metadata.txt.gz'), sep='\t')
+  sample_matrix<-read.csv(paste0(meta_dir, sample,'_sample_metadata.txt'), sep='\t')
   if (!(sample %in% total_metadata$series)){
     total_metadata=rbind(total_metadata, 
                          data.table(sample_id=sample_matrix$Samples, 
@@ -22,12 +23,17 @@ append_to_remove<-function(list, item){
   return(list)
 }
 
-total_metadata<-data.table(sample_id=character(), series=character(), platform=character(), disease_name=character(), tissue_name=character(), treatment=character())
+total_metadata<-data.table(sample_id=character(), 
+                           series=character(), 
+                           platform=character(), 
+                           disease_name=character(), 
+                           tissue_name=character(), 
+                           treatment=character())
 to_remove<-list()
 
 total_metadata<-annot(total_metadata, meta_dir, 'GSE102031', c(rep('normal',16)), c(rep('Embryonic Stem Cell', 16)), c(rep('False', 16)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE100780', c(rep('normal', 4)), c(rep('HL60', 4)), c(rep('False',2), rep('True',2))) 
-total_metadata<-annot(total_metadata, meta_dir, 'GSE103006', c(rep('normal', 43)), c(rep('Hematopoietic Stem Cell', 43)), c(rep('False',43)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE103006', c(rep('normal', 43)), c(rep('Hematopoietic Stem Cell', 43)), c(rep('False',43)))
 to_remove<-append_to_remove(to_remove, 'GSE103027')
 to_remove<-append_to_remove(to_remove, 'GSE103271')
 to_remove<-append_to_remove(to_remove, 'GSE103279')
@@ -52,11 +58,11 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE108982', c(rep('disease',16)
 total_metadata<-annot(total_metadata, meta_dir, 'GSE109330', c(rep('disease',27)), c(rep('Glioblastoma',27)), c(rep('False',27)))
 to_remove<-append_to_remove(to_remove, 'GSE109364')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE109541', c(rep('disease',4)), c(rep('Gastric Adenocarcinoma',4)), c(rep('False',4)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE109904', c(rep('disease',6)), c(rep(list('Sarcoma','Leukemia',3))), c(rep('False',6)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE109904', c(rep('disease',6)), c(rep(c('Sarcoma','Leukemia',3))), c(rep('False',6)))
 to_remove<-append_to_remove(to_remove, 'GSE110184')
 to_remove<-append_to_remove(to_remove, 'GSE110697')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE100197', 
-                      c(rep('dissease',51),rep('normal',51)),
+                      c(rep('disease',51),rep('normal',51)),
                       c(rep('Eclampsia',22),rep('Placenta',11),rep('Eclampsia',18),rep('Placenta',51)), 
                       c(rep('False',102)))
 to_remove<-append_to_remove(to_remove, 'GSE100249')
@@ -73,7 +79,7 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE101641', c(rep('normal',16),
 total_metadata<-annot(total_metadata, meta_dir, 'GSE101658', c(rep('disease',15)), c(rep('Multiple Sclerosis',15)),c(rep('False',15)))
 to_remove<-append_to_remove(to_remove, 'GSE101673')   
 to_remove<-append_to_remove(to_remove, 'GSE101733')
-total_metadata<-annot(total_metadata, meta_dir, 'GSE101840', c(rep('normal',5)), c(rep('Whole Blood',5)),c(rep('False',5)))                      
+total_metadata<-annot(total_metadata, meta_dir, 'GSE101840', c(rep('normal',6)), c(rep('Umbilical Blood',6)),c(rep('False',6)))                      
 total_metadata<-annot(total_metadata, meta_dir, 'GSE101961', c(rep('normal',121)), c(rep('Breast',121)), c(rep('False',121)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE102119', c(rep('disease',146)), c(rep('Ovarian Carcinoma',146)), c(rep('False',146)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE102177', c(rep('normal',36)), c(rep('Peripheral Blood',36)),c(rep('False',36)))
@@ -83,7 +89,7 @@ to_remove<-append_to_remove(to_remove, 'GSE102994')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE103006', c(rep('normal',24)),c(rep('Umbilical Cord Blood',24)), c(rep('False',24)))
 to_remove<-append_to_remove(to_remove, 'GSE103010')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE103413', c(rep('normal', 67)), 
-                      c(rep('Brain',9),rep('Liver',7),rep('Breast',7),rep('Leukocyte',36),rep('Melanocyte',3),rep('Villus',2)),
+                      c(rep('Brain',9),rep('Liver',10),rep('Breast',7),rep('Leukocyte',36),rep('Melanocyte',3),rep('Villus',2)),
                       c(rep('False',67)))
 to_remove<-append_to_remove(to_remove, 'GSE103502')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE103659', c(rep('disease',181)),c(rep('Brain Neoplasm',181)),c(rep('False',181)))
@@ -106,21 +112,21 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE105260', c(rep('disease',26)
 total_metadata<-annot(total_metadata, meta_dir, 'GSE106089', c(rep('normal',84)),c(rep('Placenta',84)), c(rep('False',84)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE106099', c(rep('normal',30)),c(rep('Endothelial Cell',30)),c(rep('False',30)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE106360', c(rep('disease',47)),c(rep('Breast Neoplasm',47)),c(rep('False',47)))
-total_metadata<-annot(total_metadata,meta_dir, 'GSE106556', c(rep('normal',6),rep('disease',6),rep('normal',5),rep('disease',6)),
-                     c(rep('Hematopoietic Tissue',6),rep('Myeloid Leukemia',6),rep('Hematopoietic Tissue',5),rep('Myeloid Leukemia',6)),
-                     c(rep('False',23)))
+# total_metadata<-annot(total_metadata,meta_dir, 'GSE106556', c(rep('normal',6),rep('disease',6),rep('normal',5),rep('disease',6)),
+                     # c(rep('Hematopoietic Tissue',6),rep('Myeloid Leukemia',6),rep('Hematopoietic Tissue',5),rep('Myeloid Leukemia',6)),
+                     # c(rep('False',23)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE107038', c(rep('normal',40)),c(rep('Liver',40)),c(rep('False',40)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE107211', c(rep('normal',15)),c(rep('Whole Blood',15)),c(rep('False',15)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE107226', c(rep('disease',8), rep('normal',4)),c(rep('Pulmonary Fibrosis',8),rep('Fibroblast',4)),
                       c(rep('False',12)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE107351', 
-                      c(rep('noraml',41),rep('disease',75)),c(rep('Blood',41),rep('Lynch Syndrome',61),rep('MLH1 Gene Mutation',14)),
+                      c(rep('normal',41),rep('disease',75)),c(rep('Blood',41),rep('Lynch Syndrome',61),rep('MLH1 Gene Mutation',14)),
                       c(rep('False',116)))
 to_remove<-append_to_remove(to_remove, 'GSE107352')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE107737', c(rep('normal',12),rep('disease',12)), c(rep('Whole Blood',12),rep('Hypopituitarism',12)),
                       c(rep('False',24)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE108058', c(rep('normal',30)),c(rep('Spermatozoon',30)),c(rep('False',30)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE108423', c(rep('normal',21)),c(rep('Peripheral Blood',20)),c(rep('False',20)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE108423', c(rep('normal',20)),c(rep('Peripheral Blood',20)),c(rep('False',20)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE108562', c(rep('normal',6)),c(rep('Umbilical Cord Blood',6)),c(rep('False',6)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE108567', c(rep('normal',59)),c(rep('Chorionic Villus',59)),c(rep('False',59)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE108567', c(rep('disease',89)),
@@ -135,13 +141,13 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE109905', c(rep('disease',38)
                       c(rep('False',69)))
 to_remove<-append_to_remove(to_remove, 'GSE109914')
 to_remove<-append_to_remove(to_remove,'GSE110607')
-total_metadata<-annot(total_metadata, meta_dir, 'GSE110607', c(rep('normal',21)),c(rep('Adipose Tissue',15),rep('Blood',6)), c(rep('False',21)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE110776', c(rep('normal',24)),c(rep('Bronchoalveolar Lavage Fluid', 24)), c(rep('False',21)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE110607', c(rep('normal',21)),c(rep('Adipose Tissue',15),rep('Blood',6)), c(rep('False',21)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE110776', c(rep('normal',24)),c(rep('Bronchoalveolar Lavage Fluid', 24)), c(rep('False',24)))
 to_remove<-append_to_remove(to_remove,'GSE110778')
 to_remove<-append_to_remove(to_remove, 'GSE111396')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE111428', c(rep('disease',6)), c(rep('Ependymoma',6)), c(rep('False',6))) 
 total_metadata<-annot(total_metadata, meta_dir, 'GSE111632', c(rep('normal',12)), c(rep('Adipose Tissue',12)),c(rep('False',12)))
-to_remove<-apend_to_remove(to_remove, 'GSE111933')
+to_remove<-append_to_remove(to_remove, 'GSE111933')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE111933', c(rep('disease', 25), rep('normal',18)),
                       c(rep('Rheumatoid Arthritis',25),rep('Peripheral Blood Mononuclear Cell',18)), c(rep('False',43)))
 to_remove<-append_to_remove(to_remove,'GSE112012')
@@ -153,7 +159,7 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE112696', c(rep('normal',6),r
 total_metadata<-annot(total_metadata, meta_dir, 'GSE112987', c(rep('normal',64),rep('disease',39)), 
                       c(rep('Blood',64),rep('Fetal Alcohol Spectrum Disorder',39)),
                       c(rep('False',103)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE113012', c(rep('disease',7),rep('noraml',28)),
+total_metadata<-annot(total_metadata, meta_dir, 'GSE113012', c(rep('disease',7),rep('normal',28)),
                       c(rep('Fetal Alcohol Spectrum Disorder',7),rep('Blood',28)),
                       c(rep('False',35)))
 to_remove<-append_to_remove(to_remove, 'GSE113061')
@@ -185,7 +191,6 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE118469', c(rep('normal',6),r
                       c(rep('Peripheral Blood Mononuclear Cell',6), rep('Tuberculosis', 15)),
                       c(rep('False',21)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE118570', c(rep('normal',43)),c(rep('T-Lymphocytes',43)),c(rep('False',43)))
-to_remove<-append_to_remove(to_remove, 'GSE118696')
 total_metadata<-annot(total_metadata, meta_dir, 'GSE119078', c(rep('normal', 59)), c(rep('Saliva',59)), c(rep('False',59)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE119778', c(rep('disease',34),rep('normal',34)), c(rep('Williams Syndrome',34),rep('Whole Blood',34)),
                       c(rep('False',68)))
@@ -238,8 +243,9 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE52025', c(rep('normal',62)),
 total_metadata<-annot(total_metadata, meta_dir, 'GSE59038', c(rep('disease',24)), c(rep('Colon Adenocarcinoma',24)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE59524', c(rep('normal',24)), c(rep('Adipose Tissue',24)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE60655', c(rep('normal',36)), c(rep('Vastus Lateralis', 36)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE61107', c(rep('disease',23), rep('normal',24), 'disease'), c(rep('Schizophrenia', 23), rep('Frontal Lobe Cortex', 24), 'Schizophrenia'))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE61278', c(rep('normal', 66), rep('disease',44)), c(rep('Liver', 66), rep('Adult Liver Carcinoma', 44)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE61107', c(rep('disease',23), rep('normal',24), 'disease'), 
+                      c(rep('Frontal Lobe Cortex', 48)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE61278', c(rep('normal', 66), rep('disease',44)), c(rep('Liver', 110)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61446', c(rep('normal',67)), c(rep('Liver',67))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61450', c(rep('normal',71)), c(rep('Adipose Tissue',71))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61452', c(rep('normal',60)), c(rep('Muscle',60))) #obesity
@@ -256,8 +262,10 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE74214', c(rep('normal',18)),
 total_metadata<-annot(total_metadata, meta_dir, 'GSE75133', c(rep('normal',15)), c(rep('Mesenchymal Stem Cell',15)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE75405', c(rep('normal',24)), c(rep('Peripheral Blood',24)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE75443', c(rep('disease',12)), c(rep('Glioblastoma',12)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE75704', c(rep('normal',72), rep('disease',94)), c(rep('Frontal Lobe Cortex',72), rep('Progressive Supranuclear Palsy')))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE76372', c(rep('noraml',9)), c(rep('Lymphocyte',2),'Induced Pluripotent Stem Cell', rep('Lymphocyte',3), rep('Induced Pluripotent Stem Cell',2), 'Lymphocyte'))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE75704', c(rep('normal',72), rep('disease',94)), 
+                      c(rep('Frontal Lobe Cortex',72), rep('Progressive Supranuclear Palsy')))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE76372', c(rep('normal',9)), 
+                      c(rep('Lymphocyte',2),'Induced Pluripotent Stem Cell', rep('Lymphocyte',3), rep('Induced Pluripotent Stem Cell',2), 'Lymphocyte'))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE76503', c(rep('normal',48)), c(rep('Whole Blood',48)), c(rep('False',36), rep('True',12)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE77269', c(rep('disease',60)), c(rep('Hepatocellular Carcinoma',60)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE78732', c(rep('normal',10),rep('disease',19)),c(rep('Liver',10),rep('Hepatoblastoma',19)))
@@ -298,11 +306,351 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE99553', c(rep('normal',84)),
 total_metadata<-annot(total_metadata, meta_dir, 'GSE99624', c(rep('disease',32),rep('normal',16)), c(rep('Blood',48)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE99755', c(rep('normal',67)), c(rep('Whole Blood',67)))
 
+##Nov 2021
+total_metadata<-annot(total_metadata, meta_dir, 'GSE103502', c(rep(list('normal', 'disease'), 4)), c(rep('Lung', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE104471', 
+                       c(rep('disease',3), rep('normal', 2), rep('disease',2), 
+                         'normal', 'disease', rep('normal',4), rep('disease',5), 
+                         'normal', 'disease', rep('normal',4), rep('disease', 3),
+                         rep('normal',2), rep('disease',2), 'normal', 'disease', rep('normal',4),
+                         rep('disease',5), 'normal', 'disease', rep('normal',4), rep('disease',2), 
+                         'disease', rep('normal',2), rep('disease',2),'normal','disease',rep('normal',4),rep('disease',5),
+                         'normal','disease',rep('normal',4)),
+                       c(rep('Peripheral Blood Mononuclear Cell', 24), rep('Nasal Cavity Epithelium', 24), rep('Bronchial Epithelium', 24)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE106600', c(rep('normal', 6), rep('disease',6), rep('normal', 5), rep('disease', 6), 
+                                                               rep('normal',6), rep('disease',6), rep('normal',5), rep('disease', 6)),
+                      c(rep('Hematopoietic Tissue', 46)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE109914', 
+                      c(rep('normal', 101), rep('disease', 18), rep('normal', 101), rep('disease', 18)),
+                      c(rep('Leukocyte', 238)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE110724', 
+                      c(rep('normal',42)),
+                      c(rep('Subcutis', 6), rep('Adipose Tissue', 9), rep('Blood', 6), rep('Subcutis', 6), rep('Adipose Tissue', 9), rep('Blood',6)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE111396', 
+                      c(rep('disease', 4), 'normal', rep('disease', 6), rep('normal', 3), rep('disease', 2), 'normal', 'disease', 
+                        rep('normal',2),rep('disease',3), rep('normal', 9), rep('disease',2), 'normal', 'disease', 'normal', 
+                        rep('disease', 4), 'normal', rep('disease', 2),'normal', rep('disease',4),rep('normal',2), 
+                        'disease','normal', 'disease','normal', rep('disease',2), rep('normal',2), rep('disease',2)),
+                      c(rep('Fibroblast', 10), rep('Airway', 15), rep('Fibroblast', 36)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE111942',
+                      c(rep('disease', 25), rep('normal', 18), rep('disease', 25), rep('normal', 18)),
+                      c(rep('Peripheral Blood Mononuclear Cell', 86)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE112012',
+                      c('disease', 'normal', 'disease', 'normal'),
+                      c(rep('Esophagus', 4)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE113061',
+                      c(rep('normal',3), rep('disease', 5), rep('normal', 3), rep('disease', 5)),
+                      c(rep('Trachea Smooth Muscle Tissue', 16)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE113775', c(rep(c('disease','normal'),2)), c(rep('Esophagus', 4)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE114753', c(rep('normal',312)), c(rep('Spermatogenic Cell', 312)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE115783', 
+                      c(rep('disease', 15), rep('normal', 2), rep('disease', 3), 
+                        'normal', rep('disease',3), rep('normal',3), rep('disease',28),
+                        rep('normal',2), rep('disease',3), 'normal', rep('disease',3), rep('normal',3), rep('disease',13)),
+                      c(rep('Pituitary Gland', 80)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE116375',
+                      c(rep('normal', 16)),
+                      c(rep('Umbilical Vein', 4), rep('Bone Marrow', 12)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE116754',
+                      c(rep('normal', 76)),
+                      c(rep('Embryonic Stem Cell', 9),
+                        rep('Aorta Smooth Muscle Tissue', 1),
+                        rep('Brain', 10),
+                        rep('Pancreas', 4),
+                        rep('Islet of Langerhans', 5),
+                        rep('Umbilical Cord', 3),
+                        rep('Small Intestine', 3), 
+                        'Thymus Gland', 'Diaphragm', 'Duodenum',
+                        rep('Embryonic Stem Cell', 9),
+                        rep('Aorta Smooth Muscle Tissue', 1),
+                        rep('Brain', 10),
+                        rep('Pancreas', 4),
+                        rep('Islet of Langerhans', 5),
+                        rep('Umbilical Cord', 3),
+                        rep('Small Intestine', 3), 
+                        'Thymus Gland', 'Diaphragm', 'Duodenum'))
+total_metadata<-annot(total_metadata, meta_dir,'GSE118696',
+                      c(rep('normal', 48)),
+                      c(rep(c('Monocyte',rep('Macrophage',7)), 2),
+                        'Monocyte',rep('Macrophage',6), 'Monocyte',
+                        rep(c('Monocyte',rep('Macrophage',7)), 2),
+                        'Monocyte',rep('Macrophage',6),
+                        'Monocyte'
+                        ))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE120250',
+                      c(rep('normal',176)),
+                      c(rep('Placenta',176)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE121192',
+                      c(rep('normal',4),
+                        rep('disease', 10),
+                        rep('normal', 6),
+                        rep('disease', 10),
+                        rep('normal', 6),
+                        rep('disease', 10),
+                        rep('normal',4),
+                        rep('disease', 10),
+                        rep('normal', 6),
+                        rep('disease', 10),
+                        rep('normal', 6),
+                        rep('disease', 10)),
+                      c(rep('T-Lymphocyte', 30),
+                        rep('Monocyte', 16),
+                        rep('T-Lymphocyte', 30),
+                        rep('Monocyte',16)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE123678',
+                      c(rep('normal', 8), rep('disease', 70), rep('normal', 8), rep('disease', 70)),
+                      c(rep('Corpus Callosum', 5), rep('Frontal Lobe Cortex', 3), rep('Glioma', 70),
+                        rep('Corpus Callosum', 5), rep('Frontal Lobe Cortex', 3), rep('Glioma', 70)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE124366',
+                      c(rep('normal',430)),
+                      c(rep('Buccal Surface', 20),
+                        rep('Peripheral Blood Mononuclear Cell', 13),
+                        rep('Buccal Surface', 5),
+                        rep('Peripheral Blood Mononuclear Cell', 6),
+                        rep('Buccal Surface', 48),
+                        rep('Peripheral Blood Mononuclear Cell', 86),
+                        rep('Buccal Surface', 57),
+                        rep('Peripheral Blood Mononuclear Cell', 13),
+                        rep('Buccal Surface', 6),
+                        rep('Peripheral Blood Mononuclear Cell', 6),
+                        rep('Buccal Surface', 47),
+                        rep('Peripheral Blood Mononuclear Cell', 86),
+                        rep('Buccal Surface', 37)
+                        ))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE124368',
+                      c(rep('normal',8)),
+                      c(rep('Breast',8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE127857',
+                      c(rep('disease', 24), rep('normal', 34), rep('disease', 53)),
+                      c(rep('Tumor Tissue', 11), rep('Intestine', 13), rep('Tissue', 11), rep('Intestine', 13), rep('Mucosa', 10), rep('Unknown',53)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE130029',
+                      c(rep('disease', 20), rep('normal', 11), rep('disease', 20), rep('disease', 11)),
+                      c(rep('T-Lymphocyte', 62)))
+total_metadata<-annot(total_metadata, meta_dir, '',
+                      c(rep('disease', 14), rep('normal', 14)),
+                      c(rep('T-Lymphocyte', 28)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE135097',
+                      c(rep('normal', 6), rep('disease', 6), rep('normal', 6), rep('disease', 6)),
+                      c(rep('Lung', 24)),
+                      c(rep(c(rep('False', 2), rep('True', 4)), 4)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE136704',
+                      c(rep(c('normal','disease'), 11), rep('disease', 2), 
+                        rep(c('normal', 'disease'), 5), rep('disease', 3), 'normal', rep('disease', 6)),
+                      c(rep('Oropharyngeal Tissue', 44)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE137134',
+                      c(rep('normal',6), rep('disease', 6), rep('normal',6), rep('disease',6)),
+                      c(rep('Fibroblast', 24)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE146552',
+                      c(rep('disease', 20), rep('normal', 18), rep('disease', 20), rep('normal',18)),
+                      c(rep('Ovary', 20), rep('Fallopian Tube', 8), rep('Ovary', 2), rep('Ovarian Surface Epithelium', 8),
+                        rep('Ovary', 20), rep('Fallopian Tube', 8), rep('Ovary', 2), rep('Ovarian Surface Epithelium', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE148663',
+                      c(rep('disease', 22), rep('normal', 10)),
+                      c(rep('Leukocyte', 32)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE149395',
+                      c(rep('normal', 11)),
+                      c(rep('Pancreas',11)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE152204',
+                      c(rep('disease', 41), rep('normal', 48)),
+                      c(rep('Blood', 89)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE154971',
+                      c(rep('disease', 16), rep('normal', 8)),
+                      c(rep('Lymphocyte', 24)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE155353',
+                      c(rep('normal',116)),
+                      c(rep('Pancreas', 116)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE156669',
+                      c(rep('normal', 5), rep('disease', 7)),
+                      c(rep('Buccal Mucosa', 12)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE156792',
+                      c(rep('disease', 7), rep('normal', 6), rep('disease',6), rep('normal', 6), rep('disease', 18), 
+                        rep(c(rep('normal', 6), rep('disease',6)),4), rep('normal', 4), 'disease', 'normal', rep('disease',5),
+                        rep('normal', 7), rep('disease',7), rep('normal', 6), rep('disease',6), rep('normal', 6), rep('disease', 18),
+                        rep(c(rep('normal', 6), rep('disease',6)),4), rep('normal', 4), 'disease', 'normal', rep('disease',5),
+                        rep('normal', 7)),
+                      c(rep('T-Lymphocyte', 218)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE156994',
+                      c(rep('normal', 105), rep('disease', 114)),
+                      c(rep('Blood', 219)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE157272',
+                      c(rep('normal',10), rep('disease',35), rep('normal',3)),
+                      c(rep('Prostate Gland',48)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE157651',
+                      c(rep('normal',23), rep('disease',17)),
+                      c(rep('Fibroblast',15), rep('Airway',17), rep('Fibroblast',8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE162484',
+                      c(rep(c('disease', 'normal'),4), 'disease', 'normal', rep('disease', 4)),
+                      c('Cartilaginous Tissue', 15))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE163372',
+                      c('normal', rep('disease',3), 'normal', rep('disease',2), 'normal', 'disease', 'normal', 
+                        rep('disease', 2), 'normal', rep('disease',3),'normal',rep('disease',2), 'normal', 'disease'),
+                      c('Kidney',21))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE164988',
+                      c(rep(c('disease','normal'),12)),
+                      c(rep('Stomach', 24)))
+total_metadata<-annot(total_metadata, meta_dir, '',
+                      c(rep('disease',4), 'normal', 'disease', 'normal','disease', rep('normal',3), 
+                        'disease', rep('normal',2), 'disease', rep('normal', 6), rep('disease',2), 'normal', rep('disease',4)),
+                      c('Blood', 28))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE166611',
+                      c(rep('normal',32)),
+                      c(rep('Blood', 32)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE166652',
+                      c(rep('normal',28), rep('disease', 28)),
+                      c(rep('Myoblast',56)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE166787',
+                      c(rep('normal',28), rep('disease', 28)),
+                      c(rep('Myoblast',56)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE174422',
+                      c(rep('normal',256)),
+                      c(rep('Blood', 256)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE178212',
+                      c(rep(c('normal','disease'),11), 'disease', 'normal', rep('disease',3), 'normal', 
+                        rep('disease',2), 'normal', 'disease', 'normal', rep('disease',2), 'normal', rep('disease',4)),
+                      c('Esophageal Squamous Epithelium', 40))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE178216',
+                      c('normal', rep('disease',2), rep(c('normal','disease'),3), rep('disease',4), 'normal', 
+                        rep('disease',2), 'normal','disease','normal',rep('disease',3)),
+                      c('Oral Cavity Epithelium', 22))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE74071',
+                      c('disease', 'normal', 'disease', rep('normal', 2), rep('disease', 9), rep(c('normal', 'disease', 2)), 
+                        rep(c('disease', 'normal', 3)), rep('disease',4)),
+                      c(rep('Pancreas', 28)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE79185',
+                      c(rep('normal', 28), rep('disease', 15), rep('normal', 18)),
+                      c(rep('Breast',5), rep('Brain', 6), rep('Colon', 7), rep('Leukemia',6), rep('Lung',9), rep('Melanoma', 10), 
+                        rep('Ovary', 7), rep('Prostate', 3), rep('Kidney', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE81846',
+                      c(rep('disease',10), rep('normal',6)),
+                      c(rep('Leukocyte',16)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE83691',
+                      c('normal', rep('disease',5), rep('normal',2), rep('disease',9), 'normal', rep('disease',8)),
+                      c(rep('Liver',26)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE85566',
+                      c(rep('disease',11), rep('normal',8), rep(c('disease','normal'),2), rep('disease',6), 'normal','disease',
+                        rep('normal',3),rep(c('disease','normal'),2), rep('disease',2), 'normal', 'disease', rep('normal',3), 
+                        rep(c('disease','normal'),2), rep('disease',2), rep(c('normal','disease'),2), rep('normal',2),
+                        'disease', 'normal', rep('disease',3), 'normal', rep('disease',5), rep(c('normal', 'disease'),2),
+                        rep('disease',2), 'normal', rep('disease',6), 'normal', rep('disease',8), rep('normal',2),
+                        rep('disease',2), 'normal','disease', rep('normal',4), 'disease','normal', rep('disease',2), 
+                        rep(c('normal','disease'),2), rep('disease',2), rep('normal',2), rep('disease',3),
+                        rep('normal',2), rep('disease',5), 'normal', rep('disease',3)),
+                      c('Airway',115))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE116338',
+                      c(rep('normal',10), rep('disease',38)),
+                      c(rep('Prostate',48)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE130030',
+                      c(rep('disease',14), rep('normal',14)),
+                      c(rep('T-Lymphocyte', 28)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE157341',
+                      c(rep('disease', 239), rep('normal', 35)),
+                      c(rep('Liver',274)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE166069',
+                      c(rep('normal',106)),
+                      c(rep('Melanocyte',106)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE178218',
+                      c(rep(c('disease', 'normal'),2), rep('disease',3), rep(c('disease', 'normal'),3), rep('disease', 2), rep('normal', 2), 
+                        rep('disease',3), 'normal', 'disease', rep('normal',2), rep('disease',4), 'normal', rep('disease',2)),
+                      c(rep('Lung',31)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE67170',
+                      c(rep('normal',20), rep('disease',69)),
+                      c(rep('T-Lymphocyte',10), rep('Peripheral Blood Mononuclear Cell', 10), rep('Peripheral Blood Mononuclear Cell',69)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE81211',
+                      c(rep('normal',3), rep('disease',9)),
+                      c(rep('Colon',12)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE85938',
+                      c(rep('normal', 31), rep('disease',2)),
+                      c(rep('Astrocyte', 33)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE87095',
+                      c(rep('disease',3), rep('normal', 10), rep('disease',3), rep('normal',10), rep('disease',9), rep('normal', 11), rep('disease', 5),
+                        rep('normal',10), rep('disease', 7), rep('normal',7), rep('disease',6), rep('normal',6), rep('disease',6), rep('normal',6),
+                        rep('disease',6), rep('normal',6), 'disease', 'normal', 'disease', 'normal', 'disease', rep('normal',5),'disease'),
+                      c(rep('B-Lymphocyte',122)))
+
+total_metadata<-annot(total_metadata, meta_dir, 'GSE93266',
+                      c(rep(c(rep('disease',6), rep('normal',6)),4), rep('disease',6), rep('normal',2), rep('disease',19)),
+                      c('Peripheral Blood Mononuclear Cell', 75))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE94462',
+                      c(rep('disease', 10), rep('normal',4), rep('disease',2)),
+                      c(rep('Cornea', 16)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE95761',
+                      c(rep('normal', 6)),
+                      c(rep('Embryonic Stem Cell', 6)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE99511',
+                      c(rep('normal', 28), rep('disease', 40)),
+                      c(rep('Cervix Squamous Epithelium', 68)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE101908',
+                      c(rep('normal',2), rep(c('disease','normal'),3), rep('disease',2), rep('normal',3), rep('disease',2), rep('normal',2),
+                        rep('disease',2), rep('normal',5), 'disease', rep('normal', 3), rep('disease', 5), 'normal', rep('disease',3), 'normal',
+                        rep('disease',2), 'normal', 'disease'),
+                      c(rep('Prostate Gland', 42)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE103541',
+                      c(rep('normal',145)),
+                      c(rep(c('B-Lymphocyte', rep('T-Lymphocyte',2), 'Granulocyte', 'Monocyte'), 29)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE112905',
+                      c(rep('normal',4), rep(c('disease','normal'), 4), rep('diease',3), 'normal', rep('disease',2), 'normal', 'disease'),
+                      c(rep('Blood', 20)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE114763',
+                      c(rep('normal',40)),
+                      c(rep('Vastus Lateralis', 40)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE115382',
+                      c(rep('normal',4), rep('disease', 4)),
+                      c(rep('Astrocyte', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE119617',
+                      c(rep('normal',5), rep('disease',21)),
+                      c(rep('Bone Marrow', 26)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE120854',
+                      c(rep('normal',10), rep('disease',24)),
+                      c(rep('Myometrium',34)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE122148',
+                      c(rep('normal',5), rep('disease',3)),
+                      c(rep('Endometrial Tissue', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE122408',
+                      c(rep('normal', 180)),
+                      c(rep('Blood',180)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE123003',
+                      c(rep('disease',8), rep('normal',8)),
+                      c(rep('T-Lymphocyte',16)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE123914',
+                      c(rep('normal', 69)),
+                      c(rep('Blood', 69)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE123995',
+                      c(rep('normal',56)),
+                      c(rep('Hepatocyte',56)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE125367',
+                      c(rep('normal', 27), rep('disease', 17)),
+                      c(rep('Blood', 44)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE130748',
+                      c(rep('normal',37)),
+                      c(rep('Leukocyte',37)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE132547',
+                      c(rep('normal',24)),
+                      c(rep('Lung',24)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE132866',
+                      c(rep('disease', 5), rep('normal', 3)),
+                      c(rep('Leukocyte', 8)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE133062',
+                      c(rep('normal', 70)),
+                      c(rep('Alveolar Cell', 70)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE133774',
+                      c(rep('normal',6), rep('disease', 4)),
+                      c(rep('Blood', 10)))
+# total_metadata<-annot(total_metadata, meta_dir, '',
+#                       c(),
+#                       c())
+# 
+# total_metadata<-annot(total_metadata, meta_dir, '',
+#                       c(),
+#                       c())
+
+
+##combine and save##
 df <- apply(total_metadata,2,as.character)
-write.csv(df, file=paste0('data/', database_type, '/all_metadata_annotated.txt'),
+write.csv(df, file=paste0('data/', database_type, '/all_metadata_annotated_new.txt'),
           row.names=F,
           sep="\t",
           quote=F)
           
-gzip(filename=paste0('data/', database_type, '/all_metadata_annotated.txt'), 
-     destname=paste0('data/', database_type, '/all_metadata_annotated.txt.gz'), overwrite=TRUE, remove=TRUE)
+gzip(filename=paste0('data/', database_type, '/all_metadata_annotated_new.txt'), 
+     destname=paste0('data/', database_type, '/all_metadata_annotated_new.txt.gz'), overwrite=TRUE, remove=TRUE)
+

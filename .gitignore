@@ -12,4 +12,3 @@ raw/**
 processed/**
 src_sunny/**
 annotation/*.obo
-annotation/SRA/**

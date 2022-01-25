@@ -51,7 +51,7 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
 
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
-download_geo_metadata <- function(accession_num, out_directory='data/GEO/') {
+download_geo_metadata <- function(accession_num, out_directory='data/GEO/', ignore_exist=F) {
   if (file.exists(paste0(
     out_directory,
     accession_num, 
