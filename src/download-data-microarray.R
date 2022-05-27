@@ -1,6 +1,6 @@
 library(data.table)
 library(GEOquery)
-library(ENCODExplorer)
+# library(ENCODExplorer)
 library(TCGAutils)
 library(TCGAbiolinks)
 # This script is used for downloading and extracting raw microarray files from the GEO database
