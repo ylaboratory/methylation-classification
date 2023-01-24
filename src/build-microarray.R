@@ -12,7 +12,7 @@ args <- commandArgs(trailingOnly = TRUE)
 # manual arguments for now start
 args[1]<-'GEO'
 args[2]<-'F'
-args[3]<-'GEO_microarray_accession_full.txt'
+args[3]<-'GEO_microarray_accession_450K.txt'
 # manual arguments for now end
 
 # The example dataset in GEO used is GEO_microarray_accession.txt
@@ -31,10 +31,12 @@ setwd('/grain/mk98/methyl/methylation-classification')
 print(.libPaths())
 .libPaths( c( "/home/mk98/R/x86_64-redhat-linux-gnu-library/4.0", .libPaths() ) )
 
+if (!require('readr')) {
+  install.packages('readr')
+}
 if (!require('RPMM')) {
   install.packages("RPMM", repos = "http://cran.us.r-project.org")
 }
-
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager", repos = "http://cran.us.r-project.org", version="3.14")
 }
@@ -53,12 +55,12 @@ if (!require("IlluminaHumanMethylationEPICmanifest")) {
 if (!require("IlluminaHumanMethylation450kmanifest")) {
   BiocManager::install("IlluminaHumanMethylation450kmanifest")
 }
-if (!require("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")) {
-  BiocManager::install("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")
-}
-if (!require("IlluminaHumanMethylation450kanno.ilmn12.hg19")) {
-  BiocManager::install("IlluminaHumanMethylation450kanno.ilmn12.hg19")
-}
+# if (!require("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")) {
+#   BiocManager::install("IlluminaHumanMethylationEPICanno.ilm10b4.hg19")
+# }
+# if (!require("IlluminaHumanMethylation450kanno.ilmn12.hg19")) {
+#   BiocManager::install("IlluminaHumanMethylation450kanno.ilmn12.hg19")
+# }
 # if (!require("ENCODExplorer")) {
 #   BiocManager::install("ENCODExplorer")
 # }
@@ -74,42 +76,47 @@ if (!require("TCGAbiolinks")) {
 if (!require('data.table')) {
   install.packages('data.table', repos = "http://cran.us.r-project.org")
 }
+
 source('./src/download-data-microarray.R')
 source('./src/process-microarray.R')
 source('./src/liftover.R')
+# manifest<-read_tsv('./annotation/HM450.hg38.manifest.gencode.v36.tsv')
+# manifest$CpG<-manifest$CpG_beg+1
 
 if (database_type == 'GEO') {
   accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
   for (accession in as.character(accession_list$V1)) {
-    print('Here')
     print(accession)
-    tryCatch(
-      {download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)},
+    tryCatch({
+      download_data_geo_microarray(accession, ignore_exist = ignore_exist_state)
+      },
       error=function(e) {
         print(paste("BETAVALUE ERROR: ",accession))
-        print(message(e))
-        cat('\n')
+        message(e)
+        writeLines('\n')
       }
     )
-    tryCatch(
-      {
-        download_geo_metadata(accession)
+    tryCatch({
+      download_geo_metadata(accession, ignore_exist= ignore_exist_state)
+      if (file.exists(paste0('./data/GEO/',accession, "_beta_values_probe.txt",sep = "")) == FALSE){
         corrected_data <-
           background_correction(paste0('raw/', database_type, '/', accession))
         normalized_data <-
           normalization(corrected_data,
                         paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-        lifted_data <-
-          liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-        write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
+        # lifted_data <-
+        #   liftover('annotation/hg19ToHg38.over.chain', normalized_data)
+        write.table(normalized_data, paste0('data/', database_type,'/', accession, '_beta_values_probe.txt'),
                     quote = F,
                     sep = '\t', row.names = F, col.names = T)
-        unlink(paste0('raw/GEO/', accession,"/*"), force=TRUE)
+        # unlink(paste0('raw/GEO/', accession,"/*"), force=TRUE)
+      }
+      else {print(paste(accession, " probe file already exists"))}
       },
       error=function(e) {
         print(paste("METADATA ERROR: ",accession))
-        print(message(e))
-        cat('\n')
+        message(e)
+        writeLines('\n')
       }
     )
   }

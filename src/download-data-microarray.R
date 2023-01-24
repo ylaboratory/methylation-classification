@@ -4,7 +4,7 @@ library(GEOquery)
 library(TCGAutils)
 library(TCGAbiolinks)
 # This script is used for downloading and extracting raw microarray files from the GEO database
-# To donwload data even if directory exists, use download.data.geo.microarray(accession.num, ignore.exisiting = T)
+# To download data even if directory exists, use download.data.geo.microarray(accession.num, ignore.exisiting = T)
 download_data_geo_microarray <- function(accession_num, ignore_exist=F, download_directory='raw/GEO/') {
   if (dir.exists(paste(
       download_directory,
@@ -45,19 +45,13 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
   }
   else{print(paste0(accession_num, ' beta value already exists'))}
   print(paste0('Executed downloading command for ', accession_num))
-  
 }
 
 
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
 download_geo_metadata <- function(accession_num, out_directory='data/GEO/', ignore_exist=F) {
-  if (file.exists(paste0(
-    out_directory,
-    accession_num, 
-    "_sample_metadata.txt",
-    sep = ""
-  )) == FALSE || ignore_exist){
+  if (file.exists(paste0(out_directory,accession_num, "_sample_metadata.txt",sep = "")) == FALSE || ignore_exist){
     print("downloading metadata")
     gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = tempdir())
     if (length(gse_series)>1){
@@ -94,51 +88,36 @@ download_geo_metadata <- function(accession_num, out_directory='data/GEO/', igno
         'Database' = database_all
       )
     
-    series_relation <- gse_series@header$relation
-    series_design <- gse_series@header$overall_design
-    series_name <- gse_series@header$geo_accession
-    series_supp <- gse_series@header$supplementary_file
-    series_title <- gse_series@header$title
-    series_info <-
-      data.table(
-        'name' = series_name,
-        'design' = series_design,
-        'relation' = series_relation,
-        'supplement' = series_supp,
-        'title' = series_title,
-        key = c('name', 'design', 'relation', 'supplement', 'title')
-      )
+    # series_relation <- gse_series@header$relation
+    # series_design <- gse_series@header$overall_design
+    # series_name <- gse_series@header$geo_accession
+    # series_supp <- gse_series@header$supplementary_file
+    # series_title <- gse_series@header$title
+    # series_info <-
+    #   data.table(
+    #     'name' = series_name,
+    #     'design' = series_design,
+    #     'relation' = series_relation,
+    #     'supplement' = series_supp,
+    #     'title' = series_title,
+    #     key = c('name', 'design', 'relation', 'supplement', 'title')
+    #   )
     
-    if (dir.exists(
-      out_directory
-    )
-    == FALSE) {
-      dir.create(
-        out_directory
-      )
-    }
+    if (dir.exists(out_directory)== FALSE) {dir.create(out_directory)}
     write.table(
       metadata,
-      paste0(out_directory,
-             accession_num,
-             '_sample_metadata.txt',
-             sep = "")
-      ,
+      paste0(out_directory,accession_num,'_sample_metadata.txt',sep = ""),
       sep = "\t",
       row.names = FALSE,
       quote = F
     )
-    write.table(
-      series_info,
-      paste0(out_directory,
-             accession_num,
-             '_series_metadata.txt',
-             sep = "")
-      ,
-      sep = "\t",
-      row.names = FALSE,
-      quote = F
-    )
+    # write.table(
+    #   series_info,
+    #   paste0(out_directory,accession_num,'_series_metadata.txt',sep = ""),
+    #   sep = "\t",
+    #   row.names = FALSE,
+    #   quote = F
+    # )
   }
   else{print(paste0(accession_num, ' metadata already exists'))}
 }

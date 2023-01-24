@@ -11,4 +11,4 @@ data/**
 raw/**
 processed/**
 workspace/**
-annotation/*.obo
+annotation/**
