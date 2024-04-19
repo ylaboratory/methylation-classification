@@ -10,10 +10,10 @@
 args <- commandArgs(trailingOnly = TRUE)
 
 # manual arguments for now start
-args[1]<-'TCGA'
-args[2]<-'F'
+args[1]<-'GEO'
+args[2]<-'T' #ignore_exist_state: if true, ignore existing file and re-dowload, if false, skip download if file exists
 # args[3]<-'GEO_microarray_accession_450K.txt'
-args[3] <- 'TCGA_microarray_manifest_test.txt'
+args[3] <- 'GEO_microarray_accession_Hannum.txt'
 # manual arguments for now end
 
 # The example dataset in GEO used is GEO_microarray_accession.txt
@@ -98,7 +98,7 @@ if (database_type == 'GEO') {
         writeLines('\n')
       }
     )
-    tryCatch({
+    tryCatch({ 
       download_geo_metadata(accession, ignore_exist= ignore_exist_state)
       if (file.exists(paste0('./data/GEO/',accession, "_beta_values_probe.txt",sep = "")) == FALSE){
         corrected_data <-
@@ -106,12 +106,9 @@ if (database_type == 'GEO') {
         normalized_data <-
           normalization(corrected_data,
                         paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-        # lifted_data <-
-        #   liftover('annotation/hg19ToHg38.over.chain', normalized_data)
         write.table(normalized_data, paste0('data/', database_type,'/', accession, '_beta_values_probe.txt'),
                     quote = F,
                     sep = '\t', row.names = F, col.names = T)
-        # unlink(paste0('raw/GEO/', accession,"/*"), force=TRUE)
       }
       else {print(paste(accession, " probe file already exists"))}
       },
@@ -122,56 +119,4 @@ if (database_type == 'GEO') {
       }
     )
   }
-} else if (database_type == 'ENCODE') {
-  accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
-  accession_list=accession_list$V1
-  other_accession=list()
-  for (i in 1:length(accession_list)) {
-    accession=as.character(accession_list[i])
-    print(accession)
-    download_encode(accession, ignore_exist = ignore_exist_state)
-    signal=convert2target(accession)
-    if (signal!='No_red' & accession!='ENCSR719GFJ'){
-      platform=get_metadata_encode(accession)
-      if (platform=='Illumina Infinium Omni5Exome-4 Kit'){
-        other_accession=c(other_accession,accession)
-        print(accession)
-      }
-      else{
-        corrected_data <-
-          background_correction(paste0('raw/', database_type, '/', accession))
-        normalized_data <-
-          normalization(corrected_data,
-                        paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-        lifted_data <-
-          liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-        write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
-                    quote = F,
-                    sep = '\t', row.names = F, col.names = T)
-      }
-    }
-    }
-    
-  accession_list=accession_list[! accession_list %in% other_accession]
-} else if (database_type == 'TCGA'){
-  TCGA_manifest<-read.table(paste0('annotation/',manifest_file), header = T, sep = '\t')
-  print(as.character(TCGA_manifest$id))
-  file2bar<-UUIDtoBarcode(as.character(TCGA_manifest$id[0]), from_type = "file_id", legacy = T)
-  download_TCGA(manifest_file)
-  reorganize_TCGA(file2bar)
-  get_metadata_TCGA(file2bar)
-  accession_list<-unique(file2bar[,'associated_entities.entity_submitter_id'])
-  for (accession in as.character(accession_list)){
-      print(accession)
-      corrected_data <-
-        background_correction(paste0('raw/', database_type, '/', accession))
-      normalized_data <-
-        normalization(corrected_data,
-                      paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
-      lifted_data <-
-        liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-      write.table(lifted_data, paste0('data/', database_type,'/', accession, '_beta_values.txt'),
-                  quote = F,
-                  sep = '\t', row.names = F, col.names = T)
-    }
 }

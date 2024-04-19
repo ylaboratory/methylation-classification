@@ -1,5 +1,5 @@
 #date updated: Apr 2024
-#clean up and filter data from GEO saved in /data/GEO/compiled/ as all_Mv.txt.gz and all_metadata.txt.gz
+#clean up and filter data from GEO saved in /data/GEO/compiled/ for disease samples
 
 import pandas as pd
 import numpy as np
@@ -8,7 +8,7 @@ import pickle
 from sklearn.preprocessing import StandardScaler
 import utils
 
-start_from_beginning = False
+start_from_beginning = True
 
 if start_from_beginning:
     print("starting from beginning...")

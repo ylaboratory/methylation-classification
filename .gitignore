@@ -12,3 +12,6 @@ raw/**
 processed/**
 workspace/**
 annotation/**
+gene_enrichment/**
+figures**/**
+figures/**

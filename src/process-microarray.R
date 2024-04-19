@@ -27,7 +27,6 @@ background_correction<-function(accession_datadir){
 
 # This script does the BMIQ normalization of data
 # Input is the Methylset object after background correction
-# returns a matrix that contains the normalized beta values with hg19 coordinate
 normalization<-function(GRset_noob,dir2metadata) {
   print(dir2metadata);
   metadata_table <- read.table(dir2metadata, header = T, sep = '\t', fill = T)

@@ -1,8 +1,9 @@
-#date updated: May 2022
+#date updated: May 2023
 
 library(data.table)
 library(R.utils)
-meta_dir='data/GEO/'
+# meta_dir='data/GEO/'
+meta_dir = "/scratch/mk98/methyl/data/individual/"
 database_type='GEO'
 
 annot<-function(total_metadata, meta_dir, sample, normal_vec, tissue_vec, 
@@ -64,7 +65,7 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE106437',
                       c('True', rep('False', 2)),
                       c(rep('Colorectal Adenocarcinoma', 3)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE106438', 
-                      c(rep('disease', 3)), 
+                      c(rep('disease', 3)),
                       c(rep('Colon', 3)), 
                       c('True', rep('False', 2)),
                       c(rep('Colon Carcinoma', 3)))
@@ -297,13 +298,13 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE108423',
                       c(rep('disease',9), rep('normal', 12)),
                       c(rep('Blood',21)),
                       c(rep('False',21)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE108562', 
-                      c(rep('normal',6)),
-                      c(rep('Mesenchymal Stem Cell',6)),
-                      c(rep('False',3), rep('True', 3)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE108562', 
+#                       c(rep('normal',6)),
+#                       c(rep('Mesenchymal Stem Cell',6)),
+#                       c(rep('False',3), rep('True', 3)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE108567', 
                       c(rep('normal',59)),
-                      c(rep('Chorionic Villus',59)),
+                      c(rep('placenta',59)),
                       c(rep('False',6), rep('True', 3), rep('False',2), rep('True', 1), rep('False', 1), 'True', 'False', 'True', 'False',
                         rep('True', 8), 'False', rep('True', 6), rep('False', 8), 'True', 'False', 'True', rep('False',3), rep('True',3),
                         rep('False',4), rep('True',5), 'False')) 
@@ -494,10 +495,10 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE128801',
                       c(rep('disease',12)), 
                       c(rep('Blood',12)), 
                       c(rep('False',12)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE129266', 
-                      c(rep('normal',12)), 
-                      c(rep('Mesenchymal Stem Cell',12)), 
-                      c(rep('False',12))) #timeseries
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE129266', 
+#                       c(rep('normal',12)), 
+#                       c(rep('Mesenchymal Stem Cell',12)), 
+#                       c(rep('False',12))) #timeseries
 total_metadata<-annot(total_metadata, meta_dir, 'GSE130354', 
                       c(rep('disease',12)), 
                       c(rep('Melanoma',12)), 
@@ -589,14 +590,14 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE47915',
                       c(rep('Prostatic Tissue',8)), 
                       c(rep('False',8)),
                       c(rep('Prostate Neoplasm',8)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE48472', 
-                      c(rep('normal',56)), 
-                      c(rep('Blood',6),rep('Liver',5),rep('Muscle',6),rep('visceral fat',6),rep('Pancreas',4),
-                        rep('subcutaneous adipose tissue',6),rep('Spleen',3),rep('Blood',5),rep('Buccal Mucosa',5),
-                        rep('Hair',5),rep('Saliva',5)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE49618', 
-                      c(rep('normal',21)), 
-                      c(rep('Bone Marrow',21))) #different stem/immune celltypes
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE48472', 
+#                       c(rep('normal',56)), 
+#                       c(rep('Blood',6),rep('Liver',5),rep('Muscle',6),rep('visceral fat',6),rep('Pancreas',4),
+#                         rep('subcutaneous adipose tissue',6),rep('Spleen',3),rep('Blood',5),rep('Buccal Mucosa',5),
+#                         rep('Hair',5),rep('Saliva',5)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE49618', 
+#                       c(rep('normal',21)), 
+#                       c(rep('Bone Marrow',21))) #different stem/immune celltypes
 total_metadata<-annot(total_metadata, meta_dir, 'GSE52025', 
                       c(rep('normal',62)), 
                       c(rep('Fibroblast',62)))
@@ -612,9 +613,9 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE60655',
                       c(rep('normal',36)), 
                       c(rep('Vastus Lateralis', 36)),
                       c(rep(c('False','True'), 18)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE61107', 
-                      c(rep('disease',23), rep('normal',24), 'disease'), 
-                      c(rep('Frontal Lobe Cortex', 48))) #post mortem
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE61107', 
+#                       c(rep('disease',23), rep('normal',24), 'disease'), 
+#                       c(rep('Frontal Lobe Cortex', 48))) #post mortem
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61278', 
                       c(rep('normal', 66), rep('disease',44)), 
                       c(rep('Liver', 110))) #mix of fetal and adult
@@ -624,9 +625,9 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE61446',
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61450', 
                       c(rep('normal',71)), 
                       c(rep('subcutaneous adipose tissue',71))) #obesity
-total_metadata<-annot(total_metadata, meta_dir, 'GSE61452', 
-                      c(rep('normal',60)), 
-                      c(rep('Muscle',60))) #obesity
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE61452', 
+#                       c(rep('normal',60)), 
+#                       c(rep('subcutaneous adipose tissue',60))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61453', 
                       c(rep('normal',71)), 
                       c(rep('visceral fat',71))) #obesity
@@ -662,11 +663,11 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE72254',
                       c(rep('Breast',58)),
                       c(rep('True',58)),
                       c(rep('Breast Carcinoma',58)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE74167', 
-                      c(rep('normal',21), rep('disease',21)), 
-                      c(rep('Mesenchymal Stem Cell',42)),
-                      c(rep('False',42)),
-                      c(rep('Mucous Connective Tissue',42)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE74167', 
+#                       c(rep('normal',21), rep('disease',21)), 
+#                       c(rep('Mesenchymal Stem Cell',42)),
+#                       c(rep('False',42)),
+#                       c(rep('Mucous Connective Tissue',42)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE74214', 
                       c(rep('normal',18)), 
                       c(rep('Breast',18)))
@@ -809,10 +810,10 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE93208',
                       c(rep('normal', 19)), 
                       c(rep('Chorionic Villus', 19)),
                       c(rep(c('True','False'),6), rep('False',3), rep('True',4)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE94326', 
-                      c(rep('normal', 8)), 
-                      c(rep('Brain',4),rep('Prostatic Tissue',4)), 
-                      c(rep('False',2),rep('True',6)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE94326', 
+#                       c(rep('normal', 8)), 
+#                       c(rep('Brain',4),rep('Prostatic Tissue',4)), 
+#                       c(rep('False',2),rep('True',6)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE95486', 
                       c(rep('normal',21), rep('disease',3)), 
                       c(rep('Blood',24)))
@@ -966,9 +967,9 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE154971',
 total_metadata<-annot(total_metadata, meta_dir, 'GSE155353',
                       c(rep('normal',34), rep('disease',82)),
                       c(rep('Pancreas', 116)))
-total_metadata<-annot(total_metadata, meta_dir, 'GSE156669',
-                      c(rep('normal', 5), rep('disease', 7)),
-                      c(rep('Buccal Mucosa', 12)))
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE156669',
+#                       c(rep('normal', 5), rep('disease', 7)),
+#                       c(rep('Buccal Mucosa', 12)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE156792',
                       c(rep('disease', 7), rep('normal', 6), rep('disease',6), rep('normal', 6), rep('disease', 18), 
                         rep(c(rep('normal', 6), rep('disease',6)),4), rep('normal', 4), 'disease', 'normal', rep('disease',5),
@@ -1145,11 +1146,11 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE133774',
 
 ##combine and save##
 df <- apply(total_metadata,2,as.character)
-write.csv(df, file=paste0('data/', database_type, '/all_metadata_annotated_sep2022.txt'),
+write.csv(df, file=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt'),
           row.names=F,
           sep="\t",
           quote=F)
           
-gzip(filename=paste0('data/', database_type, '/all_metadata_annotated_sep2022.txt'), 
-     destname=paste0('data/', database_type, '/all_metadata_annotated_sep2022.txt.gz'), overwrite=TRUE, remove=TRUE)
+gzip(filename=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt'), 
+     destname=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt.gz'), overwrite=TRUE, remove=TRUE)
 
