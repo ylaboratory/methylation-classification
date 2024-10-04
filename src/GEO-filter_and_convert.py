@@ -1,5 +1,7 @@
-#date updated: Apr 2024
+#date updated: Sep 2024
 #clean up and filter data from GEO saved in /data/GEO/compiled/ as all_Mv.txt.gz and all_metadata.txt.gz
+
+date='sep2024'
 
 import pandas as pd
 import numpy as np
@@ -8,17 +10,17 @@ import pickle
 from sklearn.preprocessing import StandardScaler
 import utils
 
-start_from_beginning = False
+start_from_beginning = True
 
 if start_from_beginning:
     print("starting from beginning...")
     
     print("...loading data...")
     #load metadata, sample_id of beta values, and beta values of those with both beta values and metadata
-    meta_all=pd.read_csv('./../data/GEO/compiled/all_metadata_annotated_may2023.txt.gz', sep=',')
-    beta_samples=pd.read_csv('./../data/GEO/compiled/450K_betavalues_probe.txt.gz', sep='\t', index_col=0, nrows=0).columns.tolist()
-    probes=pd.read_csv('./../data/GEO/compiled/450K_betavalues_probe.txt.gz', sep='\t', usecols=['probe','probe.2'])
-    beta_all=pd.read_csv('./../data/GEO/compiled/450K_betavalues_probe.txt.gz', sep='\t', 
+    meta_all=pd.read_csv(f'./../data/GEO/compiled/all_metadata_annotated_{date}.txt.gz', sep=',')
+    beta_samples=pd.read_csv(f'./../data/GEO/compiled/450K_betavalues_probe_{date}.txt.gz', sep='\t', index_col=0, nrows=0).columns.tolist()
+    probes=pd.read_csv(f'./../data/GEO/compiled/450K_betavalues_probe_{date}.txt.gz', sep='\t', usecols=['probe','probe.2'])
+    beta_all=pd.read_csv(f'./../data/GEO/compiled/450K_betavalues_probe_{date}.txt.gz', sep='\t', 
                          usecols=list(set(beta_samples).intersection(set(meta_all['sample_id']))))
     beta_all.index=probes['probe']
 
@@ -130,7 +132,7 @@ if start_from_beginning:
     
     
     #save all as pickle file
-    save_all_normal=False
+    save_all_normal=True
     
     if save_all_normal:
         filename = f"./../data/GEO/preprocessed/450K_Mvalues"
@@ -199,7 +201,7 @@ if save_all_noscaling:
     print()
     
 #save all scaled
-save_all_scaled = Truse
+save_all_scaled = True
 
 if save_all_scaled:
     print(f"...samplewise scaling...")
@@ -214,21 +216,22 @@ if save_all_scaled:
         pickle.dump([mult_Mv_scaled, mult_meta, island], dill_file, protocol=4)
     print()
 
+thresh = 2
+print(f"...variance filter (threshold = {thresh})...")
+
+highvar_features = utils.weighted_variance(mult_Mv, mult_meta, island, thresh)
+highvar_Mv = mult_Mv[highvar_features]
+highvar_meta = mult_meta
+highvar_mapping = island.loc[highvar_features]
+
+print(f"highvar Mv shape: {highvar_Mv.shape}")
+print(f"highvar meta shape: {highvar_meta.shape}")
+print()
+
 #save highvar noscaling
 save_thresh2_noscaling = False
 
 if save_thresh2_noscaling:
-    thresh = 2
-    print(f"...variance filter (threshold = {thresh})...")
-
-    highvar_features = utils.weighted_variance(mult_Mv, mult_meta, island, thresh)
-    highvar_Mv = mult_Mv[highvar_features]
-    highvar_meta = mult_meta
-    highvar_mapping = island.loc[highvar_features]
-
-    print(f"highvar Mv shape: {highvar_Mv.shape}")
-    print(f"highvar meta shape: {highvar_meta.shape}")
-    print()
     
     filename = f"./../data/GEO/preprocessed/450K_Mvalues_atleast{atleast}_thresh{thresh}_noscaling"
     print(f"...saving as {filename}...")
@@ -237,7 +240,7 @@ if save_thresh2_noscaling:
     print()
     
 #save scale first then var
-save_scale_then_thresh = True
+save_scale_then_thresh = False
 
 if save_scale_then_thresh:
     thresh = 0.1
@@ -261,6 +264,20 @@ if save_scale_then_thresh:
 save_highvar_samplewise = False
 
 if save_highvar_samplewise:
+    scaler = StandardScaler().fit(highvar_Mv.transpose().values)
+    highvar_Mv_scaled = scaler.transform(highvar_Mv.transpose().values)
+    highvar_Mv_scaled = pd.DataFrame(highvar_Mv_scaled.transpose(), index=highvar_Mv.index, columns=highvar_Mv.columns)
+
+    filename = f"./../data/GEO/preprocessed/450K_Mvalues_atleast{atleast}_thresh{thresh}_samplewise"
+    print(f"...saving as {filename}...")
+    with open(filename, "wb") as dill_file:
+        pickle.dump([highvar_Mv_scaled, highvar_meta], dill_file, protocol=4)
+    print()
+
+
+save_highvar_samplewise_folds = False
+
+if save_highvar_samplewise_folds:
     for fold in range(3):
         print(f"fold: {fold}")
         scaler = StandardScaler().fit(highvar_Mv.transpose().values)

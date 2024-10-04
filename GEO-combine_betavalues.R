@@ -1,6 +1,4 @@
-#date updated: sep 2024
-
-date='sep2024'
+#date updated: Jun 2022
 
 setwd('/grain/mk98/methyl/methylation-classification')
 print(.libPaths())
@@ -19,7 +17,7 @@ database_type='GEO'
 # The script only merges 450k data(485344 loci) and EpicBeadchip data (865613 loci)
 all_betavalue_name <-
   # list.files(path = paste0('data/', database_type), pattern = '_beta_values.txt', full.names = T, recursive = F)
-  list.files(path = paste0('raw/', database_type), pattern = '_beta_values_probe.txt', full.names = T, recursive = F)
+  list.files(path = paste0('data/', database_type), pattern = '_beta_values_probe.txt', full.names = T, recursive = F)
 print(paste0("betavalue names acquired: length of ",length(all_betavalue_name)))
 betavaluedf <-
   lapply(all_betavalue_name, function(x) {
@@ -142,12 +140,12 @@ for (i in 1:length(betavaluedf)){
 
 write.table(
   total_matrix,
-  file = paste0('data/', database_type, '/compiled/450K_betavalues_probe_',date,'.txt'),
+  file = paste0('data/', database_type, '/450K_betavalues_probe.txt'),
   quote = F,
   row.names = F,
   sep = "\t"
 )
 
-gzip(filename=paste0('data/', database_type, '/compiled/450K_betavalues_probe_',date,'.txt'), 
-     destname=paste0('data/', database_type, '/compiled/450K_betavalues_probe_',date,'.txt.gz'), 
+gzip(filename=paste0('data/', database_type, '/450K_betavalues_probe.txt'), 
+     destname=paste0('data/', database_type, '/450K_betavalues_probe.txt.gz'), 
      overwrite=TRUE, remove=TRUE, BFR.SIZE=1e+07)

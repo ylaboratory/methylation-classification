@@ -1,11 +1,11 @@
 import sklearn as sk
+import pandas as pd
 import matplotlib.pyplot as plt
 import random
 random.seed(9)
 import networkx as nx
 import numpy as np
 np.random.seed(9)
-import pandas as pd
 from collections import Counter
 import obonet
 

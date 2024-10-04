@@ -1,43 +1,32 @@
-# date updated: Sep 2024
-
-date = 'sep2024'
+#date updated: May 2023
 
 library(data.table)
 library(R.utils)
 # meta_dir='data/GEO/'
-meta_dir = "raw/GEO/"
+meta_dir = "/scratch/mk98/methyl/data/individual/"
 database_type='GEO'
 
 annot<-function(total_metadata, meta_dir, sample, normal_vec, tissue_vec, 
                 treatment_vec=c(rep('False',length(normal_vec))),
                 disease_vec=c(rep('Unknown',length(normal_vec)))){
-  tryCatch({
-    # Attempt to read the metadata file
-    sample_matrix <- read.csv(paste0(meta_dir, sample, '_sample_metadata.txt'), sep = '\t')
+  sample_matrix<-read.csv(paste0(meta_dir, sample,'_sample_metadata.txt'), sep='\t')
+  if (dim(sample_matrix)[1]!=length(disease_vec) || 
+      dim(sample_matrix)[1]!=length(tissue_vec) || 
+      dim(sample_matrix)[1]!=length(treatment_vec)){
+    print(sample)
+    stop("vector size not consistent")
+  }
   
-    if (dim(sample_matrix)[1]!=length(disease_vec) || 
-        dim(sample_matrix)[1]!=length(tissue_vec) || 
-        dim(sample_matrix)[1]!=length(treatment_vec)){
-      print(sample)
-      stop("vector size not consistent")
-    }
-    
-    if (!(sample %in% total_metadata$series)){
-      total_metadata=rbind(total_metadata, 
-                           data.table(sample_id=sample_matrix$Samples, 
-                                      series=sample_matrix$Series, 
-                                      platform=sample_matrix$Platform,
-                                      normal=normal_vec, 
-                                      tissue_name=tissue_vec, 
-                                      treatment=treatment_vec,
-                                      disease=disease_vec))
-    }
-  }, error = function(e) {
-    # Handle the error if the file does not exist or cannot be read
-    message(paste("Metadata does not exist for sample:", sample))
-    message("Error message: ", e$message)
-    writeLines('\n')
-  })
+  if (!(sample %in% total_metadata$series)){
+    total_metadata=rbind(total_metadata, 
+                         data.table(sample_id=sample_matrix$Samples, 
+                                    series=sample_matrix$Series, 
+                                    platform=sample_matrix$Platform,
+                                    normal=normal_vec, 
+                                    tissue_name=tissue_vec, 
+                                    treatment=treatment_vec,
+                                    disease=disease_vec))
+  }
   return(total_metadata)
 }
 
@@ -65,16 +54,16 @@ to_remove<-append_to_remove(to_remove, 'GSE103280')
 to_remove<-append_to_remove(to_remove, 'GSE103287')
 to_remove<-append_to_remove(to_remove, 'GSE103328')
 to_remove<-append_to_remove(to_remove, 'GSE104359')
-# total_metadata<-annot(total_metadata, meta_dir, 'GSE106360', 
-#                       c(rep('disease', 47)), 
-#                       c(rep('Breast', 47)), 
-#                       c(rep('False', 47)), 
-#                       c(rep('Breast Carcinoma', 47)))
-# total_metadata<-annot(total_metadata, meta_dir, 'GSE106437', 
-#                       c(rep('disease', 3)), 
-#                       c(rep('Colon',3)), 
-#                       c('True', rep('False', 2)),
-#                       c(rep('Colorectal Adenocarcinoma', 3)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE106360', 
+                      c(rep('disease', 47)), 
+                      c(rep('Breast', 47)), 
+                      c(rep('False', 47)), 
+                      c(rep('Breast Carcinoma', 47)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE106437', 
+                      c(rep('disease', 3)), 
+                      c(rep('Colon',3)), 
+                      c('True', rep('False', 2)),
+                      c(rep('Colorectal Adenocarcinoma', 3)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE106438', 
                       c(rep('disease', 3)),
                       c(rep('Colon', 3)), 
@@ -215,7 +204,7 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE103659',
                       c(rep('False',181)),
                       c(rep('Brain Neoplasm',181)))
 total_metadata<-annot(total_metadata, meta_dir, 'GSE103768', 
-                      c(rep('disease',57)), 
+                      c(rep('normal',57)), 
                       c(rep('Adipose Tissue',57)), 
                       c(rep('False',57))) #obesity study over time
 total_metadata<-annot(total_metadata, meta_dir, 'GSE103911', 
@@ -269,11 +258,11 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE106099',
                       c(rep('normal',12), rep('disease', 3), rep('normal', 6), rep('disease', 9)),
                       c(rep('endothelial cell',30)),
                       c(rep('False',30))) #placenta endothelial cells
-# total_metadata<-annot(total_metadata, meta_dir, 'GSE106360', 
-#                       c(rep('disease',47)),
-#                       c(rep('Breast',47)),
-#                       c(rep('False',47)),
-#                       c(rep('Breast Neoplasm',47)))
+total_metadata<-annot(total_metadata, meta_dir, 'GSE106360', 
+                      c(rep('disease',47)),
+                      c(rep('Breast',47)),
+                      c(rep('False',47)),
+                      c(rep('Breast Neoplasm',47)))
 # total_metadata<-annot(total_metadata,meta_dir, 'GSE106556', c(rep('normal',6),rep('disease',6),rep('normal',5),rep('disease',6)),
                      # c(rep('Hematopoietic Tissue',6),rep('Myeloid Leukemia',6),rep('Hematopoietic Tissue',5),rep('Myeloid Leukemia',6)),
                      # c(rep('False',23)))
@@ -631,16 +620,16 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE61278',
                       c(rep('normal', 66), rep('disease',44)), 
                       c(rep('Liver', 110))) #mix of fetal and adult
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61446', 
-                      c(rep('disease',67)), 
+                      c(rep('normal',67)), 
                       c(rep('Liver',67))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61450', 
-                      c(rep('disease',71)), 
+                      c(rep('normal',71)), 
                       c(rep('subcutaneous adipose tissue',71))) #obesity
-total_metadata<-annot(total_metadata, meta_dir, 'GSE61452',
-                      c(rep('disease',60)),
-                      c(rep('subcutaneous adipose tissue',60))) #obesity
+# total_metadata<-annot(total_metadata, meta_dir, 'GSE61452', 
+#                       c(rep('normal',60)), 
+#                       c(rep('subcutaneous adipose tissue',60))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE61453', 
-                      c(rep('disease',71)), 
+                      c(rep('normal',71)), 
                       c(rep('visceral fat',71))) #obesity
 total_metadata<-annot(total_metadata, meta_dir, 'GSE62727', 
                       c(rep('disease', 7), rep('normal',4)), 
@@ -1157,11 +1146,11 @@ total_metadata<-annot(total_metadata, meta_dir, 'GSE133774',
 
 ##combine and save##
 df <- apply(total_metadata,2,as.character)
-write.csv(df, file=paste0('data/', database_type, '/compiled/all_metadata_annotated_',date,'.txt'),
+write.csv(df, file=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt'),
           row.names=F,
           sep="\t",
           quote=F)
           
-gzip(filename=paste0('data/', database_type, '/compiled/all_metadata_annotated_',date,'.txt'), 
-     destname=paste0('data/', database_type, '/compiled/all_metadata_annotated_',date,'.txt.gz'), overwrite=TRUE, remove=TRUE)
+gzip(filename=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt'), 
+     destname=paste0('data/', database_type, '/compiled/all_metadata_annotated_may2023.txt.gz'), overwrite=TRUE, remove=TRUE)
 

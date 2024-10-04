@@ -5,7 +5,7 @@ library(TCGAutils)
 library(TCGAbiolinks)
 # This script is used for downloading and extracting raw microarray files from the GEO database
 # To download data even if directory exists, use download.data.geo.microarray(accession.num, ignore.exisiting = T)
-download_data_geo_microarray <- function(accession_num, ignore_exist=F, download_directory='./raw/GEO/') {
+download_data_geo_microarray <- function(accession_num, ignore_exist=F, download_directory='raw/GEO/') {
   if (dir.exists(paste(
       download_directory,
       accession_num,
@@ -50,8 +50,8 @@ download_data_geo_microarray <- function(accession_num, ignore_exist=F, download
 
 # This file extracts the metadata for a GSE series in GEO database for microarray data
 # assume the working directory is the master folder Methylation-classfication
-download_geo_metadata <- function(accession_num, out_directory, ignore_exist=F) {
-  if (file.exists(paste0(out_directory, accession_num, "_sample_metadata.txt",sep = "")) == FALSE || ignore_exist){
+download_geo_metadata <- function(accession_num, out_directory='data/GEO/', ignore_exist=F) {
+  if (file.exists(paste0(out_directory,accession_num, "_sample_metadata.txt",sep = "")) == FALSE || ignore_exist){
     print("downloading metadata")
     gse_series <- getGEO(accession_num, GSEMatrix = F, destdir = tempdir())
     if (length(gse_series)>1){

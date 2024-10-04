@@ -1,4 +1,4 @@
-#last updated: Sep 2024
+#last updated: Sept 2024
 
 # Take in accession and database from the command line to output raw files to raw/database/
 # The working directory needs to be changed accordingly
@@ -81,19 +81,12 @@ if (!require('data.table')) {
 
 source('./src/download-data-microarray.R')
 source('./src/process-microarray.R')
-# source('./src/liftover.R')
+source('./src/liftover.R')
 # manifest<-read_tsv('./annotation/HM450.hg38.manifest.gencode.v36.tsv')
 # manifest$CpG<-manifest$CpG_beg+1
 
-if (!require('remotes')){
-  install.packages('remotes', repos = "http://cran.us.r-project.org")
-}
-remotes::install_version("matrixStats", version="1.1.0", repos = "http://cran.us.r-project.org")
-
-out_dir = './raw/GEO/'
-
 if (database_type == 'GEO') {
-  accession_list<-read.table(paste0('annotation/', manifest_file), header = F)
+  accession_list<-read.table(paste0('annotation/',manifest_file), header = F)
   for (accession in as.character(accession_list$V1)) {
     print(accession)
     tryCatch({
@@ -106,17 +99,16 @@ if (database_type == 'GEO') {
       }
     )
     tryCatch({
-      download_geo_metadata(accession, out_directory=out_dir, ignore_exist= ignore_exist_state)
-      
-      if (file.exists(paste0(out_dir, accession, "_beta_values_probe.txt", sep = "")) == FALSE){
+      download_geo_metadata(accession, ignore_exist= ignore_exist_state)
+      if (file.exists(paste0('./data/GEO/',accession, "_beta_values_probe.txt",sep = "")) == FALSE){
         corrected_data <-
-          background_correction(paste0(out_dir, '/', accession))
+          background_correction(paste0('raw/', database_type, '/', accession))
         normalized_data <-
           normalization(corrected_data,
-                        paste0(out_dir, accession, '_sample_metadata.txt'))
+                        paste0('data/', database_type,'/', accession, '_sample_metadata.txt'))
         # lifted_data <-
         #   liftover('annotation/hg19ToHg38.over.chain', normalized_data)
-        write.table(normalized_data, paste0(out_dir, accession, '_beta_values_probe.txt'),
+        write.table(normalized_data, paste0('data/', database_type,'/', accession, '_beta_values_probe.txt'),
                     quote = F,
                     sep = '\t', row.names = F, col.names = T)
         # unlink(paste0('raw/GEO/', accession,"/*"), force=TRUE)
