@@ -1,89 +1,98 @@
+# Standard library
+import sys
+import random
+from typing import Dict, Tuple, List
+import gc
+
+# Third-party
 import warnings
 warnings.filterwarnings('ignore')
-import pandas as pd
-import matplotlib.pyplot as plt
+import joblib
 import numpy as np
-import dill
-# dill.load_session(f'base.db')
-import sys
-sys.path.append('./../src/')
-# import utils
-import pickle
-
-from methylize import diff_meth_pos, volcano_plot, manhattan_plot
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from methylize import diff_meth_pos
 from statsmodels.stats.multitest import multipletests
-from sklearn.preprocessing import MultiLabelBinarizer, LabelEncoder
 
-atleast=2
+# Local
+sys.path.append('./../src/')
+sys.modules['sklearn.externals.joblib'] = joblib
+import utils
+import dill
 
-Mv, meta, mapping = dill.load(open(f'./../data/GEO/preprocessed/450K_Mvalues_atleast{atleast}_samplewise', 'rb'))
-le=LabelEncoder().fit(meta['tissue_name'].unique())
-meta_le=le.transform(meta['tissue_name'].values)
+# Configuration
+RANDOM_SEED = 9
+DATA_PATH = './../data/GEO'
 
-print(meta_le.shape)
-print(le.classes_)
+# Set random seeds
+random.seed(RANDOM_SEED)
+np.random.seed(RANDOM_SEED)
 
-def load_fold_data():
-    """Load fold data."""
-    with open('./../data/GEO/preprocessed/450K_Mvalues_atleast2_samplewise_fold_Mvs', 'rb') as f:
-        return pickle.load(f)
+def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Load main methylation data."""
+    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    print(f"loading Mv, meta from {Mv_location}")
+    return dill.load(open(Mv_location, 'rb'))
+
+def load_fold_data() -> Dict:
+    """Load cross-validation fold data."""
+    try:
+        with open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb') as f:
+            return dill.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError("Training folds data file not found")
+    except Exception as e:
+        raise Exception(f"Error loading fold data: {str(e)}")
+
+def analyze_tissue_methylation(rest_Mv: pd.DataFrame, 
+                             rest_meta: pd.DataFrame, 
+                             tissue: str) -> pd.DataFrame:
+    """Analyze differential methylation for a specific tissue."""
+    rest_meta_tissue = rest_meta.copy()
+    rest_meta_tissue['tissue'] = rest_meta_tissue['training.ID'] == tissue
     
-fold_Mvs = load_fold_data()
+    return diff_meth_pos(meth_data=rest_Mv,
+                        pheno_data=rest_meta_tissue,
+                        column='tissue',
+                        regression_method="logistic",
+                        covariates='Dataset',
+                        export=False,
+                        verbose=False)
 
-for fold, (rest_Mv, rest_meta, holdout_Mv, holdout_meta) in fold_Mvs.items():
-    print(f"fold: {fold}")
+def apply_multiple_testing(res: pd.DataFrame, alpha: float = 0.05) -> Tuple[pd.Index, float]:
+    """Apply multiple testing correction and return significant probes."""
+    adjusted = multipletests(res.PValue, alpha=alpha)
+    pvalue_cutoff = adjusted[3]
+    significant_probes = res[res['PValue'] <= pvalue_cutoff].index
+    return significant_probes, pvalue_cutoff
+
+def main():
+    # Load data
+    # Mv, meta = load_data()
+    fold_Mvs = load_fold_data()
     
-    # rest_Mv['series'] = rest_meta['series']
-    res_per_tissue = dict()
-    
-    for tissue in sorted(holdout_meta['tissue_name'].unique()):
-        print(f"tissue: {tissue}")
+    for fold, (rest_Mv, rest_meta, holdout_Mv, holdout_meta) in {k: fold_Mvs[k] for k in [0,1,2]}.items():
+        print(f"Fold: {fold}")
+        res_per_tissue = {}
         
-        rest_meta_tissue = rest_meta.copy()
-        rest_meta_tissue['tissue'] = rest_meta_tissue['tissue_name']==tissue
-        holdout_meta_tissue = holdout_meta.copy()
-        holdout_meta_tissue['tissue'] = holdout_meta_tissue['tissue_name']==tissue
+        for tissue in sorted(rest_meta['training.ID'].unique()):
+            print(f"Tissue: {tissue}")
+            
+            # Analyze methylation
+            res = analyze_tissue_methylation(rest_Mv, rest_meta, tissue)
+            
+            # Apply multiple testing correction
+            significant_probes, pvalue_cutoff = apply_multiple_testing(res)
+            print(f"Significant probes: {len(significant_probes)}")
+            
+            res['PValue_cutoff'] = pvalue_cutoff
+            res_per_tissue[tissue] = res
         
-        res = diff_meth_pos(meth_data=rest_Mv, 
-                            pheno_data=rest_meta_tissue, 
-                            column='tissue',
-                            regression_method="logistic", 
-                            covariates='series',
-                            export=False, 
-                            verbose=False,
-                           )
-        # manhattan_plot(res, palette='default', save=False, array_type='450k', verbose=True)
-        
-        # clf = SVC(class_weight='balanced', kernel='linear', random_state=9)
-        # clf.fit(rest_Mv.values, rest_meta_tissue)
+        # Save results
+        with open(f'{DATA_PATH}/diffmeth/diffmeth_fold{fold}', 'wb') as f:
+            dill.dump(res_per_tissue, f)
+            
+        gc.collect()
 
-        # true=holdout_meta_tissue.values
-        # pred=clf.predict(holdout_Mv.values)
-
-        # print(f'acc: {round(accuracy_score(true, pred),4)}')
-        # print(f'prec: {round(precision_score(true, pred, average = "weighted"),4)}')
-
-        # metrics.loc[tissue]['acc'] = round(accuracy_score(true, pred),4)
-        # metrics.loc[tissue]['prec'] = round(precision_score(true, pred, average = "weighted"),4)
-        # metrics.loc[tissue]['rec'] = round(recall_score(true, pred, average = "weighted"),4)
-        
-        interesting_probes1 = res[res['PValue'] <= 0.05].index
-        print(interesting_probes1.shape)
-        
-        adjusted = multipletests(res.PValue, alpha=0.05)
-        # pvalue_cutoff_y = -np.log10(adjusted[3])
-        pvalue_cutoff_y = adjusted[3]
-        # res['minuslog10value'] =  -np.log10(res['PValue'])
-        # interesting_probes2 = res[res['minuslog10value'] >= pvalue_cutoff_y] #bonferoni correction for cutoff
-        interesting_probes2 = res[res['PValue'] <= pvalue_cutoff_y] #bonferoni correction for cutoff
-        print(interesting_probes2.shape)
-        
-        res['PValue_cutoff'] = pvalue_cutoff_y
-        
-        # probes_per_tissue[tissue] = interesting_probes2 #if only want significant
-        res_per_tissue[tissue] = res
-        
-    # with open(f'diffmeth_probes_fold{fold}.pkl', 'wb') as f:
-    with open(f'./../data/GEO/diffmeth/diffmeth_fold{fold}', 'wb') as f:
-        pickle.dump(res_per_tissue, f)
-        
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,21 @@
+loading Mv, meta from ./../data/GEO/preprocessed/training.dill
+num_samples: 100
+==== Maximum number of iteration reached. ======
+  transformed data shape: (100, 18)
+  time: 41.4721
+num_samples: 500
+==== Maximum number of iteration reached. ======
+  transformed data shape: (500, 19)
+  time: 55.9785
+num_samples: 1000
+==== Maximum number of iteration reached. ======
+  transformed data shape: (1000, 19)
+  time: 63.6560
+num_samples: 5000
+==== Maximum number of iteration reached. ======
+  transformed data shape: (5000, 64)
+  time: 115.6580
+num_samples: 10000
+==== Maximum number of iteration reached. ======
+  transformed data shape: (10000, 154)
+  time: 173.2769

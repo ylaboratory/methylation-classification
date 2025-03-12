@@ -1,93 +1,126 @@
-import warnings
-warnings.filterwarnings('ignore')
-import joblib
+# Standard library
 import sys
-sys.modules['sklearn.externals.joblib'] = joblib
-sys.path.append('./../src/')
-import dill
-# dill.load_session(f'base.db')
-from sklearn.svm import SVC
-from statsmodels.stats.multitest import multipletests
-
-import pickle
 import random
+from typing import Dict, Tuple, List
+
+# Third-party
+import warnings
+import joblib
 import numpy as np
 import pandas as pd
 import networkx as nx
-from sklearn.preprocessing import MultiLabelBinarizer
-from utils import id_to_name
-random.seed(9)
-np.random.seed(9)
+from sklearn.svm import SVC
+from statsmodels.stats.multitest import multipletests
 
-date = "sep2024"
-atleast = 2
-subtree = nx.read_multiline_adjlist(path=f"uberon_{date}_atleast{atleast}_adjlist",create_using=nx.MultiDiGraph)
-mlb=MultiLabelBinarizer().fit([[id_to_name[node] for node in subtree.nodes]])
-
+# Local
+sys.path.append('./../src/')
+sys.modules['sklearn.externals.joblib'] = joblib
+import utils
 import dill
-atleast=2
+
+warnings.filterwarnings('ignore')
+
+# Configuration
+RANDOM_SEED = 9
+DATA_PATH = './../data/GEO'
+
+# Set random seeds
+random.seed(RANDOM_SEED)
+np.random.seed(RANDOM_SEED)
+
+def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Load main methylation data."""
+    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    print(f"loading Mv, meta from {Mv_location}")
+    return dill.load(open(Mv_location, 'rb'))
+
+def load_fold_data() -> Dict:
+    """Load cross-validation fold data."""
+    try:
+        with open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb') as f:
+            return dill.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError("Training folds data file not found")
+    except Exception as e:
+        raise Exception(f"Error loading fold data: {str(e)}")
+
+def load_diffmeth_results(fold: str) -> Dict:
+    """Load differential methylation results for a fold."""
+    with open(f"{DATA_PATH}/diffmeth/diffmeth_fold{fold}", 'rb') as f:
+        return dill.load(f)
+
+def get_significant_probes(res_per_tissue: Dict, tissue: str) -> List[str]:
+    """Get significant probes for a tissue using multiple testing correction."""
+    res = res_per_tissue[tissue]
+    adjusted = multipletests(res.PValue, alpha=0.05)
+    pvalue_cutoff = adjusted[3]
+    return list(res[res['PValue'] <= pvalue_cutoff].index)
+
+def train_tissue_classifier(rest_Mv: pd.DataFrame, 
+                          rest_meta: pd.DataFrame,
+                          probes: List[str],
+                          tissue: str) -> Tuple[SVC, pd.DataFrame]:
+    """Train classifier for a specific tissue."""
+    rest_meta['tissue_bool'] = rest_meta['training.ID'] == tissue
+    rest_probe = rest_Mv[probes]
     
-Mv, meta, mapping = dill.load(open(f'./../data/GEO/preprocessed/450K_Mvalues_atleast{atleast}_samplewise', 'rb'))
+    clf = SVC(class_weight='balanced', kernel='linear', random_state=RANDOM_SEED, probability=True)
+    return clf.fit(rest_probe.values, rest_meta['tissue_bool']), rest_probe
 
-import pandas as pd
-import numpy as np
+def predict_tissue(clf: SVC, 
+                  holdout_probe: pd.DataFrame, 
+                  holdout_meta: pd.DataFrame,
+                  tissue: str) -> np.ndarray:
+    """Make predictions for a tissue."""
+    holdout_meta['tissue_bool'] = holdout_meta['training.ID'] == tissue
+    return clf.predict_proba(holdout_probe.values)
 
-all_pred_res = pd.DataFrame(columns = meta['tissue_name'].unique())
+def main():
+    # Load data
+    Mv, meta = load_data()
+    print(f"Mv, meta: {Mv.shape}, {meta.shape}")
+    fold_Mvs = load_fold_data()
+    
+    # Initialize results dataframe
+    all_pred_res = pd.DataFrame(columns=meta['training.ID'].unique())
+    
+    for fold, (rest_Mv, rest_meta, holdout_Mv, holdout_meta) in fold_Mvs.items():
+        print(f"Fold: {fold}")
         
-def load_fold_data():
-    """Load fold data."""
-    with open('./../data/GEO/preprocessed/450K_Mvalues_atleast2_samplewise_fold_Mvs', 'rb') as f:
-        return pickle.load(f)
-    
-fold_Mvs = load_fold_data()
-
-
-for fold, (rest_Mv, rest_meta, holdout_Mv, holdout_meta) in fold_Mvs.items():
-    print(f"fold: {fold}")
-
-    with open(f"./../data/GEO/diffmeth/diffmeth_fold{fold}", 'rb') as f:
-        res_per_tissue = pickle.load(f)
-    
-    probe_per_tissue = dict()
-    for tissue in res_per_tissue.keys():
-        res = res_per_tissue[tissue]
-        adjusted = multipletests(res.PValue, alpha=0.05)
-        pvalue_cutoff_y = adjusted[3]
-        interesting_probes2 = list(res[res['PValue'] <= pvalue_cutoff_y].index) #bonferoni correction for cutoff
-    
-        probe_per_tissue[tissue] = interesting_probes2
-    
-    pred_res = pd.DataFrame(index= [f'f{fold}.{gse}' for gse in holdout_meta.index], 
-                        columns=probe_per_tissue.keys()
-                       )
-    
-    clfs = dict()
-    for tissue, probe in probe_per_tissue.items():
-        print(tissue)
+        # Load differential methylation results
+        res_per_tissue = load_diffmeth_results(fold)
         
-        rest_meta['tissue_bool'] = rest_meta['tissue_name']==tissue
-        holdout_meta['tissue_bool'] = holdout_meta['tissue_name']==tissue
+        # Process each tissue
+        clfs = {}
+        pred_res = pd.DataFrame(index=[f'f{fold}.{gse}' for gse in holdout_meta.index],
+                              columns=res_per_tissue.keys())
         
-        rest_probe = rest_Mv[probe]
-        holdout_probe = holdout_Mv[probe]
-        print(rest_probe.shape, holdout_probe.shape)
-
-        clf = SVC(class_weight='balanced', kernel='linear', random_state=9, probability=True)
-        clf.fit(rest_probe.values, rest_meta['tissue_bool'])
-
-        true=holdout_meta['tissue_bool']
-        pred=clf.predict(holdout_probe.values)
-        pred_prob = clf.predict_proba(holdout_probe.values)
-        
-        pred_res[tissue] = [tuple(x) for x in pred_prob]
+        for tissue in res_per_tissue.keys():
+            print(f"Tissue: {tissue}")
             
-        clfs[tissue]=clf
-  
-    with open(f"./../data/GEO/diffmeth/clf_ovr_fold{fold}", 'wb') as f:
-        pickle.dump(clfs, f)
+            # Get significant probes
+            probes = get_significant_probes(res_per_tissue, tissue)
+            print(f"Number of probes: {len(probes)}")
+            
+            # Train classifier
+            clf, rest_probe = train_tissue_classifier(rest_Mv, rest_meta, probes, tissue)
+            holdout_probe = holdout_Mv[probes]
+            
+            # Make predictions
+            pred_prob = predict_tissue(clf, holdout_probe, holdout_meta, tissue)
+            pred_res[tissue] = [tuple(x) for x in pred_prob]
+            
+            clfs[tissue] = clf
         
-    all_pred_res = pd.concat([all_pred_res, pred_res])
-        
-with open(f'./../data/GEO/diffmeth/diffmeth_ovr.pkl', 'wb') as f:
-    pickle.dump(all_pred_res, f)
-        
+        # Save results
+        with open(f"{DATA_PATH}/diffmeth/clf_ovr_fold{fold}", 'wb') as f:
+            dill.dump(clfs, f)
+            
+        all_pred_res = pd.concat([all_pred_res, pred_res])
+    
+    # Save final predictions
+    with open(f'{DATA_PATH}/diffmeth/diffmeth_ovr.pkl', 'wb') as f:
+        dill.dump(all_pred_res, f)
+
+if __name__ == "__main__":
+    main()

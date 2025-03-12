@@ -1,0 +1,123 @@
+2025-02-24 16:41:07 - loading Mv, meta from ./../data/GEO/preprocessed/training.dill
+2025-02-24 16:42:14 - Testing thresholds: [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
+2025-02-24 16:42:14 - 
+Fold 0:
+propagating with training.ID
+propagating with training.ID
+2025-02-24 16:42:14 - Fitting minipatch learning...
+==== Maximum number of iteration reached. ======
+2025-02-24 16:45:38 -   Threshold: 0.8 | Selected probes: 6
+2025-02-24 16:45:38 -   Evaluating thresholds...
+2025-02-24 16:50:51 -   acc-samp 0.2296|jacc-samp 0.3431|prec-tiss 0.0|f1-tissue 0.0
+2025-02-24 16:50:52 -   Threshold: 0.7 | Selected probes: 31
+2025-02-24 16:50:52 -   Evaluating thresholds...
+2025-02-24 16:52:53 -   acc-samp 0.394|jacc-samp 0.5192|prec-tiss 0.5208|f1-tissue 0.5128
+2025-02-24 16:52:53 -   Threshold: 0.6 | Selected probes: 113
+2025-02-24 16:52:53 -   Evaluating thresholds...
+2025-02-24 16:53:28 -   acc-samp 0.4373|jacc-samp 0.5912|prec-tiss 0.9221|f1-tissue 0.8055
+2025-02-24 16:53:28 -   Threshold: 0.5 | Selected probes: 530
+2025-02-24 16:53:28 -   Evaluating thresholds...
+2025-02-24 16:54:49 -   acc-samp 0.4979|jacc-samp 0.6362|prec-tiss 0.9925|f1-tissue 0.9153
+2025-02-24 16:54:49 -   Threshold: 0.4 | Selected probes: 3189
+2025-02-24 16:54:49 -   Evaluating thresholds...
+2025-02-24 17:06:36 -   acc-samp 0.5206|jacc-samp 0.6676|prec-tiss 1.0|f1-tissue 0.9514
+2025-02-24 17:06:37 -   Threshold: 0.3 | Selected probes: 17086
+2025-02-24 17:06:37 -   Evaluating thresholds...
+2025-02-25 03:13:04 -   acc-samp 0.5276|jacc-samp 0.6378|prec-tiss 1.0|f1-tissue 0.9577
+2025-02-25 03:13:04 -   Threshold: 0.2 | Selected probes: 67360
+2025-02-25 03:13:04 -   Evaluating thresholds...
+2025-02-25 16:30:18 -   acc-samp 0.5296|jacc-samp 0.6349|prec-tiss 1.0|f1-tissue 0.9716
+2025-02-25 16:30:18 - 
+Fold 1:
+propagating with training.ID
+propagating with training.ID
+2025-02-25 16:30:19 - Fitting minipatch learning...
+==== Maximum number of iteration reached. ======
+2025-02-25 16:33:01 -   Threshold: 0.8 | Selected probes: 5
+2025-02-25 16:33:01 -   Evaluating thresholds...
+2025-02-25 16:38:58 -   acc-samp 0.0869|jacc-samp 0.2462|prec-tiss 0.0|f1-tissue 0.0
+2025-02-25 16:38:58 -   Threshold: 0.7 | Selected probes: 28
+2025-02-25 16:38:58 -   Evaluating thresholds...
+2025-02-25 16:40:54 -   acc-samp 0.4505|jacc-samp 0.6904|prec-tiss 0.6447|f1-tissue 0.5901
+2025-02-25 16:40:54 -   Threshold: 0.6 | Selected probes: 115
+2025-02-25 16:40:54 -   Evaluating thresholds...
+2025-02-25 16:41:23 -   acc-samp 0.6739|jacc-samp 0.8431|prec-tiss 0.9389|f1-tissue 0.9301
+2025-02-25 16:41:23 -   Threshold: 0.5 | Selected probes: 634
+2025-02-25 16:41:23 -   Evaluating thresholds...
+2025-02-25 16:43:08 -   acc-samp 0.7792|jacc-samp 0.8971|prec-tiss 0.9933|f1-tissue 0.9697
+2025-02-25 16:43:08 -   Threshold: 0.4 | Selected probes: 3307
+2025-02-25 16:43:08 -   Evaluating thresholds...
+2025-02-25 16:57:32 -   acc-samp 0.8015|jacc-samp 0.9062|prec-tiss 1.0|f1-tissue 0.9757
+2025-02-25 16:57:32 -   Threshold: 0.3 | Selected probes: 16914
+2025-02-25 16:57:32 -   Evaluating thresholds...
+2025-02-26 00:17:07 -   acc-samp 0.7995|jacc-samp 0.9056|prec-tiss 1.0|f1-tissue 0.9768
+2025-02-26 00:17:07 -   Threshold: 0.2 | Selected probes: 67308
+2025-02-26 00:17:07 -   Evaluating thresholds...
+2025-02-26 07:02:08 -   acc-samp 0.801|jacc-samp 0.9055|prec-tiss 1.0|f1-tissue 0.9784
+2025-02-26 07:02:08 - 
+Fold 2:
+propagating with training.ID
+propagating with training.ID
+2025-02-26 07:02:08 - Fitting minipatch learning...
+==== Maximum number of iteration reached. ======
+2025-02-26 07:04:42 -   Threshold: 0.8 | Selected probes: 11
+2025-02-26 07:04:42 -   Evaluating thresholds...
+2025-02-26 07:07:59 -   acc-samp 0.1144|jacc-samp 0.4579|prec-tiss 0.2748|f1-tissue 0.1181
+2025-02-26 07:07:59 -   Threshold: 0.7 | Selected probes: 46
+2025-02-26 07:07:59 -   Evaluating thresholds...
+2025-02-26 07:08:47 -   acc-samp 0.4818|jacc-samp 0.7437|prec-tiss 0.829|f1-tissue 0.7534
+2025-02-26 07:08:47 -   Threshold: 0.6 | Selected probes: 164
+2025-02-26 07:08:47 -   Evaluating thresholds...
+2025-02-26 07:09:12 -   acc-samp 0.6711|jacc-samp 0.8528|prec-tiss 0.9839|f1-tissue 0.8903
+2025-02-26 07:09:12 -   Threshold: 0.5 | Selected probes: 681
+2025-02-26 07:09:12 -   Evaluating thresholds...
+2025-02-26 07:11:48 -   acc-samp 0.7091|jacc-samp 0.8687|prec-tiss 0.995|f1-tissue 0.9338
+2025-02-26 07:11:49 -   Threshold: 0.4 | Selected probes: 3467
+2025-02-26 07:11:49 -   Evaluating thresholds...
+2025-02-26 07:31:01 -   acc-samp 0.7456|jacc-samp 0.8858|prec-tiss 1.0|f1-tissue 0.9333
+2025-02-26 07:31:02 -   Threshold: 0.3 | Selected probes: 17166
+2025-02-26 07:31:02 -   Evaluating thresholds...
+2025-02-26 13:21:39 -   acc-samp 0.738|jacc-samp 0.8825|prec-tiss 1.0|f1-tissue 0.9333
+2025-02-26 13:21:39 -   Threshold: 0.2 | Selected probes: 67283
+2025-02-26 13:21:39 -   Evaluating thresholds...
+2025-02-26 20:50:50 -   acc-samp 0.7403|jacc-samp 0.8828|prec-tiss 1.0|f1-tissue 0.931
+2025-02-26 20:50:50 - 
+Optimal Threshold Analysis:
+2025-02-26 20:50:50 - 
+Fold 0: [(0.7, 0.5127906976744186, 'knee'), (0.6, 0.8054834054834055, 'knee'), (0.5, 0.9153452685421994, 'knee')]
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.700
+2025-02-26 20:50:50 -   F1 score: 0.513
+2025-02-26 20:50:50 -   Number of probes: 31
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.600
+2025-02-26 20:50:50 -   F1 score: 0.805
+2025-02-26 20:50:50 -   Number of probes: 113
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.500
+2025-02-26 20:50:50 -   F1 score: 0.915
+2025-02-26 20:50:50 -   Number of probes: 530
+2025-02-26 20:50:50 - 
+Fold 1: [(0.7, 0.5901477832512315, 'knee'), (0.6, 0.9300844103893658, 'knee')]
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.700
+2025-02-26 20:50:50 -   F1 score: 0.590
+2025-02-26 20:50:50 -   Number of probes: 28
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.600
+2025-02-26 20:50:50 -   F1 score: 0.930
+2025-02-26 20:50:50 -   Number of probes: 115
+2025-02-26 20:50:50 - 
+Fold 2: [(0.7, 0.7533783783783785, 'knee'), (0.6, 0.890250287988271, 'knee')]
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.700
+2025-02-26 20:50:50 -   F1 score: 0.753
+2025-02-26 20:50:50 -   Number of probes: 46
+2025-02-26 20:50:50 -   Method: knee
+2025-02-26 20:50:50 -   Threshold: 0.600
+2025-02-26 20:50:50 -   F1 score: 0.890
+2025-02-26 20:50:50 -   Number of probes: 164
+2025-02-26 20:50:50 - 
+Saving...
+2025-02-26 20:52:08 - 
+Optimal Threshold by Voting: [0.7, 0.6]

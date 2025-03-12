@@ -1,0 +1,176 @@
+loading Mv, meta from ./../data/GEO/preprocessed/training.dill
+Tissue: CL:0000019
+965 probes failed the logistic regression analysis due to perfect separation and could not be included in the final results.
+796 probes failed the logistic regression analysis due to LinearAlgebra error and could not be included in the final results.
+9 probes failed the logistic regression analysis due to other unexplained reasons and could not be included in the final results.
+Error Probes:
+cg15770654
+cg14260630
+cg09447262
+cg19149125
+cg18457491
+cg23934633
+cg00739770
+cg05308391
+cg07996352
+Significant probes: 259251
+Tissue: CL:0000056
+1 probes failed the logistic regression analysis due to LinearAlgebra error and could not be included in the final results.
+Error Probes:
+cg16323293
+Significant probes: 118286
+Tissue: CL:0000057
+Significant probes: 169760
+Tissue: CL:0000084
+Significant probes: 195544
+Tissue: CL:0000094
+Significant probes: 15362
+Tissue: CL:0000148
+Significant probes: 127235
+Tissue: CL:0000236
+Significant probes: 207794
+Tissue: CL:0000542
+Significant probes: 27090
+Tissue: CL:0000576
+Significant probes: 216906
+Tissue: CL:0000623
+Significant probes: 161572
+Tissue: CL:0000738
+Significant probes: 244973
+Tissue: CL:0000775
+Significant probes: 143150
+Tissue: CL:0000910;BTO:0000289
+Significant probes: 203899
+Tissue: CL:0002322;BTO:0001086
+Significant probes: 101742
+Tissue: CL:2000001
+Significant probes: 193737
+Tissue: UBERON:0000002
+Significant probes: 20688
+Tissue: UBERON:0000006
+Significant probes: 123870
+Tissue: UBERON:0000310
+Significant probes: 199404
+Tissue: UBERON:0000451
+Significant probes: 244187
+Tissue: UBERON:0000945
+Significant probes: 120114
+Tissue: UBERON:0000955
+Significant probes: 60522
+Tissue: UBERON:0000992
+Significant probes: 12017
+Tissue: UBERON:0001005
+1 probes failed the logistic regression analysis due to perfect separation and could not be included in the final results.
+Error Probes:
+cg17164093
+Significant probes: 54657
+Tissue: UBERON:0001016
+Significant probes: 118795
+Tissue: UBERON:0001032
+53 probes failed the logistic regression analysis due to perfect separation and could not be included in the final results.
+Error Probes: Index(['cg13898557', 'cg08264297', 'cg16594299', 'cg26803289', 'cg05606799',
+       'cg11333189', 'cg00207939', 'cg15262728', 'cg05532325', 'cg25890876',
+       'cg13468149', 'cg11409594', 'cg26738080', 'cg21571135', 'cg08057869',
+       'cg26279614', 'cg12374003', 'cg26272879', 'cg12650685', 'cg20030817',
+       'cg02576394', 'cg26784891', 'cg22020299', 'cg11412046', 'cg06119923',
+       'cg11019743', 'cg00171290', 'cg19987253', 'cg27469019', 'cg15741721',
+       'cg14421371', 'cg14581063', 'cg13561390', 'cg08997713', 'cg19741645',
+       'cg14792845', 'cg02546690', 'cg18253591', 'cg20968743', 'cg06235429',
+       'cg09743615', 'cg19742687', 'cg10512886', 'cg05679686', 'cg07928642',
+       'cg05180954', 'cg01801191', 'cg25892761', 'cg09493583', 'cg23679798',
+       'cg04592353', 'cg22429169', 'cg26766542'],
+      dtype='object')
+55 probes failed the logistic regression analysis due to LinearAlgebra error and could not be included in the final results.
+Error Probes: Index(['cg08237695', 'cg24425531', 'cg07033286', 'cg05663453', 'cg19252333',
+       'cg00951108', 'cg05700447', 'cg10779489', 'cg02079908', 'cg01438537',
+       'cg03005124', 'cg03785076', 'cg00393050', 'cg16850945', 'cg14567877',
+       'cg14155027', 'cg23503101', 'cg03111114', 'cg11119275', 'cg02145137',
+       'cg02305757', 'cg13132884', 'cg06888346', 'cg21410120', 'cg00622010',
+       'cg20049273', 'cg13725657', 'cg18196295', 'cg21377950', 'cg06796220',
+       'cg21609804', 'cg27426151', 'cg26730831', 'cg04610274', 'cg14319842',
+       'cg20696988', 'cg09087087', 'cg04835971', 'cg03358345', 'cg11478233',
+       'cg00931925', 'cg04865220', 'cg07670266', 'cg04007936', 'cg00736406',
+       'cg00573235', 'cg08281590', 'cg13876604', 'cg09975715', 'cg14410018',
+       'cg05324992', 'cg24138194', 'cg00552753', 'cg02958947', 'cg21048262'],
+      dtype='object')
+3 probes failed the logistic regression analysis due to other unexplained reasons and could not be included in the final results.
+Error Probes:
+cg26529484
+cg05595800
+cg09043524
+Significant probes: 1047
+Tissue: UBERON:0001043
+Significant probes: 59905
+Tissue: UBERON:0001052
+Significant probes: 23803
+Tissue: UBERON:0001155
+Significant probes: 190884
+Tissue: UBERON:0001264
+Significant probes: 87928
+Tissue: UBERON:0001295
+1 probes failed the logistic regression analysis due to LinearAlgebra error and could not be included in the final results.
+Error Probes:
+cg16433632
+Significant probes: 87136
+Tissue: UBERON:0001836
+Significant probes: 190374
+Tissue: UBERON:0001870
+Significant probes: 130760
+Tissue: UBERON:0001871
+Significant probes: 236198
+Tissue: UBERON:0001987
+Significant probes: 252300
+Tissue: UBERON:0002037
+Significant probes: 129254
+Tissue: UBERON:0002046
+2 probes failed the logistic regression analysis due to perfect separation and could not be included in the final results.
+Error Probes:
+cg11723565
+cg19412478
+Significant probes: 93790
+Tissue: UBERON:0002048
+Significant probes: 40678
+Tissue: UBERON:0002097
+Significant probes: 18910
+Tissue: UBERON:0002107
+Significant probes: 164108
+Tissue: UBERON:0002113
+Significant probes: 84236
+Tissue: UBERON:0002190
+Significant probes: 55121
+Tissue: UBERON:0002331
+Significant probes: 238120
+Tissue: UBERON:0002367
+Significant probes: 35508
+Tissue: UBERON:0002371
+Significant probes: 37637
+Tissue: UBERON:0002418
+Significant probes: 77082
+Tissue: UBERON:0002424
+Significant probes: 146835
+Tissue: UBERON:0002481
+Significant probes: 2341
+Tissue: UBERON:0002728
+Significant probes: 109885
+Tissue: UBERON:0003889
+Significant probes: 5142
+Tissue: UBERON:0004535
+Significant probes: 3899
+Tissue: UBERON:0004802
+Significant probes: 139417
+Tissue: UBERON:0005384
+Significant probes: 93238
+Tissue: UBERON:0012168
+Significant probes: 205195
+Tissue: UBERON:0035818
+Significant probes: 96995
+Tissue: UBERON:8450002
+3 probes failed the logistic regression analysis due to perfect separation and could not be included in the final results.
+Error Probes:
+cg13407274
+cg17861154
+cg17132696
+1 probes failed the logistic regression analysis due to LinearAlgebra error and could not be included in the final results.
+Error Probes:
+cg14827481
+Significant probes: 1486

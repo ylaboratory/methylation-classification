@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: QC.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/path/to/qc.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/path/to/your/directory"
+        },
+        {
             "type": "R-Debugger",
             "name": "Launch R-Workspace",
             "request": "launch",

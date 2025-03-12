@@ -1,0 +1,42 @@
+loading Mv, meta from ./../data/GEO/preprocessed/training.dill
+Testing thresholds: [0.5, 0.51, 0.52, 0.53, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59, 0.6]
+
+Fold 0:
+propagating with training.ID
+propagating with training.ID
+==== Maximum number of iteration reached. ======
+  Threshold: 0.5 | Selected probes: 530
+  Threshold: 0.51 | Selected probes: 410
+  Threshold: 0.56 | Selected probes: 113
+
+Fold 1:
+propagating with training.ID
+propagating with training.ID
+==== Maximum number of iteration reached. ======
+  Threshold: 0.5 | Selected probes: 634
+  Threshold: 0.51 | Selected probes: 505
+  Threshold: 0.55 | Selected probes: 502
+  Threshold: 0.56 | Selected probes: 115
+
+Fold 2:
+propagating with training.ID
+propagating with training.ID
+==== Maximum number of iteration reached. ======
+  Threshold: 0.5 | Selected probes: 681
+  Threshold: 0.51 | Selected probes: 533
+  Threshold: 0.55 | Selected probes: 531
+  Threshold: 0.56 | Selected probes: 164
+
+Optimal Threshold Analysis:
+
+Fold 0: [(0.55, 0.9059890240992603, 'knee')]
+  Method: knee
+  Threshold: 0.550
+  F1 score: 0.906
+  Number of probes: 410
+
+Fold 1: []
+
+Fold 2: []
+
+Optimal Threshold by Voting: 0.55

@@ -1,0 +1,32 @@
+loading Mv, meta from ./../data/GEO/preprocessed/training.dill
+File does not exist. Using default threshold: 0.65
+Fold 0:
+Pre-selection shapes: ((6788, 297598), (3563, 297598))
+Frequency threshold: 0.65
+propagating with training.ID
+propagating with training.ID
+acc-samp: 0.4333
+jacc-samp: 0.5883
+prec-samp: 0.6257
+prec-tiss: 0.8788
+f1-tiss: 0.7984
+Fold 1:
+Pre-selection shapes: ((6990, 297598), (3361, 297598))
+Frequency threshold: 0.65
+propagating with training.ID
+propagating with training.ID
+acc-samp: 0.6569
+jacc-samp: 0.8277
+prec-samp: 0.8969
+prec-tiss: 0.9391
+f1-tiss: 0.8987
+Fold 2:
+Pre-selection shapes: ((6924, 297598), (3427, 297598))
+Frequency threshold: 0.65
+propagating with training.ID
+propagating with training.ID
+acc-samp: 0.6437
+jacc-samp: 0.8423
+prec-samp: 0.9254
+prec-tiss: 0.9658
+f1-tiss: 0.8732

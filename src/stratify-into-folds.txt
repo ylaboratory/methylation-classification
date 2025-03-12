@@ -1,0 +1,41 @@
+(10351, 297598) (10351, 10)
+(6, 297598) (6, 10)
+(4, 297598) (4, 10)
+StratifiedGroupKFold(n_splits=3, random_state=None, shuffle=False)
+fold 0:
+	train: len=6778, groups=140
+	validation:  len=3563, groups=68
+	train and validation shapes: ((6778, 297598), (3563, 297598))
+fold 1:
+	train: len=6980, groups=143
+	validation:  len=3361, groups=65
+	train and validation shapes: ((6980, 297598), (3361, 297598))
+fold 2:
+	train: len=6924, groups=133
+	validation:  len=3417, groups=75
+	train and validation shapes: ((6924, 297598), (3417, 297598))
+
+...print if any overlap GSE between training and validation...
+fold0: set()
+fold1: set()
+fold2: set()
+print kidney series distribution across folds, add excretory system to that with one
+fold0: 2
+fold1: 3
+fold2: 3
+fold 0:
+	train and validation shapes: ((6784, 297598), (3563, 297598))
+fold 1:
+	train and validation shapes: ((6980, 297598), (3361, 297598))
+fold 2:
+	train and validation shapes: ((6924, 297598), (3417, 297598))
+print nasal cavity epithelium series distribution across folds, add sensory system to that with one
+fold0: 2
+fold1: 3
+fold2: 3
+fold 0:
+	train and validation shapes: ((6788, 297598), (3563, 297598))
+fold 1:
+	train and validation shapes: ((6980, 297598), (3361, 297598))
+fold 2:
+	train and validation shapes: ((6924, 297598), (3417, 297598))
