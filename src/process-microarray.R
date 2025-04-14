@@ -1,7 +1,6 @@
 # This script contains functios for background correction and normalization for raw idat files
 # background correction: preprocessNoob from minfi
 # normalization: BMIQ from wateRmelon
-# input: RGChannelSet, output: data.table
 
 suppressMessages({
   library(minfi)
@@ -27,7 +26,3 @@ normalization <- function(Mset_noob) {
   assay(ratioSet, 'Beta') <- beta
   return(ratioSet)
 }
-
-system.time({
-  
-})
