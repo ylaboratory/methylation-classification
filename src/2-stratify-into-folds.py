@@ -12,7 +12,7 @@ table = pq.read_table(file_path)
 # Convert to pandas DataFrame if needed
 Mv = table.to_pandas().set_index('probe')
 Mv.columns = Mv.columns.str.split('_').str[0]
-meta = pd.read_csv('./../annotation/training_meta.csv', header=0, index_col='Sample')
+meta = pd.read_csv('./../annotation/training_meta.csv', header=0, index_col='Sample') # saved as parquet in zenodo due to size
 
 random.seed(9)
 groups = meta['Dataset'].unique()
@@ -23,7 +23,7 @@ Mv = Mv.T.loc[meta.index]
 
 print(Mv.shape, meta.shape)
 
-with open(f'./../data/GEO/preprocessed/training.dill', 'wb') as f:
+with open(f'./../data/GEO/preprocessed/training.dill', 'wb') as f: # saved as parquet in zenodo due to size
     dill.dump([Mv, meta], f)
 
 sgkf = StratifiedGroupKFold(n_splits=3, shuffle=False, random_state=None)

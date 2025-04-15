@@ -4,16 +4,13 @@
 *.zip
 *.ipynb_checkpoints
 *.gz
+*.vscode
 *~
 
-deletion/**
-data/**
-raw/**
-processed/**
-workspace/**
-annotation/**
-gene_enrichment/**
-figures**/**
-figures/**
+# Large Files #
+############
 _*
 _*/**
+data/**
+raw/**
+figures**/**
