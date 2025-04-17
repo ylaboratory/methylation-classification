@@ -16,10 +16,10 @@ id_to_name = dill.load(open('./../annotation/id_to_name.dill', 'rb'))
 name_to_id = dill.load(open('./../annotation/name_to_id.dill', 'rb'))
 
 with open('./../annotation/ontologies.dill', 'rb') as f:
-    _, subtree = dill.load(f)
+    _, training_ontology = dill.load(f)
 
 # Fit MultiLabelBinarizer for ontology nodes
-mlb = MultiLabelBinarizer().fit([[node for node in subtree.nodes if node not in ['root', '']]])
+mlb = MultiLabelBinarizer().fit([[node for node in training_ontology.nodes if node not in ['root', '']]])
 
 def custom_macro_precision(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     """
