@@ -1,4 +1,5 @@
 import dill
+import os
 from sklearn.model_selection import StratifiedGroupKFold
 import random
 import numpy as np
@@ -6,10 +7,19 @@ import pyarrow.parquet as pq
 import pandas as pd
 import networkx as nx
 
-# Load the data using pyarrow for faster reading and save as dill
+# Path to downloaded parquet files from huggingface
+DOWNLOAD_PATH = './../download'
+# Path to load/save the annotations/ontologies for easy load
+ANNOTATION_PATH = './../annotation'
+# Path to save the processed data for easy load
+PREPROCESSED_PATH = './../data/GEO/preprocessed'
+if not os.path.exists(PREPROCESSED_PATH):
+    os.makedirs(PREPROCESSED_PATH, exist_ok=True)
+
+# Load the data using pyarrow and save as dill for faster reading
 files = {
-    "Mv": "./../zenodo/training_mvalues.parquet",
-    "meta": "./../zenodo/training_meta.parquet",
+    "Mv": f"{DOWNLOAD_PATH}/training_mvalues.parquet",
+    "meta": f"{DOWNLOAD_PATH}/training_meta.parquet",
 }
 Mv, meta = [pq.read_table(path).to_pandas() for path in files.values()]
 
@@ -22,15 +32,15 @@ Mv = Mv.T.loc[meta.index]
 
 print(Mv.shape, meta.shape)
 
-with open(f'./../data/GEO/preprocessed/training.dill', 'wb') as f:
+with open(f'{PREPROCESSED_PATH}/training.dill', 'wb') as f:
     dill.dump([Mv, meta], f)
 
 
 # Load ontologies using edgelist and save as dill
-full_ontology = nx.read_edgelist('./../annotation/full_ontology.edgelist', create_using=nx.)
-training_ontology = nx.read_edgelist('./../annotation/training_ontology.edgelist', create_using=nx.DiGraph)
+full_ontology = nx.read_edgelist(f'{DOWNLOAD_PATH}/full_ontology.edgelist', create_using=nx.DiGraph)
+training_ontology = nx.read_edgelist(f'{DOWNLOAD_PATH}/training_ontology.edgelist', create_using=nx.DiGraph)
 
-with open('./../annotation/ontologies.dill', 'wb') as f:
+with open(f'{ANNOTATION_PATH}/ontologies.dill', 'wb') as f:
     dill.dump([full_ontology, training_ontology], f)
 
 
@@ -59,5 +69,5 @@ print('\n...print if any overlap GSE between training and validation (should be 
 for fold, fold_data in fold_Mvs.items():
     print(f"fold{fold}: {set(fold_data[1]['Dataset']).intersection(fold_data[3]['Dataset'])}")
 
-with open(f'./../data/GEO/preprocessed/training_folds.dill', 'wb') as f:
+with open(f'{PREPROCESSED_PATH}/training_folds.dill', 'wb') as f:
     dill.dump(fold_Mvs, f)

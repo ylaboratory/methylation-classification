@@ -1,9 +1,10 @@
 # Configuration
-WORK_DIR <- "path to methylation-classification/"
+WORK_DIR <- dirname(dirname(normalizePath(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())])))
 META_FILE <- file.path(WORK_DIR, "annotation/metadata.csv") # Metadata from GEO listing filename ($File), GSE ($Dataset), and GSM ($Sample) of wanted samples
 RAW_DATA_DIR <- file.path(WORK_DIR, "raw/GEO") # Path to raw idat files
 OUTPUT_DIR <- file.path(WORK_DIR, "preprocessed/")
 LOG_FILE <- file.path(WORK_DIR, "logs/preprocessing_log.txt")
+REACTIVE_PROBE_FILE <- file.path(WORK_DIR, "annotation/cross_reactive_probes.csv")
 
 required_packages <- list(
   cran = c("R.utils", "data.table", "reticulate", "progress", "remotes"),
@@ -90,7 +91,7 @@ log_print(paste("QC Failed samples:", length(failed_samples)))
 log_print(paste("QC Failed samples saved as qc_failed.csv"))
 write.csv(failed_samples, paste0(OUTPUT_DIR, "qc_failed.csv"))
 
-log_print(paste("QC Passed samples saved at: data/GEO/compiled/R_training_qc_passed.csv"))
+log_print(paste("QC Passed samples saved as qc_passed.csv"))
 write.csv(MSet_noob$Sample[which((meds >= 10.5))], paste0(OUTPUT_DIR, "qc_passed.csv"))
 
 passed_samples <- if(length(whichBad) > 0) rownames(qc[-whichBad, ]) else rownames(qc)
@@ -120,7 +121,7 @@ log_print("Filtering probes...")
 GRSet_flt <- dropLociWithSnps(GRSet_bmiq)
 
 # Filtering cross reactive probes
-xReactiveProbes <- read.csv(file.path(WORK_DIR, "annotation/cross_reactive_probes.csv"), stringsAsFactors = FALSE, col.names = c('TargetID'))
+xReactiveProbes <- read.csv(REACTIVE_PROBE_FILE, stringsAsFactors = FALSE, col.names = c('TargetID'))
 keep <- !(featureNames(GRSet_flt) %in% xReactiveProbes$TargetID)
 GRSet_flt <- GRSet_flt[keep, ]
 

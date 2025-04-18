@@ -18,9 +18,14 @@ sys.path.append('./../src/')
 sys.modules['sklearn.externals.joblib'] = joblib
 import dill
 
+DATA_PATH = f'./../data/GEO'
+# Path to easy load the preprocessed data
+PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
+# Path to save the differential methylation results
+DIFFMETH_PATH  = f"{DATA_PATH}/diffmeth"
+
 # Configuration
 RANDOM_SEED = 9
-DATA_PATH = './../data/GEO'
 
 # Set random seeds
 random.seed(RANDOM_SEED)
@@ -28,14 +33,14 @@ np.random.seed(RANDOM_SEED)
 
 def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Load main methylation data."""
-    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    Mv_location = f"{PREPROCESSED_PATH}/training.dill"
     print(f"loading Mv, meta from {Mv_location}")
     return dill.load(open(Mv_location, 'rb'))
 
 def load_fold_data() -> Dict:
     """Load cross-validation fold data."""
     try:
-        with open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb') as f:
+        with open(f'{PREPROCESSED_PATH}/training_folds.dill', 'rb') as f:
             return dill.load(f)
     except FileNotFoundError:
         raise FileNotFoundError("Training folds data file not found")
@@ -85,7 +90,7 @@ def main():
             res_per_tissue[tissue] = res
         
         # Save results
-        with open(f'{DATA_PATH}/diffmeth/diffmeth_fold{fold}', 'wb') as f:
+        with open(f'{DIFFMETH_PATH}/diffmeth_fold{fold}', 'wb') as f:
             dill.dump(res_per_tissue, f)
             
         gc.collect()

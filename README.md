@@ -1,6 +1,6 @@
 # Methylation-classification
 
-Methylation classification is a pan-tissue dataset and analysis paper from publicaly available DNA methylation microarrays (450K)from the GEO. 
+Methylation classification is a pan-tissue dataset and analysis paper from publicaly available DNA methylation microarrays (450K) from the Gene Expression Omnibus. 
 
 ## Getting started
 
@@ -18,8 +18,34 @@ Additional libraries required may include:
 
 ## Data and usage
 
-Analysis code, annotation, data files, and skeleton preprocessing code (if running starting from raw files) are located in this repo and [zenodo]().  
-Analysis code are numbered according to order.
+Analysis code, annotation, data files, and skeleton preprocessing code (if running starting from raw files) are located in this repo and [huggingface](https://huggingface.co/datasets/ylab/methyl-classification/tree/main).  
+
+Huggingface annotation/meta files contain the following:  
+- Sample ID
+- training.ID: UBERON ID used for training  
+- Dataset: GSE study ID
+- Annotated.tissue: initially annotated tissue  
+- UBERON.ID: annotated tissue's most descriptive UBERON ID  
+- merged.ID: IDs after merging physiologically relevant tissues  
+  
+
+Analysis code are numbered according to order:  
+- src/1-stratify-into-folds.py: stratify training dataset and save as formats used in following code  
+- src/2-crossvalidation.py: perform crossvalidation for minipatch learning threshold selection  
+- src/2-crossvalidation-prediction.py: save prediction results from the chosen threshold  
+- src/3-differential-methylation.py: run baseline differential methylation  
+- src/3-differential-methylation-prediction.py: save correlation-based prediction results from differential methylation  
+- src/4-final-model.py: fit a final multioutput SVM using entire training data  
+- src/5-figures-training.ipynb: training and crossvalidation performance  
+- src/5-figures-label-transfer.ipynb: label transfer performance  
+- src/0-preprocess.R: preprocessing if starting from raw idat files  
+  
+- utils.py: analysis functions  
+- process-microarray.R: preprocesssing functions  
+  
+Additional files, genomic annotations, and ID to text/color for visualizations are in annotation/. Each dataset's basename files contain more detailed filenames for preprocessing, if user chooses to start from raw idat files self-downloaded from the Gene Expression Omnibus.  
+- File: detailed basenames  
+- FileSeries: GSE the data file might be under (occasionally different from Dataset)  
 
 ## Cite
 

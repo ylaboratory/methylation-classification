@@ -15,9 +15,14 @@ import random
 from typing import Dict, Tuple, List
 import os
 
+DATA_PATH = f'./../data/GEO'
+# Path to easy load the preprocessed data
+PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
+# Path to save the minipatch results
+MINIPATCH_PATH  = f"{DATA_PATH}/minipatch"
+
 # Configuration
 RANDOM_SEED = 9
-DATA_PATH = './../data/GEO'
 SELECTION_FREQ_RANGE = "[0.8,0.2]"
 THRESHOLD = 0.65
 
@@ -28,7 +33,7 @@ np.random.seed(RANDOM_SEED)
 def load_fold_data() -> Dict:
     """Load cross-validation fold data."""
     try:
-        with open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb') as f:
+        with open(f'{PREPROCESSED_PATH}/training_folds.dill', 'rb') as f:
             return pickle.load(f)
     except FileNotFoundError:
         raise FileNotFoundError("Training folds data file not found")
@@ -37,8 +42,8 @@ def load_fold_data() -> Dict:
 
 def load_models() -> Tuple[Dict, Dict, Dict]:
     """Load trained models and thresholds."""
-    minipatch_location = f"{DATA_PATH}/minipatch/crossvalidation_selectors_{SELECTION_FREQ_RANGE}"
-    clf_location = f"{DATA_PATH}/minipatch/crossvalidation_clfs_{SELECTION_FREQ_RANGE}"
+    minipatch_location = f"{MINIPATCH_PATH}/crossvalidation_selectors_{SELECTION_FREQ_RANGE}"
+    clf_location = f"{MINIPATCH_PATH}/crossvalidation_clfs_{SELECTION_FREQ_RANGE}"
 
     threshold = THRESHOLD
     fold_thresholds = {0:threshold, 1:threshold, 2:threshold}
@@ -115,10 +120,10 @@ def main():
             
             print('\n'.join(f'{k}: {round(v,4)}' for k,v in metrics.items()))
             
-            with open(f"{DATA_PATH}/minipatch/crossvalidation_results.txt", 'a') as f:
+            with open(f"{MINIPATCH_PATH}/crossvalidation_results.txt", 'a') as f:
                 f.write('\t'.join(str(round(v,4)) for v in metrics.values()) + '\n')
     
-    with open(f"{DATA_PATH}/minipatch/crossvalidation_pred", 'wb') as f:
+    with open(f"{MINIPATCH_PATH}/crossvalidation_pred", 'wb') as f:
         pickle.dump(pred_res, f)
 
 if __name__ == "__main__":

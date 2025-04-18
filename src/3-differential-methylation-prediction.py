@@ -21,25 +21,30 @@ logger = logging.getLogger(__name__)
 
 warnings.filterwarnings('ignore')
 
+DATA_PATH = f'./../data/GEO'
+# Path to easy load the preprocessed data
+PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
+# Path to save the differential methylation results
+DIFFMETH_PATH  = f"{DATA_PATH}/diffmeth"
+
 # Configuration
 RANDOM_SEED = 9
-DATA_PATH = './../data/GEO'
 random.seed(RANDOM_SEED)
 np.random.seed(RANDOM_SEED)
 
 def load_data():
     """Load methylation data."""
-    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    Mv_location = f"{PREPROCESSED_PATH}/training.dill"
     logger.info(f"Loading Mv and meta from {Mv_location}")
     return dill.load(open(Mv_location, 'rb'))
 
 def load_fold_data():
     """Load cross-validation fold data."""
-    return dill.load(open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb'))
+    return dill.load(open(f'{PREPROCESSED_PATH}/training_folds.dill', 'rb'))
 
 def load_diffmeth_results(fold):
     """Load differential methylation results for a fold."""
-    return dill.load(open(f"{DATA_PATH}/diffmeth/diffmeth_fold{fold}", 'rb'))
+    return dill.load(open(f"{DIFFMETH_PATH}/diffmeth_fold{fold}", 'rb'))
 
 def get_significant_probes(res_per_tissue):
     """Get significant probes for each tissue using multiple testing correction."""
@@ -101,11 +106,11 @@ def main():
 
         # Save fold results
         fold_res_df = pd.DataFrame.from_dict(res_dict, orient='index', columns=['corr', 'pred', 'true', 'dict'])
-        fold_res_df.to_pickle(f'{DATA_PATH}/diffmeth/diffmeth_corr_f{fold}_{additional}.pkl')
+        fold_res_df.to_pickle(f'{DIFFMETH_PATH}/diffmeth_corr_f{fold}_{additional}.pkl')
 
     # Save final results
     final_res_df = pd.DataFrame.from_dict(res_dict, orient='index', columns=['corr', 'pred', 'true', 'dict'])
-    final_res_df.to_pickle(f'{DATA_PATH}/diffmeth/diffmeth_corr_{additional}.pkl')
+    final_res_df.to_pickle(f'{DIFFMETH_PATH}/diffmeth_corr_{additional}.pkl')
 
 if __name__ == "__main__":
     main()

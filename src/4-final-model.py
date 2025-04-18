@@ -21,9 +21,16 @@ sys.modules['sklearn.externals.joblib'] = joblib
 import utils
 import dill
 
+DATA_PATH = f'./../data/GEO'
+# Path to easy load the preprocessed data
+PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
+# Path to load/save the differential methylation results
+DIFFMETH_PATH  = f"{DATA_PATH}/diffmeth"
+# Path to load/save the minipatch results
+MINIPATCH_PATH  = f"{DATA_PATH}/minipatch"
+
 # Configuration
 RANDOM_SEED = 9
-DATA_PATH = './../data/GEO'
 SELECTION_THRESHOLD = 0.65
 
 # Set random seeds
@@ -32,7 +39,7 @@ np.random.seed(RANDOM_SEED)
 
 def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Load main methylation data."""
-    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    Mv_location = f"{PREPROCESSED_PATH}/training.dill"
     print(f"loading Mv, meta from {Mv_location}")
     return dill.load(open(Mv_location, 'rb'))
 
@@ -71,9 +78,9 @@ def main():
     
     # Save selector and frequencies
     selection_frequencies = pd.DataFrame(fitted_selector.Pi_hat_last_k_, index=Mv.columns)
-    with open(f"{DATA_PATH}/minipatch/minipatch_whole_selector", "wb") as f:
+    with open(f"{MINIPATCH_PATH}/minipatch_whole_selector", "wb") as f:
         dill.dump(fitted_selector, f)
-    with open(f"{DATA_PATH}/minipatch/minipatch_whole_frequencies", "wb") as f:
+    with open(f"{MINIPATCH_PATH}/minipatch_whole_frequencies", "wb") as f:
         dill.dump(selection_frequencies, f)
     
     print(f"Transformed data shape: {Mv_new.shape}")
@@ -85,7 +92,7 @@ def main():
     clf = train_classifier(Mv_new, meta_mlb)
     
     # Save classifier
-    location = f"{DATA_PATH}/minipatch/multilabel_whole_clf"
+    location = f"{MINIPATCH_PATH}/multilabel_whole_clf"
     print(f"Saving to {location}...")
     with open(location, "wb") as f:
         dill.dump(clf, f)

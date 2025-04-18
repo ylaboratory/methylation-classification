@@ -1,5 +1,5 @@
 # Standard library
-import sys 
+import sys, os
 import time
 import random
 from typing import Dict, Tuple, List
@@ -24,9 +24,16 @@ sys.modules['sklearn.externals.joblib'] = joblib
 import utils
 import dill
 
+DATA_PATH = f'./../data/GEO'
+# Path to easy load the preprocessed data
+PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
+# Path to save the minipatch results
+MINIPATCH_PATH  = f"{DATA_PATH}/minipatch"
+if not os.path.exists(MINIPATCH_PATH):
+    os.makedirs(MINIPATCH_PATH, exist_ok=True)
+
 # Configuration
 RANDOM_SEED = 9
-DATA_PATH = './../data/GEO'
 SELECTION_RANGE = {
     'begin': 0.8,
     'end': 0.2,
@@ -44,14 +51,14 @@ def timestamped_print(msg: str):
 
 def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Load main methylation data."""
-    Mv_location = f"{DATA_PATH}/preprocessed/training.dill"
+    Mv_location = f'{PREPROCESSED_PATH}/training.dill'
     timestamped_print(f"loading Mv, meta from {Mv_location}")
     return dill.load(open(Mv_location, 'rb'))
 
 def load_fold_data() -> Dict:
     """Load cross-validation fold data."""
     try:
-        with open(f'{DATA_PATH}/preprocessed/training_folds.dill', 'rb') as f:
+        with open(f'{PREPROCESSED_PATH}/training_folds.dill', 'rb') as f:
             return dill.load(f)
     except FileNotFoundError:
         raise FileNotFoundError("Training folds data file not found")
@@ -170,7 +177,7 @@ def plot_results(fold_results: Dict, knee_points: Dict, thresholds: List[float],
     ax1.legend()
     
     plt.tight_layout()
-    plt.savefig(f"{DATA_PATH}/minipatch/crossvalidation_plot_{selection_freq_range}.pdf")
+    plt.savefig(f"{MINIPATCH_PATH}/crossvalidation_plot_{selection_freq_range}.pdf")
     plt.show()
 
 # Main code
@@ -244,11 +251,11 @@ def main():
 
     timestamped_print(f"\nSaving...")
 
-    with open(f"{DATA_PATH}/minipatch/crossvalidation_selectors_{selection_freq_range}", 'wb') as f:
+    with open(f"{MINIPATCH_PATH}/crossvalidation_selectors_{selection_freq_range}", 'wb') as f:
         dill.dump(fold_selectors, f)
-    with open(f"{DATA_PATH}/minipatch/crossvalidation_clfs_{selection_freq_range}", 'wb') as f:
+    with open(f"{MINIPATCH_PATH}/crossvalidation_clfs_{selection_freq_range}", 'wb') as f:
         dill.dump(fold_clfs, f)
-    with open(f"{DATA_PATH}/minipatch/crossvalidation_results_{selection_freq_range}", 'wb') as f:
+    with open(f"{MINIPATCH_PATH}/crossvalidation_results_{selection_freq_range}", 'wb') as f:
         dill.dump(fold_results, f)
         
     # Plot and save results
