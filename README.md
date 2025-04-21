@@ -9,6 +9,9 @@ git clone https://github.com/ylaboratory/methylation-classification.git
 cd methylation-classification
 conda env create -f env.yml --name methyl-classify
 conda activate methyl-classify
+mkdir download
+cd download
+huggingface-cli download ylab/methyl-classification
 ```
 
 Additional libraries required may include:  
