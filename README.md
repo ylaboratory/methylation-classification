@@ -24,14 +24,13 @@ Additional libraries required may include:
 Analysis code, annotation, data files, and skeleton preprocessing code (if running starting from raw files) are located in this repo and [huggingface](https://huggingface.co/datasets/ylab/methyl-classification/tree/main).  
 
 Huggingface annotation/meta files contain the following:  
-- Sample ID
+- Sample ID  
 - training.ID: UBERON ID used for training  
-- Dataset: GSE study ID
-- Annotated.tissue: initially annotated tissue  
-- UBERON.ID: annotated tissue's most descriptive UBERON ID  
-- merged.ID: IDs after merging physiologically relevant tissues  
+- training.Name: tissue name of ID used for training  
+- Dataset: GSE study ID  
+- Original.ID: annotated tissue's most descriptive UBERON ID  
+- Original.Name: initially annotated tissue    
   
-
 Analysis code are numbered according to order:  
 - src/1-stratify-into-folds.py: stratify training dataset and save as formats used in following code  
 - src/2-crossvalidation.py: perform crossvalidation for minipatch learning threshold selection  
