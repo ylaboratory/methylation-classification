@@ -3,7 +3,15 @@
 *.tar
 *.zip
 *.ipynb_checkpoints
-data/**/*.txt
-raw/**/*.idat
-processed/**/*.fastq
-processed/**/*.txt
+*.gz
+*.vscode
+*~
+
+# Large Files #
+############
+_*
+_*/**
+/data
+/raw
+figures**/**
+download/**
