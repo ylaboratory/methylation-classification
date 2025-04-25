@@ -7,7 +7,7 @@ training and evaluation can be found on [HuggingFace](https://huggingface.co/dat
 ## Citation
 
 > Ontology-aware DNA methylation classification with a curated atlas of human tissues and cell types.
-Kim M, Dannenfelser R, Cui Y, Allen G, and Yao V. (2025) BioRxiv. 
+Kim M, Dannenfelser R, Cui Y, Allen G, and Yao V. (2025) bioRxiv. https://doi.org/10.1101/2025.04.18.649618
 
 ## Getting started
 
