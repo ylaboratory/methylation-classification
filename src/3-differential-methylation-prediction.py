@@ -32,12 +32,6 @@ RANDOM_SEED = 9
 random.seed(RANDOM_SEED)
 np.random.seed(RANDOM_SEED)
 
-def load_data():
-    """Load methylation data."""
-    Mv_location = f"{PREPROCESSED_PATH}/training.dill"
-    logger.info(f"Loading Mv and meta from {Mv_location}")
-    return dill.load(open(Mv_location, 'rb'))
-
 def load_fold_data():
     """Load cross-validation fold data."""
     return dill.load(open(f'{PREPROCESSED_PATH}/training_folds.dill', 'rb'))
@@ -81,8 +75,6 @@ def batch_correlation(holdout_Mv, rest_Mv, rest_meta, probe_per_tissue):
 
 def main():
     # Load data
-    Mv, meta = load_data()
-    logger.info(f"{Mv.shape}, {meta.shape}")
     fold_Mvs = load_fold_data()
     
     # Store results

@@ -24,8 +24,6 @@ import dill
 DATA_PATH = f'./../data/GEO'
 # Path to easy load the preprocessed data
 PREPROCESSED_PATH = f'{DATA_PATH}/preprocessed'
-# Path to load/save the differential methylation results
-DIFFMETH_PATH  = f"{DATA_PATH}/diffmeth"
 # Path to load/save the minipatch results
 MINIPATCH_PATH  = f"{DATA_PATH}/minipatch"
 
