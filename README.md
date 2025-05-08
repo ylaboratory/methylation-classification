@@ -36,7 +36,7 @@ downstream analysis and classification scripts.
 cd methylation-classification
 mkdir download
 cd download
-huggingface-cli download ylab/methyl-classification --repo-type dataset
+huggingface-cli download ylab/methyl-classification --repo-type dataset --local-dir .
 ```
 
 To run the feature selection part of our pipeline we require
