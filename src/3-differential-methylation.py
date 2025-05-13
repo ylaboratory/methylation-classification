@@ -31,12 +31,6 @@ RANDOM_SEED = 9
 random.seed(RANDOM_SEED)
 np.random.seed(RANDOM_SEED)
 
-def load_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Load main methylation data."""
-    Mv_location = f"{PREPROCESSED_PATH}/training.dill"
-    print(f"loading Mv, meta from {Mv_location}")
-    return dill.load(open(Mv_location, 'rb'))
-
 def load_fold_data() -> Dict:
     """Load cross-validation fold data."""
     try:

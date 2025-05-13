@@ -6,8 +6,8 @@ training and evaluation can be found on [HuggingFace](https://huggingface.co/dat
 
 ## Citation
 
-> Ontology-aware DNA methylation classification with a curated atlas of human tissues and cell types.
-Kim M, Dannenfelser R, Cui Y, Allen G, and Yao V. (2025) BioRxiv. 
+> Ontology-aware DNA methylation classification with a curated atlas of human tissues and cell types.  
+Kim M, Dannenfelser R, Cui Y, Allen G, and Yao V. (2025) bioRxiv. https://doi.org/10.1101/2025.04.18.649618
 
 ## Getting started
 
@@ -36,7 +36,7 @@ downstream analysis and classification scripts.
 cd methylation-classification
 mkdir download
 cd download
-huggingface-cli download ylab/methyl-classification
+huggingface-cli download ylab/methyl-classification --repo-type dataset --local-dir .
 ```
 
 To run the feature selection part of our pipeline we require
